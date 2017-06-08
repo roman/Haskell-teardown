@@ -1,0 +1,62 @@
+name: disposables
+version: '0.0.0.1'
+category: Test
+author: TODO:<Author name here>
+maintainer: TODO:<example@example.com>
+copyright: © 2017 TODO:<Author name here>
+license: MIT
+github: /disposables
+tested-with: GHC==7.10.3 GHC==8.0.1 GHC==8.0.2
+extra-source-files:
+- README.md
+- CHANGELOG.md
+- stack.yaml
+ghc-options:
+- -Wall
+- -Werror
+- -O2
+dependencies:
+- base >=4.8 && <5
+- protolude
+library:
+  source-dirs: src
+  exposed-modules:
+  - Lib
+tests:
+  disposables-test:
+    main: TestSuite.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - tasty
+    - tasty-hunit
+    - tasty-smallcheck
+    - tasty-rerun
+    - disposables
+  disposables-doctest:
+    main: DocTest.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - doctest
+    - Glob
+    - QuickCheck
+    - disposables
+benchmarks:
+  disposables-benchmark:
+    main: Main.hs
+    source-dirs: benchmark
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - criterion
+    - disposables
+stability: alpha (experimental)
