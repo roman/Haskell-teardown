@@ -3,4 +3,14 @@
 module Control.Teardown ( module X ) where
 
 import Control.Teardown.Internal.Core    as X
-import Control.Teardown.Internal.Printer as X
+    ( ITeardown (..)
+    , Teardown
+    , TeardownResult (..)
+    , concatTeardown
+    , didTeardownFail
+    , emptyTeardown
+    , failedToredownCount
+    , newTeardown
+    , toredownCount
+    )
+import Control.Teardown.Internal.Printer as X (renderTeardownReport)

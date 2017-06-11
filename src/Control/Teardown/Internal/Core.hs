@@ -119,6 +119,9 @@ foldTeardownResult
   -> acc
 foldTeardownResult leafStep branchStep acc disposeResult =
   case disposeResult of
+    EmptyResult desc ->
+      leafStep acc desc Nothing
+
     LeafResult desc _ mErr ->
       leafStep acc desc mErr
 
@@ -142,31 +145,6 @@ failedToredownCount =
                      0
 
 --------------------------------------------------------------------------------
-
--- instance Monoid TeardownResult where
---   mempty =
---     emptyTeardownResult
-
---   mappend a b =
---     case (a, b) of
---       (DisposeMonoid as, DisposeMonoid bs) ->
---         DisposeMonoid (as ++ bs)
-
---       (DisposeMonoid as, _) ->
---         DisposeMonoid (as ++ [b])
-
---       (_, DisposeMonoid bs) ->
---         DisposeMonoid (a:bs)
-
---       _ ->
---         DisposeMonoid [a, b]
-
--- instance Monoid Teardown where
---   mempty =
---     Teardown mempty
-
---   mappend (Teardown a) (Teardown b) =
---     Teardown (a `mappend` b)
 
 instance ITeardown Teardown where
   teardown (Teardown action) =
