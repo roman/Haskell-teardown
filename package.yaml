@@ -1,11 +1,11 @@
-name: disposables
+name: teardown
 version: '0.0.0.1'
 category: Test
 author: TODO:<Author name here>
 maintainer: TODO:<example@example.com>
 copyright: © 2017 TODO:<Author name here>
 license: MIT
-github: /disposables
+github: roman/Haskell-teardown
 tested-with: GHC==7.10.3 GHC==8.0.1 GHC==8.0.2
 extra-source-files:
 - README.md
@@ -23,14 +23,14 @@ dependencies:
 library:
   source-dirs: src
   exposed-modules:
-  - Control.Disposable
+  - Control.Teardown
   other-modules:
-  - Control.Disposable.Internal.Disposable
-  - Control.Disposable.Internal.Printer
+  - Control.Teardown.Internal.Core
+  - Control.Teardown.Internal.Printer
   dependencies:
   - ansi-wl-pprint
 tests:
-  disposables-test:
+  teardown-test:
     main: TestSuite.hs
     source-dirs: test
     ghc-options:
@@ -40,10 +40,11 @@ tests:
     dependencies:
     - tasty
     - tasty-hunit
+    - tasty-hspec
     - tasty-smallcheck
     - tasty-rerun
-    - disposables
-  disposables-doctest:
+    - teardown
+  teardown-doctest:
     main: DocTest.hs
     source-dirs: test
     ghc-options:
@@ -54,9 +55,9 @@ tests:
     - doctest
     - Glob
     - QuickCheck
-    - disposables
+    - teardown
 benchmarks:
-  disposables-benchmark:
+  teardown-benchmark:
     main: Main.hs
     source-dirs: benchmark
     ghc-options:
@@ -65,5 +66,5 @@ benchmarks:
     - -with-rtsopts=-N
     dependencies:
     - criterion
-    - disposables
+    - teardown
 stability: alpha (experimental)

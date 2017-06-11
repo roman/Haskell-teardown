@@ -1,15 +1,15 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE NoImplicitPrelude #-}
-module Control.Disposable.Internal.Printer where
+{-# LANGUAGE OverloadedStrings #-}
+module Control.Teardown.Internal.Printer where
 
 import Protolude hiding ((<>))
 
-import Data.Typeable (typeOf)
-import qualified Data.Text as Text
+import qualified Data.Text     as Text
+import           Data.Typeable (typeOf)
 
-import Data.Monoid ((<>))
-import Text.PrettyPrint.ANSI.Leijen hiding ((<>))
-import Control.Disposable.Internal.Disposable
+import Control.Teardown.Internal.Core
+import Data.Monoid                    ((<>))
+import Text.PrettyPrint.ANSI.Leijen   hiding ((<>))
 
 treeTrunk :: Int -> Int -> Doc
 treeTrunk start level =
@@ -17,7 +17,7 @@ treeTrunk start level =
   hcat (map (\_ -> text "   |") [start..pred level])
 
 
-renderTeardownReport :: DisposeResult -> Doc
+renderTeardownReport :: TeardownResult -> Doc
 renderTeardownReport result =
     render 0 0 result <> hardline
   where
@@ -27,14 +27,13 @@ renderTeardownReport result =
           Text.lines (show err)
 
         errorReport =
-          [treeTrunk (pred start) (succ level)
+          treeTrunk (pred start) (succ level)
            <> indent 2 (text (show (typeOf err)) <> ":")
-           <+> text (Text.unpack fstErrLine)]
-          ++ map (\l ->
+           <+> text (Text.unpack fstErrLine)
+          : map (\l ->
                     treeTrunk (pred start) (succ level)
                     <> indent 2 (text $ Text.unpack l))
                  errLines
-
       in
         vcat errorReport
 
@@ -49,10 +48,10 @@ renderTeardownReport result =
     render start level disposeResult =
       case disposeResult of
         EmptyResult desc ->
-            ("`-"
+            "`-"
              <+> "✓"
              <+> text (Text.unpack desc)
-             <+> "(empty)")
+             <+> "(empty)"
 
         LeafResult desc elapsed Nothing ->
             "`-"
@@ -69,7 +68,7 @@ renderTeardownReport result =
 
         BranchResult desc elapsed didFail results ->
           vcat [ "`-"
-                 <+> black (if didFail then "✘" else "✓")
+                 <+> if didFail then "✘" else "✓"
                  <+> text (Text.unpack desc)
                  <+> text ("(" <> show elapsed <> ")")
                , renderTree start level results
@@ -78,17 +77,17 @@ renderTeardownReport result =
 
 -- foobar :: IO ()
 -- foobar = do
---   baruta <- newDisposable "baruta" (return ())
---   bqto   <- newDisposable "barquisimeto" (return ())
---   csc    <- concatDisposables "caracas" [baruta]
---   venezuela <- concatDisposables "venezuela" [bqto, csc]
---   new_west <- newDisposable "new westminster" (return ())
---   vancouver  <- concatDisposables "vancouver" [new_west]
---   calgary   <- newDisposable "calgary" (error "Some Error Message" >> return ())
---   canada <- concatDisposables "canada" [ vancouver, calgary ]
---   colombia <- newDisposable "colombia" (return ())
---   mexico <- newDisposable "mexico" (return ())
---   earth <- concatDisposables "earth" [ colombia, canada, mexico, venezuela ]
+--   baruta <- newTeardown "baruta" (return ())
+--   bqto   <- newTeardown "barquisimeto" (return ())
+--   csc    <- concatTeardown "caracas" [baruta]
+--   venezuela <- concatTeardown "venezuela" [bqto, csc]
+--   new_west <- newTeardown "new westminster" (return ())
+--   vancouver  <- concatTeardown "vancouver" [new_west]
+--   calgary   <- newTeardown "calgary" (error "Some Error Message" >> return ())
+--   canada <- concatTeardown "canada" [ vancouver, calgary ]
+--   colombia <- newTeardown "colombia" (return ())
+--   mexico <- newTeardown "mexico" (return ())
+--   earth <- concatTeardown "earth" [ colombia, canada, mexico, venezuela ]
 
 --   result <- dispose earth
 --   putDoc $ renderTeardownReport result

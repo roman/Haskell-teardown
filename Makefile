@@ -7,8 +7,8 @@ help:	## Display this message
 TEST_RESOLVER ?= lts
 TEST:=stack build --resolver $(TEST_RESOLVER) --install-ghc --test --haddock --no-haddock-deps --pedantic
 test: ## Execute test suite
-	$(TEST) disposables:disposables-test
-	$(TEST) disposables:disposables-doctest
+	$(TEST) teardown:teardown-test
+	$(TEST) teardown:teardown-doctest
 .PHONY: test
 
 sdist: ## Build a release

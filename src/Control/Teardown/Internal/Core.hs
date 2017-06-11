@@ -1,30 +1,28 @@
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-module Control.Disposable.Internal.Disposable where
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
+module Control.Teardown.Internal.Core where
 
-import           Protolude hiding (first)
+import Protolude hiding (first)
 
 import Data.Time.Clock (NominalDiffTime, diffUTCTime, getCurrentTime)
 
 import GHC.Generics (Generic)
 
-import Data.IORef         (newIORef, readIORef, writeIORef, atomicModifyIORef)
-import Control.Exception  (SomeException, try)
+import Control.Exception (SomeException, try)
+import Data.IORef        (atomicModifyIORef, newIORef, readIORef, writeIORef)
 
 --------------------------------------------------------------------------------
 
 type Description = Text
 
-data DisposeResult
+data TeardownResult
   = BranchResult
     {
       resultDescription :: !Description
     , resultElapsedTime :: !NominalDiffTime
     , resultDidFail     :: !Bool
-    , resultListing     :: ![DisposeResult]
+    , resultListing     :: ![TeardownResult]
     }
   | LeafResult
     {
@@ -38,12 +36,12 @@ data DisposeResult
     }
   deriving (Generic, Show)
 
-newtype Disposable
-  = Disposable (IO DisposeResult)
+newtype Teardown
+  = Teardown (IO TeardownResult)
   deriving (Generic)
 
-class IDisposable d where
-  dispose :: d -> IO DisposeResult
+class ITeardown d where
+  teardown :: d -> IO TeardownResult
 
 --------------------------------------------------------------------------------
 
@@ -54,121 +52,129 @@ trackExecutionTime routine = do
   end <- getCurrentTime
   return (diffUTCTime end start, result)
 
-emptyDisposeResult :: Description -> DisposeResult
-emptyDisposeResult = EmptyResult
+emptyTeardownResult :: Description -> TeardownResult
+emptyTeardownResult = EmptyResult
 
-newDisposable :: Description -> IO () -> IO Disposable
-newDisposable desc disposingAction = do
-  disposeResultLock <- newIORef True
-  disposeResultRef  <- newIORef Nothing
-  return $ Disposable $ do
-      shouldDispose <-
-        atomicModifyIORef disposeResultLock
-                          (\pending -> (not pending, pending))
+didTeardownFail :: TeardownResult -> Bool
+didTeardownFail result =
+  case result of
+    LeafResult {} ->
+      isJust (resultError result)
 
-      if shouldDispose then do
+    BranchResult {} ->
+      resultDidFail result
+
+    EmptyResult {} ->
+      False
+
+newTeardown :: Description -> IO () -> IO Teardown
+newTeardown desc disposingAction = do
+  teardownResultLock <- newIORef False
+  teardownResultRef  <- newIORef Nothing
+  return $ Teardown $ do
+      shouldExecute <-
+        atomicModifyIORef teardownResultLock
+                          (\toredown ->
+                             if toredown then
+                               (True, False)
+                             else
+                               (True, True))
+
+      if shouldExecute then do
           (elapsed, disposeResult0) <- trackExecutionTime (try disposingAction)
           let
             disposeResult =
               LeafResult desc elapsed (either Just (const Nothing) disposeResult0)
 
-          writeIORef disposeResultRef (Just disposeResult)
+          writeIORef teardownResultRef (Just disposeResult)
           return disposeResult
       else
-          fromMaybe (emptyDisposeResult desc) <$> readIORef disposeResultRef
+          fromMaybe (emptyTeardownResult desc) <$> readIORef teardownResultRef
 
-didDisposeFail :: DisposeResult -> Bool
-didDisposeFail result =
-  case result of
-    LeafResult {} ->
-      isJust (resultError result)
-    BranchResult {} ->
-      resultDidFail result
-
-concatDisposables :: Description -> [Disposable] -> IO Disposable
-concatDisposables desc disposables =
-  return $ Disposable $ do
-     disposableResults <- mapM (\(Disposable action) -> action) disposables
+concatTeardown :: Description -> [Teardown] -> IO Teardown
+concatTeardown desc disposables =
+  return $ Teardown $ do
+     disposableResults <- mapM (\(Teardown action) -> action) disposables
 
      let
        elapsed =
          sum $ map resultElapsedTime disposableResults
 
        disposeFailed =
-         any didDisposeFail disposableResults
+         any didTeardownFail disposableResults
 
      return $ BranchResult desc elapsed disposeFailed disposableResults
 
-emptyDisposable :: Description -> IO Disposable
-emptyDisposable desc =
-  return $ Disposable (return $ emptyDisposeResult desc)
+emptyTeardown :: Description -> IO Teardown
+emptyTeardown desc =
+  return $ Teardown (return $ emptyTeardownResult desc)
 
 --------------------------------------------------------------------------------
 
--- foldrDisposeResult
+-- foldrTeardownResult
 --   :: (Description -> Maybe SomeException -> acc -> acc)
 --   -> (Description -> acc -> acc)
 --   -> ([acc] -> acc)
 --   -> acc
---   -> DisposeResult
+--   -> TeardownResult
 --   -> acc
--- foldrDisposeResult leafStep branchStep monoidStep acc disposeResult =
+-- foldrTeardownResult leafStep branchStep monoidStep acc disposeResult =
 --   case disposeResult of
 --     LeafResult desc mErr ->
 --       leafStep desc mErr acc
 
 --     BranchResult desc innerDisposeResult ->
 --       branchStep desc
---         (foldrDisposeResult leafStep branchStep monoidStep acc innerDisposeResult)
+--         (foldrTeardownResult leafStep branchStep monoidStep acc innerDisposeResult)
 
 --     DisposeMonoid disposeResultList0 ->
 --       let
 --         disposeResultList =
---           map (foldrDisposeResult leafStep branchStep monoidStep acc) disposeResultList0
+--           map (foldrTeardownResult leafStep branchStep monoidStep acc) disposeResultList0
 --       in
 --         monoidStep disposeResultList
 
--- foldlDisposeResult
+-- foldlTeardownResult
 --   :: (acc -> Description -> Maybe SomeException -> acc)
 --   -> (acc -> Description -> acc)
 --   -> ([acc] -> acc)
 --   -> acc
---   -> DisposeResult
+--   -> TeardownResult
 --   -> acc
--- foldlDisposeResult leafStep branchStep monoidStep acc disposeResult =
+-- foldlTeardownResult leafStep branchStep monoidStep acc disposeResult =
 --   case disposeResult of
 --     LeafResult desc mErr ->
 --       leafStep acc desc mErr
 
 --     BranchResult desc innerDisposeResult ->
---       foldlDisposeResult leafStep branchStep monoidStep (branchStep acc desc) innerDisposeResult
+--       foldlTeardownResult leafStep branchStep monoidStep (branchStep acc desc) innerDisposeResult
 
 --     DisposeMonoid disposeResultList0 ->
 --       let
 --         disposeResultList =
---           map (foldlDisposeResult leafStep branchStep monoidStep acc) disposeResultList0
+--           map (foldlTeardownResult leafStep branchStep monoidStep acc) disposeResultList0
 --       in
 --         monoidStep disposeResultList
 
--- disposableCount :: DisposeResult -> Int
+-- resourceCount :: TeardownResult -> Int
 -- disposableCount =
---   foldrDisposeResult (\_ _ acc -> acc + 1)
+--   foldrTeardownResult (\_ _ acc -> acc + 1)
 --                     (const identity)
 --                     sum
 --                     0
 
--- disposableFailedCount :: DisposeResult -> Int
+-- failedTeardownCount :: TeardownResult -> Int
 -- disposableFailedCount =
---   foldrDisposeResult (\_ mErr acc -> acc + maybe 0 (const 1) mErr)
+--   foldrTeardownResult (\_ mErr acc -> acc + maybe 0 (const 1) mErr)
 --                     (const identity)
 --                     sum
 --                     0
 
 --------------------------------------------------------------------------------
 
--- instance Monoid DisposeResult where
+-- instance Monoid TeardownResult where
 --   mempty =
---     emptyDisposeResult
+--     emptyTeardownResult
 
 --   mappend a b =
 --     case (a, b) of
@@ -184,13 +190,13 @@ emptyDisposable desc =
 --       _ ->
 --         DisposeMonoid [a, b]
 
--- instance Monoid Disposable where
+-- instance Monoid Teardown where
 --   mempty =
---     Disposable mempty
+--     Teardown mempty
 
---   mappend (Disposable a) (Disposable b) =
---     Disposable (a `mappend` b)
+--   mappend (Teardown a) (Teardown b) =
+--     Teardown (a `mappend` b)
 
-instance IDisposable Disposable where
-  dispose (Disposable action) =
+instance ITeardown Teardown where
+  teardown (Teardown action) =
     action
