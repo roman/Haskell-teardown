@@ -1,0 +1,113 @@
+
+==================== FINAL INTERFACE ====================
+2017-06-11 09:04:46.012462 UTC
+
+interface teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj:Control.Teardown 8002
+  interface hash: c0660ae42a88b85ef61c1c0575416ad8
+  ABI hash: 31d80730a28c91ce849bfaf9989c35c7
+  export-list hash: 12e90c1fc1dff5ae8f989e61fa0e0262
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: fd415463e637590c4664f1df0de34b5f
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Control.Teardown.Internal.Core.concatTeardown
+  Control.Teardown.Internal.Core.didTeardownFail
+  Control.Teardown.Internal.Core.emptyTeardown
+  Control.Teardown.Internal.Core.failedToredownCount
+  Control.Teardown.Internal.Core.newTeardown
+  Control.Teardown.Internal.Core.toredownCount
+  Control.Teardown.Internal.Printer.renderTeardownReport
+  Control.Teardown.Internal.Core.ITeardown{Control.Teardown.Internal.Core.teardown}
+  Control.Teardown.Internal.Core.Teardown
+  Control.Teardown.Internal.Core.TeardownResult{Control.Teardown.Internal.Core.BranchResult Control.Teardown.Internal.Core.EmptyResult Control.Teardown.Internal.Core.LeafResult resultDescription resultDidFail resultElapsedTime resultError resultListing}
+module dependencies: Control.Teardown.Internal.Core
+                     Control.Teardown.Internal.Printer
+package dependencies: ansi-terminal-0.6.3.1@ansi-terminal-0.6.3.1-3RTqikoQf47ajVD9m8zgB
+                      ansi-wl-pprint-0.6.7.3@ansi-wl-pprint-0.6.7.3-A79v826bgPr574HtaZPPqC
+                      array-0.5.1.1@array-0.5.1.1
+                      async-2.1.1.1@async-2.1.1.1-8yywY4inVGRLJSCg60gBXj base-4.9.1.0
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      protolude-0.1.10@protolude-0.1.10-6KZ4RB9zWepBfYwAkgb4xb
+                      safe-0.3.14@safe-0.3.14-GsbXn9D9F3BDazVNcErzdQ
+                      stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
+                      text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve:Control.Monad.STM
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj:Control.Teardown.Internal.Core
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+import  -/  Control.Teardown.Internal.Core dd10da565fb54b7758e50474b89b2a86
+  exports: 682bd9108d62b2861ff3ff82103c9e45
+  BranchResult e9103164e5b09102fd2a61eb1083c6b6
+  EmptyResult bbcd4bfd6f194801b1f9a79087d9202e
+  ITeardown 915a988ef92aa03d32c836382cdd909d
+  LeafResult 040d3ded979f1ef39eb782009457ddee
+  Teardown 678c6a12a6603396c5a6f6c44afc0009
+  TeardownResult 5476ca1da747ec8edc59c18dbb2aca92
+  concatTeardown 87e812271d1615cef350298e090bace1
+  didTeardownFail 05168d93916a519925a3bed249ae3f6b
+  emptyTeardown 3fe692189f7c7d313012aadc5a77770b
+  failedToredownCount 1cc809daa3e66e4563fe3e02a4c04c85
+  newTeardown da3f6111a1def6b0709e732e03a9d545
+  resultDescription 3fc173cda6c9d0de19046606eaeee3e9
+  resultDidFail 4202c062a2cd47d21f201c16c2f06896
+  resultElapsedTime 31e32335049f910cb75f819b231d435d
+  resultError 026d455e8ee99a56adff61d19c6e1778
+  resultListing a5dc5217b71517acb3928cce06f909a8
+  teardown 08e29c83944e0911fdb6d18d0d9e6337
+  toredownCount 22be378ad60c49cf793c00fd8b950d18
+import  -/  Control.Teardown.Internal.Printer b9e4f7aac20129de6f2a51217f2ae0e4
+  exports: 0c534c32773d4bf192a8fa87c54a5f13
+  renderTeardownReport d270bcd1490286ef3e759f2695ba04f3
+ef73afd2c38525866b77b52b7af2ab48
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Control.Teardown.$trModule2
+                   Control.Teardown.$trModule1) -}
+326965f006483a51fe4756d3dc8339e5
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Control.Teardown"#) -}
+a26464a8162f82ebd7ea9cd0b1e7d6d5
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

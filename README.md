@@ -1,4 +1,0 @@
-disposables
-==========
-
-Interesting README pending

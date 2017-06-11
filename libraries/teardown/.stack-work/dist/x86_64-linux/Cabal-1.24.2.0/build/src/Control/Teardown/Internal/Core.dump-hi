@@ -1,0 +1,2410 @@
+
+==================== FINAL INTERFACE ====================
+2017-06-11 09:04:45.50668 UTC
+
+interface teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj:Control.Teardown.Internal.Core [family instance module] 8002
+  interface hash: d63a86f8215e94efcf342acaaf48e40c
+  ABI hash: dd10da565fb54b7758e50474b89b2a86
+  export-list hash: 682bd9108d62b2861ff3ff82103c9e45
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 5305d73de76886eec888bc68c2696b4d
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Control.Teardown.Internal.Core.concatTeardown
+  Control.Teardown.Internal.Core.didTeardownFail
+  Control.Teardown.Internal.Core.emptyTeardown
+  Control.Teardown.Internal.Core.emptyTeardownResult
+  Control.Teardown.Internal.Core.failedToredownCount
+  Control.Teardown.Internal.Core.foldTeardownResult
+  Control.Teardown.Internal.Core.newTeardown
+  Control.Teardown.Internal.Core.toredownCount
+  Control.Teardown.Internal.Core.trackExecutionTime
+  Control.Teardown.Internal.Core.Description
+  Control.Teardown.Internal.Core.ITeardown{Control.Teardown.Internal.Core.teardown}
+  Control.Teardown.Internal.Core.Teardown{Control.Teardown.Internal.Core.Teardown}
+  Control.Teardown.Internal.Core.TeardownResult{Control.Teardown.Internal.Core.BranchResult Control.Teardown.Internal.Core.EmptyResult Control.Teardown.Internal.Core.LeafResult resultDescription resultDidFail resultElapsedTime resultError resultListing}
+module dependencies:
+package dependencies: array-0.5.1.1@array-0.5.1.1
+                      async-2.1.1.1@async-2.1.1.1-8yywY4inVGRLJSCg60gBXj base-4.9.1.0*
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      protolude-0.1.10@protolude-0.1.10-6KZ4RB9zWepBfYwAkgb4xb*
+                      safe-0.3.14@safe-0.3.14-GsbXn9D9F3BDazVNcErzdQ
+                      stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
+                      text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve:Control.Monad.STM
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+import  -/  base-4.9.1.0:Control.Exception a76dd9666251322fe34dbcca3a0817bf
+import  -/  base-4.9.1.0:Control.Exception.Base 1e106916283856f4d9caeddab92cd861
+import  -/  base-4.9.1.0:Data.Either 20b09ef8d0a5b74fdec011c40c1587f5
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Functor 5ab1dc703df5b482e77efb697833ca3c
+import  -/  base-4.9.1.0:Data.IORef 71c87b0b25a8bca3e3f4497725f5e543
+import  -/  base-4.9.1.0:Data.Maybe d876c4ffe4b3c43755a781e8ad860d88
+import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Exception e38fa3e73d54022fb9e3ce06477dfd07
+import  -/  base-4.9.1.0:GHC.Generics 1dbec2bc7dd1c5bd8c89ed857eaed19b
+import  -/  base-4.9.1.0:GHC.IORef 306bd532f2f3b000347cbe6316adc20e
+import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+import  -/  protolude-0.1.10@protolude-0.1.10-6KZ4RB9zWepBfYwAkgb4xb:List b616745b2e56ff387a58b5aa70b77cde
+import  -/  protolude-0.1.10@protolude-0.1.10-6KZ4RB9zWepBfYwAkgb4xb:Protolude 1929b0698105a8ab90ed86f9f058e9f1
+import  -/  text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Internal a2f6f66c5bb1247458d9fa25257ab188
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock 497255c34b71ccfa0ab1bf8f9ae56005
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock.POSIX d107248af877060d00321d9c66f5a2b1
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock.UTC a11128e40404d4167f29d45f57b1b0af
+import  -/  time-1.6.0.1@time-1.6.0.1:Data.Time.Clock.UTCDiff d9518d0691cef9c7d8de03406284b7c2
+678c6a12a6603396c5a6f6c44afc0009
+  $fGenericTeardown ::
+    GHC.Generics.Generic Control.Teardown.Internal.Core.Teardown
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Control.Teardown.Internal.Core.Teardown
+                  Control.Teardown.Internal.Core.$fGenericTeardown_$cfrom
+                  Control.Teardown.Internal.Core.$fGenericTeardown_$cto -}
+678c6a12a6603396c5a6f6c44afc0009
+  $fGenericTeardown1 ::
+    GHC.Generics.Rep Control.Teardown.Internal.Core.Teardown x
+    -> GHC.Generics.Rep Control.Teardown.Internal.Core.Teardown x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ x
+                   (ds :: GHC.Generics.Rep
+                            Control.Teardown.Internal.Core.Teardown x) ->
+                 ds) -}
+678c6a12a6603396c5a6f6c44afc0009
+  $fGenericTeardown2 ::
+    Control.Teardown.Internal.Core.Teardown
+    -> Control.Teardown.Internal.Core.Teardown
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ x (x1 :: Control.Teardown.Internal.Core.Teardown) -> x1) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fGenericTeardownResult ::
+    GHC.Generics.Generic Control.Teardown.Internal.Core.TeardownResult
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Control.Teardown.Internal.Core.TeardownResult
+                  Control.Teardown.Internal.Core.$fGenericTeardownResult_$cfrom
+                  Control.Teardown.Internal.Core.$fGenericTeardownResult_$cto -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fGenericTeardownResult1 ::
+    Control.Teardown.Internal.Core.TeardownResult
+    -> (GHC.Generics.:+:)
+         (GHC.Generics.M1
+            GHC.Generics.C
+            ('GHC.Generics.MetaCons
+               "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+            ((GHC.Generics.M1
+                GHC.Generics.S
+                ('GHC.Generics.MetaSel
+                   ('GHC.Base.Just "resultDescription")
+                   'GHC.Generics.NoSourceUnpackedness
+                   'GHC.Generics.SourceStrict
+                   'GHC.Generics.DecidedStrict)
+                (GHC.Generics.K1
+                   GHC.Generics.R Control.Teardown.Internal.Core.Description)
+              GHC.Generics.:*: GHC.Generics.M1
+                                 GHC.Generics.S
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "resultElapsedTime")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.K1
+                                    GHC.Generics.R Data.Time.Clock.UTC.NominalDiffTime))
+             GHC.Generics.:*: (GHC.Generics.M1
+                                 GHC.Generics.S
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "resultDidFail")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool)
+                               GHC.Generics.:*: GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultListing")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     [Control.Teardown.Internal.Core.TeardownResult]))))
+         (GHC.Generics.M1
+            GHC.Generics.C
+            ('GHC.Generics.MetaCons
+               "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+            (GHC.Generics.M1
+               GHC.Generics.S
+               ('GHC.Generics.MetaSel
+                  ('GHC.Base.Just "resultDescription")
+                  'GHC.Generics.NoSourceUnpackedness
+                  'GHC.Generics.SourceStrict
+                  'GHC.Generics.DecidedStrict)
+               (GHC.Generics.K1
+                  GHC.Generics.R Control.Teardown.Internal.Core.Description)
+             GHC.Generics.:*: (GHC.Generics.M1
+                                 GHC.Generics.S
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "resultElapsedTime")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.K1
+                                    GHC.Generics.R Data.Time.Clock.UTC.NominalDiffTime)
+                               GHC.Generics.:*: GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultError")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     (GHC.Base.Maybe GHC.Exception.SomeException))))
+          GHC.Generics.:+: GHC.Generics.M1
+                             GHC.Generics.C
+                             ('GHC.Generics.MetaCons
+                                "EmptyResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                             (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "resultDescription")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.SourceStrict
+                                   'GHC.Generics.DecidedStrict)
+                                (GHC.Generics.K1
+                                   GHC.Generics.R Control.Teardown.Internal.Core.Description)))
+         x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ @ x
+                   (x1 :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case x1 of wild {
+                   Control.Teardown.Internal.Core.BranchResult g1 g2 g3 g4
+                   -> GHC.Generics.L1
+                        @ (GHC.Generics.M1
+                             GHC.Generics.C
+                             ('GHC.Generics.MetaCons
+                                "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                             ((GHC.Generics.M1
+                                 GHC.Generics.S
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "resultDescription")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.K1
+                                    GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                               GHC.Generics.:*: GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultElapsedTime")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     Data.Time.Clock.UTC.NominalDiffTime))
+                              GHC.Generics.:*: (GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultDidFail")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool)
+                                                GHC.Generics.:*: GHC.Generics.M1
+                                                                   GHC.Generics.S
+                                                                   ('GHC.Generics.MetaSel
+                                                                      ('GHC.Base.Just
+                                                                         "resultListing")
+                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                      'GHC.Generics.SourceStrict
+                                                                      'GHC.Generics.DecidedStrict)
+                                                                   (GHC.Generics.K1
+                                                                      GHC.Generics.R
+                                                                      [Control.Teardown.Internal.Core.TeardownResult]))))
+                        @ (GHC.Generics.M1
+                             GHC.Generics.C
+                             ('GHC.Generics.MetaCons
+                                "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                             (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "resultDescription")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.SourceStrict
+                                   'GHC.Generics.DecidedStrict)
+                                (GHC.Generics.K1
+                                   GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                              GHC.Generics.:*: (GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultElapsedTime")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     Data.Time.Clock.UTC.NominalDiffTime)
+                                                GHC.Generics.:*: GHC.Generics.M1
+                                                                   GHC.Generics.S
+                                                                   ('GHC.Generics.MetaSel
+                                                                      ('GHC.Base.Just "resultError")
+                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                      'GHC.Generics.SourceStrict
+                                                                      'GHC.Generics.DecidedStrict)
+                                                                   (GHC.Generics.K1
+                                                                      GHC.Generics.R
+                                                                      (GHC.Base.Maybe
+                                                                         GHC.Exception.SomeException))))
+                           GHC.Generics.:+: GHC.Generics.M1
+                                              GHC.Generics.C
+                                              ('GHC.Generics.MetaCons
+                                                 "EmptyResult"
+                                                 'GHC.Generics.PrefixI
+                                                 'GHC.Types.True)
+                                              (GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "resultDescription")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.SourceStrict
+                                                    'GHC.Generics.DecidedStrict)
+                                                 (GHC.Generics.K1
+                                                    GHC.Generics.R
+                                                    Control.Teardown.Internal.Core.Description)))
+                        @ x
+                        (GHC.Generics.:*:
+                           @ (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "resultDescription")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.SourceStrict
+                                   'GHC.Generics.DecidedStrict)
+                                (GHC.Generics.K1
+                                   GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                              GHC.Generics.:*: GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "resultElapsedTime")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.SourceStrict
+                                                    'GHC.Generics.DecidedStrict)
+                                                 (GHC.Generics.K1
+                                                    GHC.Generics.R
+                                                    Data.Time.Clock.UTC.NominalDiffTime))
+                           @ (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "resultDidFail")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.SourceStrict
+                                   'GHC.Generics.DecidedStrict)
+                                (GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool)
+                              GHC.Generics.:*: GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "resultListing")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.SourceStrict
+                                                    'GHC.Generics.DecidedStrict)
+                                                 (GHC.Generics.K1
+                                                    GHC.Generics.R
+                                                    [Control.Teardown.Internal.Core.TeardownResult]))
+                           @ x
+                           (GHC.Generics.:*:
+                              @ (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultDescription")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Control.Teardown.Internal.Core.Description))
+                              @ (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultElapsedTime")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Data.Time.Clock.UTC.NominalDiffTime))
+                              @ x
+                              g1
+                                `cast`
+                              (Trans
+                                   (Sym (GHC.Generics.N:K1[0]
+                                             <GHC.Generics.R>_P
+                                             <Control.Teardown.Internal.Core.Description>_R
+                                             <x>_P))
+                                   (Sym (GHC.Generics.N:M1[0]
+                                             <GHC.Generics.S>_P
+                                             <'GHC.Generics.MetaSel
+                                                ('GHC.Base.Just "resultDescription")
+                                                'GHC.Generics.NoSourceUnpackedness
+                                                'GHC.Generics.SourceStrict
+                                                'GHC.Generics.DecidedStrict>_P
+                                             <GHC.Generics.K1
+                                                GHC.Generics.R
+                                                Control.Teardown.Internal.Core.Description>_R) <x>_N))
+                              g2
+                                `cast`
+                              (Trans
+                                   (Sym (GHC.Generics.N:K1[0]
+                                             <GHC.Generics.R>_P
+                                             <Data.Time.Clock.UTC.NominalDiffTime>_R
+                                             <x>_P))
+                                   (Sym (GHC.Generics.N:M1[0]
+                                             <GHC.Generics.S>_P
+                                             <'GHC.Generics.MetaSel
+                                                ('GHC.Base.Just "resultElapsedTime")
+                                                'GHC.Generics.NoSourceUnpackedness
+                                                'GHC.Generics.SourceStrict
+                                                'GHC.Generics.DecidedStrict>_P
+                                             <GHC.Generics.K1
+                                                GHC.Generics.R
+                                                Data.Time.Clock.UTC.NominalDiffTime>_R) <x>_N)))
+                           (GHC.Generics.:*:
+                              @ (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultDidFail")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool))
+                              @ (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultListing")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R
+                                      [Control.Teardown.Internal.Core.TeardownResult]))
+                              @ x
+                              g3
+                                `cast`
+                              (Trans
+                                   (Sym (GHC.Generics.N:K1[0]
+                                             <GHC.Generics.R>_P <GHC.Types.Bool>_R <x>_P))
+                                   (Sym (GHC.Generics.N:M1[0]
+                                             <GHC.Generics.S>_P
+                                             <'GHC.Generics.MetaSel
+                                                ('GHC.Base.Just "resultDidFail")
+                                                'GHC.Generics.NoSourceUnpackedness
+                                                'GHC.Generics.SourceStrict
+                                                'GHC.Generics.DecidedStrict>_P
+                                             <GHC.Generics.K1
+                                                GHC.Generics.R GHC.Types.Bool>_R) <x>_N))
+                              g4
+                                `cast`
+                              (Trans
+                                   (Sym (GHC.Generics.N:K1[0]
+                                             <GHC.Generics.R>_P
+                                             <[Control.Teardown.Internal.Core.TeardownResult]>_R
+                                             <x>_P))
+                                   (Sym (GHC.Generics.N:M1[0]
+                                             <GHC.Generics.S>_P
+                                             <'GHC.Generics.MetaSel
+                                                ('GHC.Base.Just "resultListing")
+                                                'GHC.Generics.NoSourceUnpackedness
+                                                'GHC.Generics.SourceStrict
+                                                'GHC.Generics.DecidedStrict>_P
+                                             <GHC.Generics.K1
+                                                GHC.Generics.R
+                                                [Control.Teardown.Internal.Core.TeardownResult]>_R) <x>_N))))
+                          `cast`
+                        (Sym (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.C>_P
+                                  <'GHC.Generics.MetaCons
+                                     "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                                  <(GHC.Generics.M1
+                                      GHC.Generics.S
+                                      ('GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "resultDescription")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict)
+                                      (GHC.Generics.K1
+                                         GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                                    GHC.Generics.:*: GHC.Generics.M1
+                                                       GHC.Generics.S
+                                                       ('GHC.Generics.MetaSel
+                                                          ('GHC.Base.Just "resultElapsedTime")
+                                                          'GHC.Generics.NoSourceUnpackedness
+                                                          'GHC.Generics.SourceStrict
+                                                          'GHC.Generics.DecidedStrict)
+                                                       (GHC.Generics.K1
+                                                          GHC.Generics.R
+                                                          Data.Time.Clock.UTC.NominalDiffTime))
+                                   GHC.Generics.:*: (GHC.Generics.M1
+                                                       GHC.Generics.S
+                                                       ('GHC.Generics.MetaSel
+                                                          ('GHC.Base.Just "resultDidFail")
+                                                          'GHC.Generics.NoSourceUnpackedness
+                                                          'GHC.Generics.SourceStrict
+                                                          'GHC.Generics.DecidedStrict)
+                                                       (GHC.Generics.K1
+                                                          GHC.Generics.R GHC.Types.Bool)
+                                                     GHC.Generics.:*: GHC.Generics.M1
+                                                                        GHC.Generics.S
+                                                                        ('GHC.Generics.MetaSel
+                                                                           ('GHC.Base.Just
+                                                                              "resultListing")
+                                                                           'GHC.Generics.NoSourceUnpackedness
+                                                                           'GHC.Generics.SourceStrict
+                                                                           'GHC.Generics.DecidedStrict)
+                                                                        (GHC.Generics.K1
+                                                                           GHC.Generics.R
+                                                                           [Control.Teardown.Internal.Core.TeardownResult]))>_R) <x>_N)
+                   Control.Teardown.Internal.Core.LeafResult g1 g2 g3
+                   -> GHC.Generics.R1
+                        @ (GHC.Generics.M1
+                             GHC.Generics.C
+                             ('GHC.Generics.MetaCons
+                                "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                             ((GHC.Generics.M1
+                                 GHC.Generics.S
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "resultDescription")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.K1
+                                    GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                               GHC.Generics.:*: GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultElapsedTime")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     Data.Time.Clock.UTC.NominalDiffTime))
+                              GHC.Generics.:*: (GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultDidFail")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool)
+                                                GHC.Generics.:*: GHC.Generics.M1
+                                                                   GHC.Generics.S
+                                                                   ('GHC.Generics.MetaSel
+                                                                      ('GHC.Base.Just
+                                                                         "resultListing")
+                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                      'GHC.Generics.SourceStrict
+                                                                      'GHC.Generics.DecidedStrict)
+                                                                   (GHC.Generics.K1
+                                                                      GHC.Generics.R
+                                                                      [Control.Teardown.Internal.Core.TeardownResult]))))
+                        @ (GHC.Generics.M1
+                             GHC.Generics.C
+                             ('GHC.Generics.MetaCons
+                                "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                             (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "resultDescription")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.SourceStrict
+                                   'GHC.Generics.DecidedStrict)
+                                (GHC.Generics.K1
+                                   GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                              GHC.Generics.:*: (GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultElapsedTime")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     Data.Time.Clock.UTC.NominalDiffTime)
+                                                GHC.Generics.:*: GHC.Generics.M1
+                                                                   GHC.Generics.S
+                                                                   ('GHC.Generics.MetaSel
+                                                                      ('GHC.Base.Just "resultError")
+                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                      'GHC.Generics.SourceStrict
+                                                                      'GHC.Generics.DecidedStrict)
+                                                                   (GHC.Generics.K1
+                                                                      GHC.Generics.R
+                                                                      (GHC.Base.Maybe
+                                                                         GHC.Exception.SomeException))))
+                           GHC.Generics.:+: GHC.Generics.M1
+                                              GHC.Generics.C
+                                              ('GHC.Generics.MetaCons
+                                                 "EmptyResult"
+                                                 'GHC.Generics.PrefixI
+                                                 'GHC.Types.True)
+                                              (GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "resultDescription")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.SourceStrict
+                                                    'GHC.Generics.DecidedStrict)
+                                                 (GHC.Generics.K1
+                                                    GHC.Generics.R
+                                                    Control.Teardown.Internal.Core.Description)))
+                        @ x
+                        (GHC.Generics.L1
+                           @ (GHC.Generics.M1
+                                GHC.Generics.C
+                                ('GHC.Generics.MetaCons
+                                   "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultDescription")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                                 GHC.Generics.:*: (GHC.Generics.M1
+                                                     GHC.Generics.S
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "resultElapsedTime")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.SourceStrict
+                                                        'GHC.Generics.DecidedStrict)
+                                                     (GHC.Generics.K1
+                                                        GHC.Generics.R
+                                                        Data.Time.Clock.UTC.NominalDiffTime)
+                                                   GHC.Generics.:*: GHC.Generics.M1
+                                                                      GHC.Generics.S
+                                                                      ('GHC.Generics.MetaSel
+                                                                         ('GHC.Base.Just
+                                                                            "resultError")
+                                                                         'GHC.Generics.NoSourceUnpackedness
+                                                                         'GHC.Generics.SourceStrict
+                                                                         'GHC.Generics.DecidedStrict)
+                                                                      (GHC.Generics.K1
+                                                                         GHC.Generics.R
+                                                                         (GHC.Base.Maybe
+                                                                            GHC.Exception.SomeException)))))
+                           @ (GHC.Generics.M1
+                                GHC.Generics.C
+                                ('GHC.Generics.MetaCons
+                                   "EmptyResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultDescription")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Control.Teardown.Internal.Core.Description)))
+                           @ x
+                           (GHC.Generics.:*:
+                              @ (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultDescription")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Control.Teardown.Internal.Core.Description))
+                              @ (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultElapsedTime")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Data.Time.Clock.UTC.NominalDiffTime)
+                                 GHC.Generics.:*: GHC.Generics.M1
+                                                    GHC.Generics.S
+                                                    ('GHC.Generics.MetaSel
+                                                       ('GHC.Base.Just "resultError")
+                                                       'GHC.Generics.NoSourceUnpackedness
+                                                       'GHC.Generics.SourceStrict
+                                                       'GHC.Generics.DecidedStrict)
+                                                    (GHC.Generics.K1
+                                                       GHC.Generics.R
+                                                       (GHC.Base.Maybe
+                                                          GHC.Exception.SomeException)))
+                              @ x
+                              g1
+                                `cast`
+                              (Trans
+                                   (Sym (GHC.Generics.N:K1[0]
+                                             <GHC.Generics.R>_P
+                                             <Control.Teardown.Internal.Core.Description>_R
+                                             <x>_P))
+                                   (Sym (GHC.Generics.N:M1[0]
+                                             <GHC.Generics.S>_P
+                                             <'GHC.Generics.MetaSel
+                                                ('GHC.Base.Just "resultDescription")
+                                                'GHC.Generics.NoSourceUnpackedness
+                                                'GHC.Generics.SourceStrict
+                                                'GHC.Generics.DecidedStrict>_P
+                                             <GHC.Generics.K1
+                                                GHC.Generics.R
+                                                Control.Teardown.Internal.Core.Description>_R) <x>_N))
+                              (GHC.Generics.:*:
+                                 @ (GHC.Generics.M1
+                                      GHC.Generics.S
+                                      ('GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "resultElapsedTime")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict)
+                                      (GHC.Generics.K1
+                                         GHC.Generics.R Data.Time.Clock.UTC.NominalDiffTime))
+                                 @ (GHC.Generics.M1
+                                      GHC.Generics.S
+                                      ('GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "resultError")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict)
+                                      (GHC.Generics.K1
+                                         GHC.Generics.R
+                                         (GHC.Base.Maybe GHC.Exception.SomeException)))
+                                 @ x
+                                 g2
+                                   `cast`
+                                 (Trans
+                                      (Sym (GHC.Generics.N:K1[0]
+                                                <GHC.Generics.R>_P
+                                                <Data.Time.Clock.UTC.NominalDiffTime>_R
+                                                <x>_P))
+                                      (Sym (GHC.Generics.N:M1[0]
+                                                <GHC.Generics.S>_P
+                                                <'GHC.Generics.MetaSel
+                                                   ('GHC.Base.Just "resultElapsedTime")
+                                                   'GHC.Generics.NoSourceUnpackedness
+                                                   'GHC.Generics.SourceStrict
+                                                   'GHC.Generics.DecidedStrict>_P
+                                                <GHC.Generics.K1
+                                                   GHC.Generics.R
+                                                   Data.Time.Clock.UTC.NominalDiffTime>_R) <x>_N))
+                                 g3
+                                   `cast`
+                                 (Trans
+                                      (Sym (GHC.Generics.N:K1[0]
+                                                <GHC.Generics.R>_P
+                                                <GHC.Base.Maybe GHC.Exception.SomeException>_R
+                                                <x>_P))
+                                      (Sym (GHC.Generics.N:M1[0]
+                                                <GHC.Generics.S>_P
+                                                <'GHC.Generics.MetaSel
+                                                   ('GHC.Base.Just "resultError")
+                                                   'GHC.Generics.NoSourceUnpackedness
+                                                   'GHC.Generics.SourceStrict
+                                                   'GHC.Generics.DecidedStrict>_P
+                                                <GHC.Generics.K1
+                                                   GHC.Generics.R
+                                                   (GHC.Base.Maybe
+                                                      GHC.Exception.SomeException)>_R) <x>_N))))
+                             `cast`
+                           (Sym (GHC.Generics.N:M1[0]
+                                     <GHC.Generics.C>_P
+                                     <'GHC.Generics.MetaCons
+                                        "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                                     <GHC.Generics.M1
+                                        GHC.Generics.S
+                                        ('GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "resultDescription")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.SourceStrict
+                                           'GHC.Generics.DecidedStrict)
+                                        (GHC.Generics.K1
+                                           GHC.Generics.R
+                                           Control.Teardown.Internal.Core.Description)
+                                      GHC.Generics.:*: (GHC.Generics.M1
+                                                          GHC.Generics.S
+                                                          ('GHC.Generics.MetaSel
+                                                             ('GHC.Base.Just "resultElapsedTime")
+                                                             'GHC.Generics.NoSourceUnpackedness
+                                                             'GHC.Generics.SourceStrict
+                                                             'GHC.Generics.DecidedStrict)
+                                                          (GHC.Generics.K1
+                                                             GHC.Generics.R
+                                                             Data.Time.Clock.UTC.NominalDiffTime)
+                                                        GHC.Generics.:*: GHC.Generics.M1
+                                                                           GHC.Generics.S
+                                                                           ('GHC.Generics.MetaSel
+                                                                              ('GHC.Base.Just
+                                                                                 "resultError")
+                                                                              'GHC.Generics.NoSourceUnpackedness
+                                                                              'GHC.Generics.SourceStrict
+                                                                              'GHC.Generics.DecidedStrict)
+                                                                           (GHC.Generics.K1
+                                                                              GHC.Generics.R
+                                                                              (GHC.Base.Maybe
+                                                                                 GHC.Exception.SomeException)))>_R) <x>_N))
+                   Control.Teardown.Internal.Core.EmptyResult g1
+                   -> GHC.Generics.R1
+                        @ (GHC.Generics.M1
+                             GHC.Generics.C
+                             ('GHC.Generics.MetaCons
+                                "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                             ((GHC.Generics.M1
+                                 GHC.Generics.S
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "resultDescription")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.K1
+                                    GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                               GHC.Generics.:*: GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultElapsedTime")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     Data.Time.Clock.UTC.NominalDiffTime))
+                              GHC.Generics.:*: (GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultDidFail")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool)
+                                                GHC.Generics.:*: GHC.Generics.M1
+                                                                   GHC.Generics.S
+                                                                   ('GHC.Generics.MetaSel
+                                                                      ('GHC.Base.Just
+                                                                         "resultListing")
+                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                      'GHC.Generics.SourceStrict
+                                                                      'GHC.Generics.DecidedStrict)
+                                                                   (GHC.Generics.K1
+                                                                      GHC.Generics.R
+                                                                      [Control.Teardown.Internal.Core.TeardownResult]))))
+                        @ (GHC.Generics.M1
+                             GHC.Generics.C
+                             ('GHC.Generics.MetaCons
+                                "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                             (GHC.Generics.M1
+                                GHC.Generics.S
+                                ('GHC.Generics.MetaSel
+                                   ('GHC.Base.Just "resultDescription")
+                                   'GHC.Generics.NoSourceUnpackedness
+                                   'GHC.Generics.SourceStrict
+                                   'GHC.Generics.DecidedStrict)
+                                (GHC.Generics.K1
+                                   GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                              GHC.Generics.:*: (GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultElapsedTime")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     Data.Time.Clock.UTC.NominalDiffTime)
+                                                GHC.Generics.:*: GHC.Generics.M1
+                                                                   GHC.Generics.S
+                                                                   ('GHC.Generics.MetaSel
+                                                                      ('GHC.Base.Just "resultError")
+                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                      'GHC.Generics.SourceStrict
+                                                                      'GHC.Generics.DecidedStrict)
+                                                                   (GHC.Generics.K1
+                                                                      GHC.Generics.R
+                                                                      (GHC.Base.Maybe
+                                                                         GHC.Exception.SomeException))))
+                           GHC.Generics.:+: GHC.Generics.M1
+                                              GHC.Generics.C
+                                              ('GHC.Generics.MetaCons
+                                                 "EmptyResult"
+                                                 'GHC.Generics.PrefixI
+                                                 'GHC.Types.True)
+                                              (GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    ('GHC.Base.Just "resultDescription")
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.SourceStrict
+                                                    'GHC.Generics.DecidedStrict)
+                                                 (GHC.Generics.K1
+                                                    GHC.Generics.R
+                                                    Control.Teardown.Internal.Core.Description)))
+                        @ x
+                        (GHC.Generics.R1
+                           @ (GHC.Generics.M1
+                                GHC.Generics.C
+                                ('GHC.Generics.MetaCons
+                                   "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultDescription")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                                 GHC.Generics.:*: (GHC.Generics.M1
+                                                     GHC.Generics.S
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "resultElapsedTime")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.SourceStrict
+                                                        'GHC.Generics.DecidedStrict)
+                                                     (GHC.Generics.K1
+                                                        GHC.Generics.R
+                                                        Data.Time.Clock.UTC.NominalDiffTime)
+                                                   GHC.Generics.:*: GHC.Generics.M1
+                                                                      GHC.Generics.S
+                                                                      ('GHC.Generics.MetaSel
+                                                                         ('GHC.Base.Just
+                                                                            "resultError")
+                                                                         'GHC.Generics.NoSourceUnpackedness
+                                                                         'GHC.Generics.SourceStrict
+                                                                         'GHC.Generics.DecidedStrict)
+                                                                      (GHC.Generics.K1
+                                                                         GHC.Generics.R
+                                                                         (GHC.Base.Maybe
+                                                                            GHC.Exception.SomeException)))))
+                           @ (GHC.Generics.M1
+                                GHC.Generics.C
+                                ('GHC.Generics.MetaCons
+                                   "EmptyResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                (GHC.Generics.M1
+                                   GHC.Generics.S
+                                   ('GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "resultDescription")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict)
+                                   (GHC.Generics.K1
+                                      GHC.Generics.R Control.Teardown.Internal.Core.Description)))
+                           @ x
+                           g1
+                             `cast`
+                           (Trans
+                                (Sym (GHC.Generics.N:K1[0]
+                                          <GHC.Generics.R>_P
+                                          <Control.Teardown.Internal.Core.Description>_R
+                                          <x>_P))
+                                (Trans
+                                     (Sym (GHC.Generics.N:M1[0]
+                                               <GHC.Generics.S>_P
+                                               <'GHC.Generics.MetaSel
+                                                  ('GHC.Base.Just "resultDescription")
+                                                  'GHC.Generics.NoSourceUnpackedness
+                                                  'GHC.Generics.SourceStrict
+                                                  'GHC.Generics.DecidedStrict>_P
+                                               <GHC.Generics.K1
+                                                  GHC.Generics.R
+                                                  Control.Teardown.Internal.Core.Description>_R))
+                                     (Sym (GHC.Generics.N:M1[0]
+                                               <GHC.Generics.C>_P
+                                               <'GHC.Generics.MetaCons
+                                                  "EmptyResult"
+                                                  'GHC.Generics.PrefixI
+                                                  'GHC.Types.True>_P
+                                               <GHC.Generics.M1
+                                                  GHC.Generics.S
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "resultDescription")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.K1
+                                                     GHC.Generics.R
+                                                     Control.Teardown.Internal.Core.Description)>_R)) <x>_N))) }) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fGenericTeardownResult_$cfrom ::
+    Control.Teardown.Internal.Core.TeardownResult
+    -> GHC.Generics.Rep Control.Teardown.Internal.Core.TeardownResult x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.$fGenericTeardownResult1
+                  `cast`
+                (forall (x :: <GHC.Types.*>_N).
+                 <Control.Teardown.Internal.Core.TeardownResult>_R
+                 ->_R Trans
+                          (Sym (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.D>_P
+                                    <'GHC.Generics.MetaData
+                                       "TeardownResult"
+                                       "Control.Teardown.Internal.Core"
+                                       "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"
+                                       'GHC.Types.False>_P
+                                    <GHC.Generics.M1
+                                       GHC.Generics.C
+                                       ('GHC.Generics.MetaCons
+                                          "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                       ((GHC.Generics.M1
+                                           GHC.Generics.S
+                                           ('GHC.Generics.MetaSel
+                                              ('GHC.Base.Just "resultDescription")
+                                              'GHC.Generics.NoSourceUnpackedness
+                                              'GHC.Generics.SourceStrict
+                                              'GHC.Generics.DecidedStrict)
+                                           (GHC.Generics.K1
+                                              GHC.Generics.R
+                                              Control.Teardown.Internal.Core.Description)
+                                         GHC.Generics.:*: GHC.Generics.M1
+                                                            GHC.Generics.S
+                                                            ('GHC.Generics.MetaSel
+                                                               ('GHC.Base.Just "resultElapsedTime")
+                                                               'GHC.Generics.NoSourceUnpackedness
+                                                               'GHC.Generics.SourceStrict
+                                                               'GHC.Generics.DecidedStrict)
+                                                            (GHC.Generics.K1
+                                                               GHC.Generics.R
+                                                               Data.Time.Clock.UTC.NominalDiffTime))
+                                        GHC.Generics.:*: (GHC.Generics.M1
+                                                            GHC.Generics.S
+                                                            ('GHC.Generics.MetaSel
+                                                               ('GHC.Base.Just "resultDidFail")
+                                                               'GHC.Generics.NoSourceUnpackedness
+                                                               'GHC.Generics.SourceStrict
+                                                               'GHC.Generics.DecidedStrict)
+                                                            (GHC.Generics.K1
+                                                               GHC.Generics.R GHC.Types.Bool)
+                                                          GHC.Generics.:*: GHC.Generics.M1
+                                                                             GHC.Generics.S
+                                                                             ('GHC.Generics.MetaSel
+                                                                                ('GHC.Base.Just
+                                                                                   "resultListing")
+                                                                                'GHC.Generics.NoSourceUnpackedness
+                                                                                'GHC.Generics.SourceStrict
+                                                                                'GHC.Generics.DecidedStrict)
+                                                                             (GHC.Generics.K1
+                                                                                GHC.Generics.R
+                                                                                [Control.Teardown.Internal.Core.TeardownResult])))
+                                     GHC.Generics.:+: (GHC.Generics.M1
+                                                         GHC.Generics.C
+                                                         ('GHC.Generics.MetaCons
+                                                            "LeafResult"
+                                                            'GHC.Generics.PrefixI
+                                                            'GHC.Types.True)
+                                                         (GHC.Generics.M1
+                                                            GHC.Generics.S
+                                                            ('GHC.Generics.MetaSel
+                                                               ('GHC.Base.Just "resultDescription")
+                                                               'GHC.Generics.NoSourceUnpackedness
+                                                               'GHC.Generics.SourceStrict
+                                                               'GHC.Generics.DecidedStrict)
+                                                            (GHC.Generics.K1
+                                                               GHC.Generics.R
+                                                               Control.Teardown.Internal.Core.Description)
+                                                          GHC.Generics.:*: (GHC.Generics.M1
+                                                                              GHC.Generics.S
+                                                                              ('GHC.Generics.MetaSel
+                                                                                 ('GHC.Base.Just
+                                                                                    "resultElapsedTime")
+                                                                                 'GHC.Generics.NoSourceUnpackedness
+                                                                                 'GHC.Generics.SourceStrict
+                                                                                 'GHC.Generics.DecidedStrict)
+                                                                              (GHC.Generics.K1
+                                                                                 GHC.Generics.R
+                                                                                 Data.Time.Clock.UTC.NominalDiffTime)
+                                                                            GHC.Generics.:*: GHC.Generics.M1
+                                                                                               GHC.Generics.S
+                                                                                               ('GHC.Generics.MetaSel
+                                                                                                  ('GHC.Base.Just
+                                                                                                     "resultError")
+                                                                                                  'GHC.Generics.NoSourceUnpackedness
+                                                                                                  'GHC.Generics.SourceStrict
+                                                                                                  'GHC.Generics.DecidedStrict)
+                                                                                               (GHC.Generics.K1
+                                                                                                  GHC.Generics.R
+                                                                                                  (GHC.Base.Maybe
+                                                                                                     GHC.Exception.SomeException))))
+                                                       GHC.Generics.:+: GHC.Generics.M1
+                                                                          GHC.Generics.C
+                                                                          ('GHC.Generics.MetaCons
+                                                                             "EmptyResult"
+                                                                             'GHC.Generics.PrefixI
+                                                                             'GHC.Types.True)
+                                                                          (GHC.Generics.M1
+                                                                             GHC.Generics.S
+                                                                             ('GHC.Generics.MetaSel
+                                                                                ('GHC.Base.Just
+                                                                                   "resultDescription")
+                                                                                'GHC.Generics.NoSourceUnpackedness
+                                                                                'GHC.Generics.SourceStrict
+                                                                                'GHC.Generics.DecidedStrict)
+                                                                             (GHC.Generics.K1
+                                                                                GHC.Generics.R
+                                                                                Control.Teardown.Internal.Core.Description)))>_R))
+                          (Sub (Sym (Control.Teardown.Internal.Core.Rep_TeardownResult[0]))) <x>_N) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fGenericTeardownResult_$cto ::
+    GHC.Generics.Rep Control.Teardown.Internal.Core.TeardownResult x
+    -> Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: (\ @ x
+                   (ds :: GHC.Generics.Rep
+                            Control.Teardown.Internal.Core.TeardownResult x) ->
+                 case ds
+                        `cast`
+                      (Trans
+                           (Sub (Control.Teardown.Internal.Core.Rep_TeardownResult[0]))
+                           (GHC.Generics.N:M1[0]
+                                <GHC.Generics.D>_P
+                                <'GHC.Generics.MetaData
+                                   "TeardownResult"
+                                   "Control.Teardown.Internal.Core"
+                                   "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"
+                                   'GHC.Types.False>_P
+                                <GHC.Generics.M1
+                                   GHC.Generics.C
+                                   ('GHC.Generics.MetaCons
+                                      "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                   ((GHC.Generics.M1
+                                       GHC.Generics.S
+                                       ('GHC.Generics.MetaSel
+                                          ('GHC.Base.Just "resultDescription")
+                                          'GHC.Generics.NoSourceUnpackedness
+                                          'GHC.Generics.SourceStrict
+                                          'GHC.Generics.DecidedStrict)
+                                       (GHC.Generics.K1
+                                          GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                                     GHC.Generics.:*: GHC.Generics.M1
+                                                        GHC.Generics.S
+                                                        ('GHC.Generics.MetaSel
+                                                           ('GHC.Base.Just "resultElapsedTime")
+                                                           'GHC.Generics.NoSourceUnpackedness
+                                                           'GHC.Generics.SourceStrict
+                                                           'GHC.Generics.DecidedStrict)
+                                                        (GHC.Generics.K1
+                                                           GHC.Generics.R
+                                                           Data.Time.Clock.UTC.NominalDiffTime))
+                                    GHC.Generics.:*: (GHC.Generics.M1
+                                                        GHC.Generics.S
+                                                        ('GHC.Generics.MetaSel
+                                                           ('GHC.Base.Just "resultDidFail")
+                                                           'GHC.Generics.NoSourceUnpackedness
+                                                           'GHC.Generics.SourceStrict
+                                                           'GHC.Generics.DecidedStrict)
+                                                        (GHC.Generics.K1
+                                                           GHC.Generics.R GHC.Types.Bool)
+                                                      GHC.Generics.:*: GHC.Generics.M1
+                                                                         GHC.Generics.S
+                                                                         ('GHC.Generics.MetaSel
+                                                                            ('GHC.Base.Just
+                                                                               "resultListing")
+                                                                            'GHC.Generics.NoSourceUnpackedness
+                                                                            'GHC.Generics.SourceStrict
+                                                                            'GHC.Generics.DecidedStrict)
+                                                                         (GHC.Generics.K1
+                                                                            GHC.Generics.R
+                                                                            [Control.Teardown.Internal.Core.TeardownResult])))
+                                 GHC.Generics.:+: (GHC.Generics.M1
+                                                     GHC.Generics.C
+                                                     ('GHC.Generics.MetaCons
+                                                        "LeafResult"
+                                                        'GHC.Generics.PrefixI
+                                                        'GHC.Types.True)
+                                                     (GHC.Generics.M1
+                                                        GHC.Generics.S
+                                                        ('GHC.Generics.MetaSel
+                                                           ('GHC.Base.Just "resultDescription")
+                                                           'GHC.Generics.NoSourceUnpackedness
+                                                           'GHC.Generics.SourceStrict
+                                                           'GHC.Generics.DecidedStrict)
+                                                        (GHC.Generics.K1
+                                                           GHC.Generics.R
+                                                           Control.Teardown.Internal.Core.Description)
+                                                      GHC.Generics.:*: (GHC.Generics.M1
+                                                                          GHC.Generics.S
+                                                                          ('GHC.Generics.MetaSel
+                                                                             ('GHC.Base.Just
+                                                                                "resultElapsedTime")
+                                                                             'GHC.Generics.NoSourceUnpackedness
+                                                                             'GHC.Generics.SourceStrict
+                                                                             'GHC.Generics.DecidedStrict)
+                                                                          (GHC.Generics.K1
+                                                                             GHC.Generics.R
+                                                                             Data.Time.Clock.UTC.NominalDiffTime)
+                                                                        GHC.Generics.:*: GHC.Generics.M1
+                                                                                           GHC.Generics.S
+                                                                                           ('GHC.Generics.MetaSel
+                                                                                              ('GHC.Base.Just
+                                                                                                 "resultError")
+                                                                                              'GHC.Generics.NoSourceUnpackedness
+                                                                                              'GHC.Generics.SourceStrict
+                                                                                              'GHC.Generics.DecidedStrict)
+                                                                                           (GHC.Generics.K1
+                                                                                              GHC.Generics.R
+                                                                                              (GHC.Base.Maybe
+                                                                                                 GHC.Exception.SomeException))))
+                                                   GHC.Generics.:+: GHC.Generics.M1
+                                                                      GHC.Generics.C
+                                                                      ('GHC.Generics.MetaCons
+                                                                         "EmptyResult"
+                                                                         'GHC.Generics.PrefixI
+                                                                         'GHC.Types.True)
+                                                                      (GHC.Generics.M1
+                                                                         GHC.Generics.S
+                                                                         ('GHC.Generics.MetaSel
+                                                                            ('GHC.Base.Just
+                                                                               "resultDescription")
+                                                                            'GHC.Generics.NoSourceUnpackedness
+                                                                            'GHC.Generics.SourceStrict
+                                                                            'GHC.Generics.DecidedStrict)
+                                                                         (GHC.Generics.K1
+                                                                            GHC.Generics.R
+                                                                            Control.Teardown.Internal.Core.Description)))>_R) <x>_N) of wild {
+                   GHC.Generics.L1 ds1
+                   -> case ds1
+                             `cast`
+                           (GHC.Generics.N:M1[0]
+                                <GHC.Generics.C>_P
+                                <'GHC.Generics.MetaCons
+                                   "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                                <(GHC.Generics.M1
+                                    GHC.Generics.S
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "resultDescription")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict)
+                                    (GHC.Generics.K1
+                                       GHC.Generics.R Control.Teardown.Internal.Core.Description)
+                                  GHC.Generics.:*: GHC.Generics.M1
+                                                     GHC.Generics.S
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "resultElapsedTime")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.SourceStrict
+                                                        'GHC.Generics.DecidedStrict)
+                                                     (GHC.Generics.K1
+                                                        GHC.Generics.R
+                                                        Data.Time.Clock.UTC.NominalDiffTime))
+                                 GHC.Generics.:*: (GHC.Generics.M1
+                                                     GHC.Generics.S
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "resultDidFail")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.SourceStrict
+                                                        'GHC.Generics.DecidedStrict)
+                                                     (GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool)
+                                                   GHC.Generics.:*: GHC.Generics.M1
+                                                                      GHC.Generics.S
+                                                                      ('GHC.Generics.MetaSel
+                                                                         ('GHC.Base.Just
+                                                                            "resultListing")
+                                                                         'GHC.Generics.NoSourceUnpackedness
+                                                                         'GHC.Generics.SourceStrict
+                                                                         'GHC.Generics.DecidedStrict)
+                                                                      (GHC.Generics.K1
+                                                                         GHC.Generics.R
+                                                                         [Control.Teardown.Internal.Core.TeardownResult]))>_R <x>_N) of wild1 { GHC.Generics.:*: ds2 ds3 ->
+                      case ds2 of wild2 { GHC.Generics.:*: ds4 ds5 ->
+                      case ds3 of wild3 { GHC.Generics.:*: ds6 ds7 ->
+                      Control.Teardown.Internal.Core.$WBranchResult
+                        ds4
+                          `cast`
+                        (Trans
+                             (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.S>_P
+                                  <'GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "resultDescription")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.SourceStrict
+                                     'GHC.Generics.DecidedStrict>_P
+                                  <GHC.Generics.K1
+                                     GHC.Generics.R
+                                     Control.Teardown.Internal.Core.Description>_R <x>_N)
+                             (GHC.Generics.N:K1[0]
+                                  <GHC.Generics.R>_P
+                                  <Control.Teardown.Internal.Core.Description>_R
+                                  <x>_P))
+                        ds5
+                          `cast`
+                        (Trans
+                             (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.S>_P
+                                  <'GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "resultElapsedTime")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.SourceStrict
+                                     'GHC.Generics.DecidedStrict>_P
+                                  <GHC.Generics.K1
+                                     GHC.Generics.R Data.Time.Clock.UTC.NominalDiffTime>_R <x>_N)
+                             (GHC.Generics.N:K1[0]
+                                  <GHC.Generics.R>_P <Data.Time.Clock.UTC.NominalDiffTime>_R <x>_P))
+                        ds6
+                          `cast`
+                        (Trans
+                             (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.S>_P
+                                  <'GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "resultDidFail")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.SourceStrict
+                                     'GHC.Generics.DecidedStrict>_P
+                                  <GHC.Generics.K1 GHC.Generics.R GHC.Types.Bool>_R <x>_N)
+                             (GHC.Generics.N:K1[0] <GHC.Generics.R>_P <GHC.Types.Bool>_R <x>_P))
+                        ds7
+                          `cast`
+                        (Trans
+                             (GHC.Generics.N:M1[0]
+                                  <GHC.Generics.S>_P
+                                  <'GHC.Generics.MetaSel
+                                     ('GHC.Base.Just "resultListing")
+                                     'GHC.Generics.NoSourceUnpackedness
+                                     'GHC.Generics.SourceStrict
+                                     'GHC.Generics.DecidedStrict>_P
+                                  <GHC.Generics.K1
+                                     GHC.Generics.R
+                                     [Control.Teardown.Internal.Core.TeardownResult]>_R <x>_N)
+                             (GHC.Generics.N:K1[0]
+                                  <GHC.Generics.R>_P
+                                  <[Control.Teardown.Internal.Core.TeardownResult]>_R
+                                  <x>_P)) } } }
+                   GHC.Generics.R1 ds1
+                   -> case ds1 of wild1 {
+                        GHC.Generics.L1 ds2
+                        -> case ds2
+                                  `cast`
+                                (GHC.Generics.N:M1[0]
+                                     <GHC.Generics.C>_P
+                                     <'GHC.Generics.MetaCons
+                                        "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                                     <GHC.Generics.M1
+                                        GHC.Generics.S
+                                        ('GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "resultDescription")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.SourceStrict
+                                           'GHC.Generics.DecidedStrict)
+                                        (GHC.Generics.K1
+                                           GHC.Generics.R
+                                           Control.Teardown.Internal.Core.Description)
+                                      GHC.Generics.:*: (GHC.Generics.M1
+                                                          GHC.Generics.S
+                                                          ('GHC.Generics.MetaSel
+                                                             ('GHC.Base.Just "resultElapsedTime")
+                                                             'GHC.Generics.NoSourceUnpackedness
+                                                             'GHC.Generics.SourceStrict
+                                                             'GHC.Generics.DecidedStrict)
+                                                          (GHC.Generics.K1
+                                                             GHC.Generics.R
+                                                             Data.Time.Clock.UTC.NominalDiffTime)
+                                                        GHC.Generics.:*: GHC.Generics.M1
+                                                                           GHC.Generics.S
+                                                                           ('GHC.Generics.MetaSel
+                                                                              ('GHC.Base.Just
+                                                                                 "resultError")
+                                                                              'GHC.Generics.NoSourceUnpackedness
+                                                                              'GHC.Generics.SourceStrict
+                                                                              'GHC.Generics.DecidedStrict)
+                                                                           (GHC.Generics.K1
+                                                                              GHC.Generics.R
+                                                                              (GHC.Base.Maybe
+                                                                                 GHC.Exception.SomeException)))>_R <x>_N) of wild2 { GHC.Generics.:*: ds3 ds4 ->
+                           case ds4 of wild3 { GHC.Generics.:*: ds5 ds6 ->
+                           Control.Teardown.Internal.Core.$WLeafResult
+                             ds3
+                               `cast`
+                             (Trans
+                                  (GHC.Generics.N:M1[0]
+                                       <GHC.Generics.S>_P
+                                       <'GHC.Generics.MetaSel
+                                          ('GHC.Base.Just "resultDescription")
+                                          'GHC.Generics.NoSourceUnpackedness
+                                          'GHC.Generics.SourceStrict
+                                          'GHC.Generics.DecidedStrict>_P
+                                       <GHC.Generics.K1
+                                          GHC.Generics.R
+                                          Control.Teardown.Internal.Core.Description>_R <x>_N)
+                                  (GHC.Generics.N:K1[0]
+                                       <GHC.Generics.R>_P
+                                       <Control.Teardown.Internal.Core.Description>_R
+                                       <x>_P))
+                             ds5
+                               `cast`
+                             (Trans
+                                  (GHC.Generics.N:M1[0]
+                                       <GHC.Generics.S>_P
+                                       <'GHC.Generics.MetaSel
+                                          ('GHC.Base.Just "resultElapsedTime")
+                                          'GHC.Generics.NoSourceUnpackedness
+                                          'GHC.Generics.SourceStrict
+                                          'GHC.Generics.DecidedStrict>_P
+                                       <GHC.Generics.K1
+                                          GHC.Generics.R
+                                          Data.Time.Clock.UTC.NominalDiffTime>_R <x>_N)
+                                  (GHC.Generics.N:K1[0]
+                                       <GHC.Generics.R>_P
+                                       <Data.Time.Clock.UTC.NominalDiffTime>_R
+                                       <x>_P))
+                             ds6
+                               `cast`
+                             (Trans
+                                  (GHC.Generics.N:M1[0]
+                                       <GHC.Generics.S>_P
+                                       <'GHC.Generics.MetaSel
+                                          ('GHC.Base.Just "resultError")
+                                          'GHC.Generics.NoSourceUnpackedness
+                                          'GHC.Generics.SourceStrict
+                                          'GHC.Generics.DecidedStrict>_P
+                                       <GHC.Generics.K1
+                                          GHC.Generics.R
+                                          (GHC.Base.Maybe GHC.Exception.SomeException)>_R <x>_N)
+                                  (GHC.Generics.N:K1[0]
+                                       <GHC.Generics.R>_P
+                                       <GHC.Base.Maybe GHC.Exception.SomeException>_R
+                                       <x>_P)) } }
+                        GHC.Generics.R1 ds2
+                        -> Control.Teardown.Internal.Core.$WEmptyResult
+                             ds2
+                               `cast`
+                             (Trans
+                                  (Trans
+                                       (GHC.Generics.N:M1[0]
+                                            <GHC.Generics.C>_P
+                                            <'GHC.Generics.MetaCons
+                                               "EmptyResult"
+                                               'GHC.Generics.PrefixI
+                                               'GHC.Types.True>_P
+                                            <GHC.Generics.M1
+                                               GHC.Generics.S
+                                               ('GHC.Generics.MetaSel
+                                                  ('GHC.Base.Just "resultDescription")
+                                                  'GHC.Generics.NoSourceUnpackedness
+                                                  'GHC.Generics.SourceStrict
+                                                  'GHC.Generics.DecidedStrict)
+                                               (GHC.Generics.K1
+                                                  GHC.Generics.R
+                                                  Control.Teardown.Internal.Core.Description)>_R)
+                                       (GHC.Generics.N:M1[0]
+                                            <GHC.Generics.S>_P
+                                            <'GHC.Generics.MetaSel
+                                               ('GHC.Base.Just "resultDescription")
+                                               'GHC.Generics.NoSourceUnpackedness
+                                               'GHC.Generics.SourceStrict
+                                               'GHC.Generics.DecidedStrict>_P
+                                            <GHC.Generics.K1
+                                               GHC.Generics.R
+                                               Control.Teardown.Internal.Core.Description>_R) <x>_N)
+                                  (GHC.Generics.N:K1[0]
+                                       <GHC.Generics.R>_P
+                                       <Control.Teardown.Internal.Core.Description>_R
+                                       <x>_P)) } }) -}
+678c6a12a6603396c5a6f6c44afc0009
+  $fGenericTeardown_$cfrom ::
+    Control.Teardown.Internal.Core.Teardown
+    -> GHC.Generics.Rep Control.Teardown.Internal.Core.Teardown x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.$fGenericTeardown2
+                  `cast`
+                (forall (x :: <GHC.Types.*>_N).
+                 <Control.Teardown.Internal.Core.Teardown>_R
+                 ->_R Trans
+                          (Control.Teardown.Internal.Core.N:Teardown[0])
+                          (Trans
+                               (Sym (GHC.Generics.N:K1[0]
+                                         <GHC.Generics.R>_P
+                                         <GHC.Types.IO
+                                            Control.Teardown.Internal.Core.TeardownResult>_R
+                                         <x>_P))
+                               (Trans
+                                    (Sym (GHC.Generics.N:M1[0]
+                                              <GHC.Generics.S>_P
+                                              <'GHC.Generics.MetaSel
+                                                 'GHC.Base.Nothing
+                                                 'GHC.Generics.NoSourceUnpackedness
+                                                 'GHC.Generics.NoSourceStrictness
+                                                 'GHC.Generics.DecidedLazy>_P
+                                              <GHC.Generics.K1
+                                                 GHC.Generics.R
+                                                 (GHC.Types.IO
+                                                    Control.Teardown.Internal.Core.TeardownResult)>_R))
+                                    (Trans
+                                         (Sym (GHC.Generics.N:M1[0]
+                                                   <GHC.Generics.C>_P
+                                                   <'GHC.Generics.MetaCons
+                                                      "Teardown"
+                                                      'GHC.Generics.PrefixI
+                                                      'GHC.Types.False>_P
+                                                   <GHC.Generics.M1
+                                                      GHC.Generics.S
+                                                      ('GHC.Generics.MetaSel
+                                                         'GHC.Base.Nothing
+                                                         'GHC.Generics.NoSourceUnpackedness
+                                                         'GHC.Generics.NoSourceStrictness
+                                                         'GHC.Generics.DecidedLazy)
+                                                      (GHC.Generics.K1
+                                                         GHC.Generics.R
+                                                         (GHC.Types.IO
+                                                            Control.Teardown.Internal.Core.TeardownResult))>_R))
+                                         (Trans
+                                              (Sym (GHC.Generics.N:M1[0]
+                                                        <GHC.Generics.D>_P
+                                                        <'GHC.Generics.MetaData
+                                                           "Teardown"
+                                                           "Control.Teardown.Internal.Core"
+                                                           "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"
+                                                           'GHC.Types.True>_P
+                                                        <GHC.Generics.M1
+                                                           GHC.Generics.C
+                                                           ('GHC.Generics.MetaCons
+                                                              "Teardown"
+                                                              'GHC.Generics.PrefixI
+                                                              'GHC.Types.False)
+                                                           (GHC.Generics.M1
+                                                              GHC.Generics.S
+                                                              ('GHC.Generics.MetaSel
+                                                                 'GHC.Base.Nothing
+                                                                 'GHC.Generics.NoSourceUnpackedness
+                                                                 'GHC.Generics.NoSourceStrictness
+                                                                 'GHC.Generics.DecidedLazy)
+                                                              (GHC.Generics.K1
+                                                                 GHC.Generics.R
+                                                                 (GHC.Types.IO
+                                                                    Control.Teardown.Internal.Core.TeardownResult)))>_R))
+                                              (Sub (Sym (Control.Teardown.Internal.Core.Rep_Teardown[0]))))) <x>_N))) -}
+678c6a12a6603396c5a6f6c44afc0009
+  $fGenericTeardown_$cto ::
+    GHC.Generics.Rep Control.Teardown.Internal.Core.Teardown x
+    -> Control.Teardown.Internal.Core.Teardown
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.$fGenericTeardown1
+                  `cast`
+                (forall (x :: <GHC.Types.*>_N).
+                 <GHC.Generics.Rep Control.Teardown.Internal.Core.Teardown x>_R
+                 ->_R Trans
+                          (Trans
+                               (Sub (Control.Teardown.Internal.Core.Rep_Teardown[0]))
+                               (Trans
+                                    (GHC.Generics.N:M1[0]
+                                         <GHC.Generics.D>_P
+                                         <'GHC.Generics.MetaData
+                                            "Teardown"
+                                            "Control.Teardown.Internal.Core"
+                                            "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"
+                                            'GHC.Types.True>_P
+                                         <GHC.Generics.M1
+                                            GHC.Generics.C
+                                            ('GHC.Generics.MetaCons
+                                               "Teardown" 'GHC.Generics.PrefixI 'GHC.Types.False)
+                                            (GHC.Generics.M1
+                                               GHC.Generics.S
+                                               ('GHC.Generics.MetaSel
+                                                  'GHC.Base.Nothing
+                                                  'GHC.Generics.NoSourceUnpackedness
+                                                  'GHC.Generics.NoSourceStrictness
+                                                  'GHC.Generics.DecidedLazy)
+                                               (GHC.Generics.K1
+                                                  GHC.Generics.R
+                                                  (GHC.Types.IO
+                                                     Control.Teardown.Internal.Core.TeardownResult)))>_R)
+                                    (Trans
+                                         (GHC.Generics.N:M1[0]
+                                              <GHC.Generics.C>_P
+                                              <'GHC.Generics.MetaCons
+                                                 "Teardown"
+                                                 'GHC.Generics.PrefixI
+                                                 'GHC.Types.False>_P
+                                              <GHC.Generics.M1
+                                                 GHC.Generics.S
+                                                 ('GHC.Generics.MetaSel
+                                                    'GHC.Base.Nothing
+                                                    'GHC.Generics.NoSourceUnpackedness
+                                                    'GHC.Generics.NoSourceStrictness
+                                                    'GHC.Generics.DecidedLazy)
+                                                 (GHC.Generics.K1
+                                                    GHC.Generics.R
+                                                    (GHC.Types.IO
+                                                       Control.Teardown.Internal.Core.TeardownResult))>_R)
+                                         (GHC.Generics.N:M1[0]
+                                              <GHC.Generics.S>_P
+                                              <'GHC.Generics.MetaSel
+                                                 'GHC.Base.Nothing
+                                                 'GHC.Generics.NoSourceUnpackedness
+                                                 'GHC.Generics.NoSourceStrictness
+                                                 'GHC.Generics.DecidedLazy>_P
+                                              <GHC.Generics.K1
+                                                 GHC.Generics.R
+                                                 (GHC.Types.IO
+                                                    Control.Teardown.Internal.Core.TeardownResult)>_R))) <x>_N)
+                          (Trans
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P
+                                    <GHC.Types.IO Control.Teardown.Internal.Core.TeardownResult>_R
+                                    <x>_P)
+                               (Sym (Control.Teardown.Internal.Core.N:Teardown[0])))) -}
+915a988ef92aa03d32c836382cdd909d
+  $fITeardownTeardown ::
+    Control.Teardown.Internal.Core.ITeardown
+      Control.Teardown.Internal.Core.Teardown
+  DFunId
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Control.Teardown.Internal.Core.$fITeardownTeardown_$cteardown
+                  `cast`
+                (Sym (Control.Teardown.Internal.Core.N:ITeardown[0]
+                          <Control.Teardown.Internal.Core.Teardown>_N)) -}
+346f431a6f21c0734b1406e9462f7724
+  $fITeardownTeardown1 ::
+    Control.Teardown.Internal.Core.Teardown
+    -> Control.Teardown.Internal.Core.Teardown
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (ds :: Control.Teardown.Internal.Core.Teardown) -> ds) -}
+105e4447e0bc1f2b4e6dc3b27d7dffa6
+  $fITeardownTeardown_$cteardown ::
+    Control.Teardown.Internal.Core.Teardown
+    -> GHC.Types.IO Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.$fITeardownTeardown1
+                  `cast`
+                (<Control.Teardown.Internal.Core.Teardown>_R
+                 ->_R Control.Teardown.Internal.Core.N:Teardown[0]) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fShowTeardownResult ::
+    GHC.Show.Show Control.Teardown.Internal.Core.TeardownResult
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Control.Teardown.Internal.Core.TeardownResult
+                  Control.Teardown.Internal.Core.$fShowTeardownResult_$cshowsPrec
+                  Control.Teardown.Internal.Core.$fShowTeardownResult_$cshow
+                  Control.Teardown.Internal.Core.$fShowTeardownResult_$cshowList -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fShowTeardownResult1 ::
+    Control.Teardown.Internal.Core.TeardownResult -> GHC.Show.ShowS
+  {- Arity: 1,
+     Unfolding: (\ (w :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 Control.Teardown.Internal.Core.$w$cshowsPrec 0# w) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fShowTeardownResult_$cshow ::
+    Control.Teardown.Internal.Core.TeardownResult -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 Control.Teardown.Internal.Core.$fShowTeardownResult_$cshowsPrec
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fShowTeardownResult_$cshowList ::
+    [Control.Teardown.Internal.Core.TeardownResult] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Control.Teardown.Internal.Core.TeardownResult
+                   Control.Teardown.Internal.Core.$fShowTeardownResult1) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $fShowTeardownResult_$cshowsPrec ::
+    GHC.Types.Int
+    -> Control.Teardown.Internal.Core.TeardownResult -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S(S),1*U(U)><S,1*U>, Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 Control.Teardown.Internal.Core.$w$cshowsPrec ww1 w1 }) -}
+579cd8a4ad1033be44724672b409b519
+  $tc'BranchResult :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   15091217295654171767##
+                   6171930384437570360##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tc'BranchResult1) -}
+f021894da13245bf9efca2364cf42c6e
+  $tc'BranchResult1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'BranchResult"#) -}
+409dd35259fe0bbd40270442351d6f86
+  $tc'C:ITeardown :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16105791245945655327##
+                   7724556467560179326##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tc'C:ITeardown1) -}
+7cf98c6b032fb126762efd78f80ee5d6
+  $tc'C:ITeardown1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'C:ITeardown"#) -}
+72d104160b3a4656173ecbdd1b6a8d2f
+  $tc'EmptyResult :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8895101935908317958##
+                   3704081272275717194##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tc'EmptyResult1) -}
+2ae22aaedb51e396c5cf50613901d3c7
+  $tc'EmptyResult1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'EmptyResult"#) -}
+e867d166a90927c4d5513ce54532aac7
+  $tc'LeafResult :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   9968487191602776963##
+                   6987073317167719096##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tc'LeafResult1) -}
+0e0ca8bd09de241e8b7a60ba5da5e52b
+  $tc'LeafResult1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'LeafResult"#) -}
+0bb4fd22c63cd6d2699ebfbfe67c0757
+  $tc'Teardown :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   6077192084230258026##
+                   3800617067105639846##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tc'Teardown1) -}
+1f2137ad38775c44e3b70b39fb1c8a3b
+  $tc'Teardown1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Teardown"#) -}
+60278a645c0aa619846b78dfb6ac94ba
+  $tcITeardown :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3405523962131788746##
+                   10157772147575719139##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tcITeardown1) -}
+52e73acffa4b0c7cce678d4439c32bb9
+  $tcITeardown1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "ITeardown"#) -}
+547bb301169d86f2591fa74aa2b307ca
+  $tcTeardown :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12866684383860223276##
+                   16050218264559503494##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tcTeardown1) -}
+40b11b744eca9255a4cb9ba035a87e4b
+  $tcTeardown1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Teardown"#) -}
+142a494259a282a9d93dcee860f8f56e
+  $tcTeardownResult :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3594860339492959689##
+                   7784797390139179519##
+                   Control.Teardown.Internal.Core.$trModule
+                   Control.Teardown.Internal.Core.$tcTeardownResult1) -}
+c4abe2e906a772bb258fba5dd36483e0
+  $tcTeardownResult1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "TeardownResult"#) -}
+b185dc31edf4d60da604ebe939b4e2de
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Control.Teardown.Internal.Core.$trModule2
+                   Control.Teardown.Internal.Core.$trModule1) -}
+dc5e81193f19f3e8ba45a1bb95f933fa
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Control.Teardown.Internal.Core"#) -}
+4b2e2abbef546dd81c2d5abd2ed36000
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"#) -}
+5476ca1da747ec8edc59c18dbb2aca92
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> Control.Teardown.Internal.Core.TeardownResult -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,U><S,1*U>, Inline: [0] -}
+633e23af5f63eabf52b655256628bccf
+  $wgo :: [GHC.Types.Int] -> GHC.Prim.Int# -> GHC.Prim.Int#
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [0] -}
+52bdabb7fd64901ec210ce4fa6702c91
+  $wgo1 :: [GHC.Types.Int] -> GHC.Prim.Int# -> GHC.Prim.Int#
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [0] -}
+b3258dd3ad2ed83ab5480eb15da7064e
+  type Description = Data.Text.Internal.Text
+915a988ef92aa03d32c836382cdd909d
+  class ITeardown d where
+    teardown :: d
+                -> GHC.Types.IO Control.Teardown.Internal.Core.TeardownResult
+    {-# MINIMAL teardown #-}
+678c6a12a6603396c5a6f6c44afc0009
+  axiom Rep_Teardown::
+      GHC.Generics.Rep Control.Teardown.Internal.Core.Teardown
+        = GHC.Generics.D1
+            ('GHC.Generics.MetaData
+               "Teardown"
+               "Control.Teardown.Internal.Core"
+               "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"
+               'GHC.Types.True)
+            (GHC.Generics.C1
+               ('GHC.Generics.MetaCons
+                  "Teardown" 'GHC.Generics.PrefixI 'GHC.Types.False)
+               (GHC.Generics.S1
+                  ('GHC.Generics.MetaSel
+                     'GHC.Base.Nothing
+                     'GHC.Generics.NoSourceUnpackedness
+                     'GHC.Generics.NoSourceStrictness
+                     'GHC.Generics.DecidedLazy)
+                  (GHC.Generics.Rec0
+                     (GHC.Types.IO Control.Teardown.Internal.Core.TeardownResult))))
+5476ca1da747ec8edc59c18dbb2aca92
+  axiom Rep_TeardownResult::
+      GHC.Generics.Rep Control.Teardown.Internal.Core.TeardownResult
+        = GHC.Generics.D1
+            ('GHC.Generics.MetaData
+               "TeardownResult"
+               "Control.Teardown.Internal.Core"
+               "teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj"
+               'GHC.Types.False)
+            (GHC.Generics.C1
+               ('GHC.Generics.MetaCons
+                  "BranchResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+               ((GHC.Generics.S1
+                   ('GHC.Generics.MetaSel
+                      ('GHC.Base.Just "resultDescription")
+                      'GHC.Generics.NoSourceUnpackedness
+                      'GHC.Generics.SourceStrict
+                      'GHC.Generics.DecidedStrict)
+                   (GHC.Generics.Rec0 Control.Teardown.Internal.Core.Description)
+                 GHC.Generics.:*: GHC.Generics.S1
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "resultElapsedTime")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict)
+                                    (GHC.Generics.Rec0 Data.Time.Clock.UTC.NominalDiffTime))
+                GHC.Generics.:*: (GHC.Generics.S1
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "resultDidFail")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict)
+                                    (GHC.Generics.Rec0 GHC.Types.Bool)
+                                  GHC.Generics.:*: GHC.Generics.S1
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "resultListing")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.SourceStrict
+                                                        'GHC.Generics.DecidedStrict)
+                                                     (GHC.Generics.Rec0
+                                                        [Control.Teardown.Internal.Core.TeardownResult])))
+             GHC.Generics.:+: (GHC.Generics.C1
+                                 ('GHC.Generics.MetaCons
+                                    "LeafResult" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                 (GHC.Generics.S1
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "resultDescription")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict)
+                                    (GHC.Generics.Rec0 Control.Teardown.Internal.Core.Description)
+                                  GHC.Generics.:*: (GHC.Generics.S1
+                                                      ('GHC.Generics.MetaSel
+                                                         ('GHC.Base.Just "resultElapsedTime")
+                                                         'GHC.Generics.NoSourceUnpackedness
+                                                         'GHC.Generics.SourceStrict
+                                                         'GHC.Generics.DecidedStrict)
+                                                      (GHC.Generics.Rec0
+                                                         Data.Time.Clock.UTC.NominalDiffTime)
+                                                    GHC.Generics.:*: GHC.Generics.S1
+                                                                       ('GHC.Generics.MetaSel
+                                                                          ('GHC.Base.Just
+                                                                             "resultError")
+                                                                          'GHC.Generics.NoSourceUnpackedness
+                                                                          'GHC.Generics.SourceStrict
+                                                                          'GHC.Generics.DecidedStrict)
+                                                                       (GHC.Generics.Rec0
+                                                                          (GHC.Base.Maybe
+                                                                             GHC.Exception.SomeException))))
+                               GHC.Generics.:+: GHC.Generics.C1
+                                                  ('GHC.Generics.MetaCons
+                                                     "EmptyResult"
+                                                     'GHC.Generics.PrefixI
+                                                     'GHC.Types.True)
+                                                  (GHC.Generics.S1
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "resultDescription")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.SourceStrict
+                                                        'GHC.Generics.DecidedStrict)
+                                                     (GHC.Generics.Rec0
+                                                        Control.Teardown.Internal.Core.Description))))
+678c6a12a6603396c5a6f6c44afc0009
+  newtype Teardown
+    = Teardown (GHC.Types.IO
+                  Control.Teardown.Internal.Core.TeardownResult)
+5476ca1da747ec8edc59c18dbb2aca92
+  data TeardownResult
+    = BranchResult {resultDescription :: !Control.Teardown.Internal.Core.Description,
+                    resultElapsedTime :: !Data.Time.Clock.UTC.NominalDiffTime,
+                    resultDidFail :: !GHC.Types.Bool,
+                    resultListing :: ![Control.Teardown.Internal.Core.TeardownResult]}
+    | LeafResult {resultDescription :: !Control.Teardown.Internal.Core.Description,
+                  resultElapsedTime :: !Data.Time.Clock.UTC.NominalDiffTime,
+                  resultError :: !GHC.Base.Maybe GHC.Exception.SomeException}
+    | EmptyResult {resultDescription :: !Control.Teardown.Internal.Core.Description}
+87e812271d1615cef350298e090bace1
+  concatTeardown ::
+    Control.Teardown.Internal.Core.Description
+    -> [Control.Teardown.Internal.Core.Teardown]
+    -> GHC.Types.IO Control.Teardown.Internal.Core.Teardown
+  {- Arity: 3, Strictness: <L,U(U,U,U)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.concatTeardown1
+                  `cast`
+                (<Control.Teardown.Internal.Core.Description>_R
+                 ->_R <[Control.Teardown.Internal.Core.Teardown]>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Control.Teardown.Internal.Core.Teardown>_R)) -}
+691b8c50225e51c29ba1d60cb3bf316c
+  concatTeardown1 ::
+    Control.Teardown.Internal.Core.Description
+    -> [Control.Teardown.Internal.Core.Teardown]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Control.Teardown.Internal.Core.Teardown #)
+  {- Arity: 3, Strictness: <L,U(U,U,U)><L,U><S,U>,
+     Unfolding: (\ (desc :: Control.Teardown.Internal.Core.Description)
+                   (disposables :: [Control.Teardown.Internal.Core.Teardown])
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s,
+                    (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case Control.Teardown.Internal.Core.concatTeardown3
+                            disposables
+                            s1 of ds1 { (#,#) ipv ipv1 ->
+                     (# ipv,
+                        case desc of dt { Data.Text.Internal.Text ipv2 ipv3 ipv4 ->
+                        case (Control.Teardown.Internal.Core.concatTeardown_go1
+                                ipv1
+                                Control.Teardown.Internal.Core.concatTeardown2
+                                  `cast`
+                                (Trans
+                                     (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                                     (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0]))))
+                               `cast`
+                             (Trans
+                                  (Data.Time.Clock.UTC.N:NominalDiffTime[0])
+                                  (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P)) of nt { DEFAULT ->
+                        case (Control.Teardown.Internal.Core.concatTeardown_go ipv1)
+                               `cast`
+                             (Data.Monoid.N:Any[0]) of dt1 { DEFAULT ->
+                        case ipv1 of dt2 { DEFAULT ->
+                        Control.Teardown.Internal.Core.BranchResult
+                          dt
+                          nt
+                            `cast`
+                          (Trans
+                               (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                               (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0])))
+                          dt1
+                          dt2 } } } } #) })
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Types.N:IO[0]
+                                   <Control.Teardown.Internal.Core.TeardownResult>_R))
+                         (Sym (Control.Teardown.Internal.Core.N:Teardown[0]))) #)) -}
+7ca648db72fd00558fd0442124ba0353
+  concatTeardown2 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+e693fd4a62d28b519a86868a70dd0468
+  concatTeardown3 ::
+    [Control.Teardown.Internal.Core.Teardown]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [Control.Teardown.Internal.Core.TeardownResult] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U> -}
+0631381f6b16330b95402420b198eaeb
+  concatTeardown_go ::
+    [Control.Teardown.Internal.Core.TeardownResult] -> Data.Monoid.Any
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+c34e68d84960f6cea891ccb5d03d702e
+  concatTeardown_go1 ::
+    [Control.Teardown.Internal.Core.TeardownResult]
+    -> Data.Time.Clock.UTC.NominalDiffTime
+    -> Data.Time.Clock.UTC.NominalDiffTime
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+05168d93916a519925a3bed249ae3f6b
+  didTeardownFail ::
+    Control.Teardown.Internal.Core.TeardownResult -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (result :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case result of wild {
+                   Control.Teardown.Internal.Core.BranchResult ds ds1 ds2 ds3 -> ds2
+                   Control.Teardown.Internal.Core.LeafResult ds ds1 ds2
+                   -> case ds2 of wild1 {
+                        GHC.Base.Nothing -> GHC.Types.False
+                        GHC.Base.Just ipv -> GHC.Types.True }
+                   Control.Teardown.Internal.Core.EmptyResult ds
+                   -> GHC.Types.False }) -}
+3fe692189f7c7d313012aadc5a77770b
+  emptyTeardown ::
+    Control.Teardown.Internal.Core.Description
+    -> GHC.Types.IO Control.Teardown.Internal.Core.Teardown
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.emptyTeardown1
+                  `cast`
+                (<Control.Teardown.Internal.Core.Description>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Control.Teardown.Internal.Core.Teardown>_R)) -}
+880020dcd8db8b73179e23a8b4e8ecf5
+  emptyTeardown1 ::
+    Control.Teardown.Internal.Core.Description
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Control.Teardown.Internal.Core.Teardown #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (desc :: Control.Teardown.Internal.Core.Description)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# s,
+                    (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     (# s1, Control.Teardown.Internal.Core.$WEmptyResult desc #))
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Types.N:IO[0]
+                                   <Control.Teardown.Internal.Core.TeardownResult>_R))
+                         (Sym (Control.Teardown.Internal.Core.N:Teardown[0]))) #)) -}
+b41ae3cdb12ef3cd8253be5d18f4fcf9
+  emptyTeardownResult ::
+    Control.Teardown.Internal.Core.Description
+    -> Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,U>m3,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.$WEmptyResult -}
+1cc809daa3e66e4563fe3e02a4c04c85
+  failedToredownCount ::
+    Control.Teardown.Internal.Core.TeardownResult -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (Control.Teardown.Internal.Core.foldTeardownResult
+                   @ GHC.Types.Int
+                   Control.Teardown.Internal.Core.failedToredownCount3
+                   Control.Teardown.Internal.Core.failedToredownCount2
+                   Control.Teardown.Internal.Core.failedToredownCount1) -}
+1e2596a965fe3b2048bc9fee5022d734
+  failedToredownCount1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+e163e9de00d4445d05a55818bb33a210
+  failedToredownCount2 ::
+    [GHC.Types.Int]
+    -> Control.Teardown.Internal.Core.Description -> GHC.Types.Int
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [GHC.Types.Int])
+                   (w1 :: Control.Teardown.Internal.Core.Description) ->
+                 case Control.Teardown.Internal.Core.$wgo w 0# of ww { DEFAULT ->
+                 GHC.Types.I# ww }) -}
+6179f53c7e2b18894dc6599b982dd154
+  failedToredownCount3 ::
+    GHC.Types.Int
+    -> Control.Teardown.Internal.Core.Description
+    -> GHC.Base.Maybe GHC.Exception.SomeException
+    -> GHC.Types.Int
+  {- Arity: 3, HasNoCafRefs, Strictness: <S(S),1*U(U)><L,A><S,1*U>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ (acc :: GHC.Types.Int)
+                   (ds :: Control.Teardown.Internal.Core.Description)
+                   (mErr :: GHC.Base.Maybe GHC.Exception.SomeException) ->
+                 case acc of wild { GHC.Types.I# x ->
+                 case mErr of wild1 {
+                   GHC.Base.Nothing -> GHC.Types.I# x
+                   GHC.Base.Just x1 -> GHC.Types.I# (GHC.Prim.+# x 1#) } }) -}
+d3d3ad6a773cffca8a00089bee5d09ce
+  foldTeardownResult ::
+    (acc
+     -> Control.Teardown.Internal.Core.Description
+     -> GHC.Base.Maybe GHC.Exception.SomeException
+     -> acc)
+    -> ([acc] -> Control.Teardown.Internal.Core.Description -> acc)
+    -> acc
+    -> Control.Teardown.Internal.Core.TeardownResult
+    -> acc
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,C(C1(C1(U)))><L,C(C1(U))><L,U><S,1*U> -}
+da3f6111a1def6b0709e732e03a9d545
+  newTeardown ::
+    Control.Teardown.Internal.Core.Description
+    -> GHC.Types.IO ()
+    -> GHC.Types.IO Control.Teardown.Internal.Core.Teardown
+  {- Arity: 3, Strictness: <L,U(U,U,U)><L,C(U(U,U))><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.newTeardown1
+                  `cast`
+                (<Control.Teardown.Internal.Core.Description>_R
+                 ->_R <GHC.Types.IO ()>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Control.Teardown.Internal.Core.Teardown>_R)) -}
+3840b1fb019fc6b7d98b6e7cfc1bb7b2
+  newTeardown1 ::
+    Control.Teardown.Internal.Core.Description
+    -> GHC.Types.IO ()
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Control.Teardown.Internal.Core.Teardown #)
+  {- Arity: 3, Strictness: <L,U(U,U,U)><L,C(U(U,U))><S,U>,
+     Unfolding: (\ (desc :: Control.Teardown.Internal.Core.Description)
+                   (disposingAction :: GHC.Types.IO ())
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newMutVar#
+                        @ GHC.Types.Bool
+                        @ GHC.Prim.RealWorld
+                        GHC.Types.False
+                        eta of ds { (#,#) ipv ipv1 ->
+                 case GHC.Prim.newMutVar#
+                        @ (GHC.Base.Maybe Control.Teardown.Internal.Core.TeardownResult)
+                        @ GHC.Prim.RealWorld
+                        (GHC.Base.Nothing @ Control.Teardown.Internal.Core.TeardownResult)
+                        ipv of ds1 { (#,#) ipv2 ipv3 ->
+                 (# ipv2,
+                    (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case GHC.Prim.atomicModifyMutVar#
+                            @ GHC.Prim.RealWorld
+                            @ GHC.Types.Bool
+                            @ (GHC.Types.Bool, GHC.Types.Bool)
+                            @ GHC.Types.Bool
+                            ipv1
+                            Control.Teardown.Internal.Core.newTeardown3
+                            s of ds2 { (#,#) ipv4 ipv5 ->
+                     case ipv5 of wild {
+                       GHC.Types.False
+                       -> case GHC.Prim.readMutVar#
+                                 @ GHC.Prim.RealWorld
+                                 @ (GHC.Base.Maybe Control.Teardown.Internal.Core.TeardownResult)
+                                 ipv3
+                                 ipv4 of ds3 { (#,#) ipv6 ipv7 ->
+                          (# ipv6,
+                             case ipv7 of wild1 {
+                               GHC.Base.Nothing
+                               -> case desc of dt { Data.Text.Internal.Text ipv8 ipv9 ipv10 ->
+                                  Control.Teardown.Internal.Core.EmptyResult dt }
+                               GHC.Base.Just v -> v } #) }
+                       GHC.Types.True
+                       -> case Data.Time.Clock.CTimeval.getCTimeval1
+                                 ipv4 of ds3 { (#,#) ipv6 ipv7 ->
+                          case GHC.Prim.catch#
+                                 @ (Data.Either.Either GHC.Exception.SomeException ())
+                                 @ GHC.Exception.SomeException
+                                 (GHC.Magic.lazy
+                                    @ (GHC.Types.IO
+                                         (Data.Either.Either GHC.Exception.SomeException ()))
+                                    (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                                     case disposingAction `cast` (GHC.Types.N:IO[0] <()>_R)
+                                            s1 of ds4 { (#,#) ipv8 ipv9 ->
+                                     (# ipv8,
+                                        Data.Either.Right
+                                          @ GHC.Exception.SomeException
+                                          @ ()
+                                          ipv9 #) })
+                                      `cast`
+                                    (Sym (GHC.Types.N:IO[0]
+                                              <Data.Either.Either
+                                                 GHC.Exception.SomeException ()>_R)))
+                                   `cast`
+                                 (GHC.Types.N:IO[0]
+                                      <Data.Either.Either GHC.Exception.SomeException ()>_R)
+                                 Control.Teardown.Internal.Core.newTeardown2
+                                 ipv6 of ds4 { (#,#) ipv8 ipv9 ->
+                          case Data.Time.Clock.CTimeval.getCTimeval1
+                                 ipv8 of ds5 { (#,#) ipv10 ipv11 ->
+                          let {
+                            disposeResult :: Control.Teardown.Internal.Core.TeardownResult
+                            = case desc of dt { Data.Text.Internal.Text ipv12 ipv13 ipv14 ->
+                              case Data.Time.Clock.POSIX.$wposixSecondsToUTCTime
+                                     (Data.Time.Clock.POSIX.getCurrentTime2
+                                        ipv11) of ww { (#,#) ww1 ww2 ->
+                              case Data.Time.Clock.POSIX.$wposixSecondsToUTCTime
+                                     (Data.Time.Clock.POSIX.getCurrentTime2
+                                        ipv7) of ww4 { (#,#) ww5 ww6 ->
+                              case GHC.Integer.Type.minusInteger
+                                     (Data.Time.Clock.POSIX.$wutcTimeToPOSIXSeconds ww1 ww2)
+                                       `cast`
+                                     (Trans
+                                          (Data.Time.Clock.UTC.N:NominalDiffTime[0])
+                                          (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                                     (Data.Time.Clock.POSIX.$wutcTimeToPOSIXSeconds ww5 ww6)
+                                       `cast`
+                                     (Trans
+                                          (Data.Time.Clock.UTC.N:NominalDiffTime[0])
+                                          (Data.Fixed.N:Fixed[0]
+                                               <Data.Fixed.E12>_P)) of nt { DEFAULT ->
+                              case case ipv9 of wild1 {
+                                     Data.Either.Left x
+                                     -> GHC.Base.Just @ GHC.Exception.SomeException x
+                                     Data.Either.Right y
+                                     -> GHC.Base.Nothing
+                                          @ GHC.Exception.SomeException } of dt1 { DEFAULT ->
+                              Control.Teardown.Internal.Core.LeafResult
+                                dt
+                                nt
+                                  `cast`
+                                (Trans
+                                     (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                                     (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0])))
+                                dt1 } } } } }
+                          } in
+                          case GHC.Prim.writeMutVar#
+                                 @ GHC.Prim.RealWorld
+                                 @ (GHC.Base.Maybe Control.Teardown.Internal.Core.TeardownResult)
+                                 ipv3
+                                 (GHC.Base.Just
+                                    @ Control.Teardown.Internal.Core.TeardownResult
+                                    disposeResult)
+                                 ipv10 of s2# { DEFAULT ->
+                          (# s2#, disposeResult #) } } } } } })
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Types.N:IO[0]
+                                   <Control.Teardown.Internal.Core.TeardownResult>_R))
+                         (Sym (Control.Teardown.Internal.Core.N:Teardown[0]))) #) } }) -}
+e270d3983aeb34b67b982b50f93132ba
+  newTeardown2 ::
+    GHC.Exception.SomeException
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.Either.Either GHC.Exception.SomeException () #)
+  {- Arity: 2, HasNoCafRefs,
+     Unfolding: (\ (e1 :: GHC.Exception.SomeException)[OneShot]
+                   (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# eta1,
+                    Data.Either.Left @ GHC.Exception.SomeException @ () e1 #)) -}
+fe03aeda39e1549aca33850fbc8f31ae
+  newTeardown3 :: GHC.Types.Bool -> (GHC.Types.Bool, GHC.Types.Bool)
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (toredown :: GHC.Types.Bool) ->
+                 case toredown of wild {
+                   GHC.Types.False -> Control.Teardown.Internal.Core.newTeardown5
+                   GHC.Types.True -> Control.Teardown.Internal.Core.newTeardown4 }) -}
+88a6b6151adb62f9ec70e839644896bb
+  newTeardown4 :: (GHC.Types.Bool, GHC.Types.Bool)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((GHC.Types.True, GHC.Types.False)) -}
+6041bd5b22c833de7c2449dc4b318d0a
+  newTeardown5 :: (GHC.Types.Bool, GHC.Types.Bool)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((GHC.Types.True, GHC.Types.True)) -}
+3fc173cda6c9d0de19046606eaeee3e9
+  resultDescription ::
+    Control.Teardown.Internal.Core.TeardownResult
+    -> Control.Teardown.Internal.Core.Description
+  RecSel Left Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case ds of wild {
+                   Control.Teardown.Internal.Core.BranchResult ds1 ds2 ds3 ds4 -> ds1
+                   Control.Teardown.Internal.Core.LeafResult ds1 ds2 ds3 -> ds1
+                   Control.Teardown.Internal.Core.EmptyResult ds1 -> ds1 }) -}
+4202c062a2cd47d21f201c16c2f06896
+  resultDidFail ::
+    Control.Teardown.Internal.Core.TeardownResult -> GHC.Types.Bool
+  RecSel Left Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case ds of wild {
+                   DEFAULT -> Control.Teardown.Internal.Core.resultDidFail1
+                   Control.Teardown.Internal.Core.BranchResult ds1 ds2 ds3 ds4
+                   -> ds3 }) -}
+872066bdd58e0406d1361618b253062f
+  resultDidFail1 :: GHC.Types.Bool
+  {- Strictness: x -}
+31e32335049f910cb75f819b231d435d
+  resultElapsedTime ::
+    Control.Teardown.Internal.Core.TeardownResult
+    -> Data.Time.Clock.UTC.NominalDiffTime
+  RecSel Left Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case ds of wild {
+                   Control.Teardown.Internal.Core.BranchResult ds1 ds2 ds3 ds4 -> ds2
+                   Control.Teardown.Internal.Core.LeafResult ds1 ds2 ds3 -> ds2
+                   Control.Teardown.Internal.Core.EmptyResult ipv
+                   -> Control.Teardown.Internal.Core.resultElapsedTime1 }) -}
+fdbdb81a66b287ddd21471139d698619
+  resultElapsedTime1 :: Data.Time.Clock.UTC.NominalDiffTime
+  {- Strictness: x -}
+026d455e8ee99a56adff61d19c6e1778
+  resultError ::
+    Control.Teardown.Internal.Core.TeardownResult
+    -> GHC.Base.Maybe GHC.Exception.SomeException
+  RecSel Left Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case ds of wild {
+                   DEFAULT -> Control.Teardown.Internal.Core.resultError1
+                   Control.Teardown.Internal.Core.LeafResult ds1 ds2 ds3 -> ds3 }) -}
+2469152a01b1e5472472e0ae58b7b156
+  resultError1 :: GHC.Base.Maybe GHC.Exception.SomeException
+  {- Strictness: x -}
+a5dc5217b71517acb3928cce06f909a8
+  resultListing ::
+    Control.Teardown.Internal.Core.TeardownResult
+    -> [Control.Teardown.Internal.Core.TeardownResult]
+  RecSel Left Control.Teardown.Internal.Core.TeardownResult
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Control.Teardown.Internal.Core.TeardownResult) ->
+                 case ds of wild {
+                   DEFAULT -> Control.Teardown.Internal.Core.resultListing1
+                   Control.Teardown.Internal.Core.BranchResult ds1 ds2 ds3 ds4
+                   -> ds4 }) -}
+d87b4e9ee61111f4791549e51e928a8c
+  resultListing1 :: [Control.Teardown.Internal.Core.TeardownResult]
+  {- Strictness: x -}
+22be378ad60c49cf793c00fd8b950d18
+  toredownCount ::
+    Control.Teardown.Internal.Core.TeardownResult -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (Control.Teardown.Internal.Core.foldTeardownResult
+                   @ GHC.Types.Int
+                   Control.Teardown.Internal.Core.toredownCount2
+                   Control.Teardown.Internal.Core.toredownCount1
+                   Control.Teardown.Internal.Core.failedToredownCount1) -}
+e64733c11be10af78911df335b731c4d
+  toredownCount1 ::
+    [GHC.Types.Int]
+    -> Control.Teardown.Internal.Core.Description -> GHC.Types.Int
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,A>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [GHC.Types.Int])
+                   (w1 :: Control.Teardown.Internal.Core.Description) ->
+                 case Control.Teardown.Internal.Core.$wgo1 w 0# of ww { DEFAULT ->
+                 GHC.Types.I# ww }) -}
+0455ed6b2f2c8c5879fbf8b0c35e1ab3
+  toredownCount2 ::
+    GHC.Types.Int
+    -> Control.Teardown.Internal.Core.Description
+    -> GHC.Base.Maybe GHC.Exception.SomeException
+    -> GHC.Types.Int
+  {- Arity: 3, HasNoCafRefs, Strictness: <S(S),1*U(U)><L,A><L,A>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ (acc :: GHC.Types.Int)
+                   (ds :: Control.Teardown.Internal.Core.Description)
+                   (ds1 :: GHC.Base.Maybe GHC.Exception.SomeException) ->
+                 case acc of wild { GHC.Types.I# x ->
+                 GHC.Types.I# (GHC.Prim.+# x 1#) }) -}
+f954d808ec59f5d00cb553d279b18f21
+  trackExecutionTime ::
+    GHC.Types.IO a
+    -> GHC.Types.IO (Data.Time.Clock.UTC.NominalDiffTime, a)
+  {- Arity: 2, Strictness: <L,1*C1(U(U,U))><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Control.Teardown.Internal.Core.trackExecutionTime1
+                  `cast`
+                (forall (a :: <*>_N).
+                 <GHC.Types.IO a>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <(Data.Time.Clock.UTC.NominalDiffTime, a)>_R)) -}
+c579c37f0c64ac58f5937dc0d832fab1
+  trackExecutionTime1 ::
+    GHC.Types.IO a
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (Data.Time.Clock.UTC.NominalDiffTime, a) #)
+  {- Arity: 2, Strictness: <L,1*C1(U(U,U))><S,U>,
+     Unfolding: (\ @ a
+                   (routine :: GHC.Types.IO a)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Data.Time.Clock.CTimeval.getCTimeval1
+                        eta of ds { (#,#) ipv ipv1 ->
+                 case routine `cast` (GHC.Types.N:IO[0] <a>_R)
+                        ipv of ds1 { (#,#) ipv2 ipv3 ->
+                 case Data.Time.Clock.CTimeval.getCTimeval1
+                        ipv2 of ds2 { (#,#) ipv4 ipv5 ->
+                 (# ipv4,
+                    (case Data.Time.Clock.POSIX.$wposixSecondsToUTCTime
+                            (Data.Time.Clock.POSIX.getCurrentTime2
+                               ipv5) of ww { (#,#) ww1 ww2 ->
+                     case Data.Time.Clock.POSIX.$wposixSecondsToUTCTime
+                            (Data.Time.Clock.POSIX.getCurrentTime2
+                               ipv1) of ww4 { (#,#) ww5 ww6 ->
+                     (Data.Time.Clock.UTCDiff.$wdiffUTCTime ww1 ww2 ww5 ww6)
+                       `cast`
+                     (Trans
+                          (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                          (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0]))) } },
+                     ipv3) #) } } }) -}
+instance [safe] GHC.Generics.Generic [Control.Teardown.Internal.Core.Teardown]
+  = Control.Teardown.Internal.Core.$fGenericTeardown
+instance [safe] GHC.Generics.Generic [Control.Teardown.Internal.Core.TeardownResult]
+  = Control.Teardown.Internal.Core.$fGenericTeardownResult
+instance [safe] Control.Teardown.Internal.Core.ITeardown [Control.Teardown.Internal.Core.Teardown]
+  = Control.Teardown.Internal.Core.$fITeardownTeardown
+instance [safe] GHC.Show.Show [Control.Teardown.Internal.Core.TeardownResult]
+  = Control.Teardown.Internal.Core.$fShowTeardownResult
+family instance GHC.Generics.Rep [Control.Teardown.Internal.Core.Teardown]
+  = Control.Teardown.Internal.Core.Rep_Teardown
+family instance GHC.Generics.Rep [Control.Teardown.Internal.Core.TeardownResult]
+  = Control.Teardown.Internal.Core.Rep_TeardownResult
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

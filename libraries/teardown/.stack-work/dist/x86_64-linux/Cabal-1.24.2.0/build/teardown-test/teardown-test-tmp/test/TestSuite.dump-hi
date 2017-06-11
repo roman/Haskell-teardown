@@ -1,0 +1,833 @@
+
+==================== FINAL INTERFACE ====================
+2017-06-11 09:04:46.88645 UTC
+
+interface main@main:Main 8002
+  interface hash: 638375b42704c8a91e8396adb7f2e622
+  ABI hash: d701512c160d45838e26418db80b2674
+  export-list hash: 696f66d0a00deb72451bf98101400470
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: a23eab9356c478e63a749d9590b7f591
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+  Main.tests
+module dependencies:
+package dependencies: ansi-terminal-0.6.3.1@ansi-terminal-0.6.3.1-3RTqikoQf47ajVD9m8zgB
+                      ansi-wl-pprint-0.6.7.3@ansi-wl-pprint-0.6.7.3-A79v826bgPr574HtaZPPqC
+                      array-0.5.1.1@array-0.5.1.1
+                      async-2.1.1.1@async-2.1.1.1-8yywY4inVGRLJSCg60gBXj base-4.9.1.0
+                      base-orphans-0.5.4@base-orphans-0.5.4-ABoxiBf7nXc7Qqh66CgYc9
+                      bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      clock-0.7.2@clock-0.7.2-8dRNleB7rysIZAOReuhpZA
+                      comonad-5.0.1@comonad-5.0.1-7j4AeOMTFovFSFO9XMFm1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0
+                      distributive-0.5.2@distributive-0.5.2-JCgfTXNR3ywAyV7fFWIBI5
+                      fingertree-0.1.1.0@fingertree-0.1.1.0-Aiaf912zjZGHvH3XyjxrYA
+                      ghc-prim-0.5.0.0
+                      hashable-1.2.6.0@hashable-1.2.6.0-3EXxoqeEgbfAKr6aGkye6x
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      optparse-applicative-0.13.2.0@optparse-applicative-0.13.2.0-EqIYOWOFTvf23sT5QTYn9U
+                      parsec-3.1.11@parsec-3.1.11-113irVHGgd88sRnywByDNw
+                      process-1.4.3.0@process-1.4.3.0
+                      protolude-0.1.10@protolude-0.1.10-6KZ4RB9zWepBfYwAkgb4xb
+                      reducers-3.12.1@reducers-3.12.1-4h6ev9dN3r87SUrJwS90mC
+                      regex-base-0.93.2@regex-base-0.93.2-AYjYAsBidAc8f5XNm9b2Aa
+                      regex-tdfa-1.2.2@regex-tdfa-1.2.2-1CtrRJehZW1FAGt405eZD
+                      safe-0.3.14@safe-0.3.14-GsbXn9D9F3BDazVNcErzdQ
+                      semigroupoids-5.1@semigroupoids-5.1-G6hp8hbTJmG326ffvAeaw8
+                      split-0.2.3.2@split-0.2.3.2-CJl40zTyCIV16Pr60nb7CT
+                      stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
+                      tagged-0.8.5@tagged-0.8.5-1mTloBSoUxv8dqUr8XBGBt
+                      tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy
+                      tasty-hunit-0.9.2@tasty-hunit-0.9.2-3BqpyUux1Tp8QyumcWfffc
+                      tasty-rerun-1.1.6@tasty-rerun-1.1.6-IiGAuNDG5un9PFITgpiTyi
+                      teardown-0.0.0.1@teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj
+                      text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR
+                      time-1.6.0.1@time-1.6.0.1 transformers-0.5.2.0@transformers-0.5.2.0
+                      transformers-compat-0.5.1.4@transformers-compat-0.5.1.4-IuFogs8HAVUJBWVNMhtssu
+                      unbounded-delays-0.1.1.0@unbounded-delays-0.1.1.0-8pvOsE97fmS7WDAN5vUbqX
+                      unix-2.7.2.1@unix-2.7.2.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         hashable-1.2.6.0@hashable-1.2.6.0-3EXxoqeEgbfAKr6aGkye6x:Data.Hashable.Generic
+         reducers-3.12.1@reducers-3.12.1-4h6ev9dN3r87SUrJwS90mC:Data.Semigroup.Instances
+         regex-base-0.93.2@regex-base-0.93.2-AYjYAsBidAc8f5XNm9b2Aa:Text.Regex.Base.Context
+         regex-tdfa-1.2.2@regex-tdfa-1.2.2-1CtrRJehZW1FAGt405eZD:Text.Regex.TDFA.ByteString
+         regex-tdfa-1.2.2@regex-tdfa-1.2.2-1CtrRJehZW1FAGt405eZD:Text.Regex.TDFA.ByteString.Lazy
+         regex-tdfa-1.2.2@regex-tdfa-1.2.2-1CtrRJehZW1FAGt405eZD:Text.Regex.TDFA.Sequence
+         regex-tdfa-1.2.2@regex-tdfa-1.2.2-1CtrRJehZW1FAGt405eZD:Text.Regex.TDFA.String
+         stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve:Control.Monad.STM
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Compose base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.Functor.Product base-4.9.1.0:Data.Functor.Sum
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Biff
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Clown
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Flip
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Join
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Joker
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Product
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Tannen
+                         bifunctors-5.4.2@bifunctors-5.4.2-wt6HPG9UFgCjbd0zbVYNT:Data.Bifunctor.Wrapped
+                         clock-0.7.2@clock-0.7.2-8dRNleB7rysIZAOReuhpZA:System.Clock
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         tagged-0.8.5@tagged-0.8.5-1mTloBSoUxv8dqUr8XBGBt:Data.Tagged
+                         tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy:Test.Tasty.Core
+                         teardown-0.0.0.1@teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj:Control.Teardown.Internal.Core
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text
+                         text-1.2.2.1@text-1.2.2.1-Ji7hMs2U4BkBwavd4taEVR:Data.Text.Lazy
+import  -/  async-2.1.1.1@async-2.1.1.1-8yywY4inVGRLJSCg60gBXj:Control.Concurrent.Async ea0392541014747b7209d5d4a7804b6a
+import  -/  base-4.9.1.0:Control.Monad a6784c5dab0d75c63dabec5a37843f98
+import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
+import  -/  base-4.9.1.0:Data.Functor 5ab1dc703df5b482e77efb697833ca3c
+import  -/  base-4.9.1.0:Data.IORef 71c87b0b25a8bca3e3f4497725f5e543
+import  -/  base-4.9.1.0:Data.Semigroup fc55c71ff629dcbd821309c310055959
+import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Enum 3811281f7b5f26da514529cf3ed44009
+import  -/  base-4.9.1.0:GHC.IORef 306bd532f2f3b000347cbe6316adc20e
+import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+import  -/  protolude-0.1.10@protolude-0.1.10-6KZ4RB9zWepBfYwAkgb4xb:Panic 242fdf711a0e3c35634391b0b27dade9
+import  -/  protolude-0.1.10@protolude-0.1.10-6KZ4RB9zWepBfYwAkgb4xb:Protolude 1929b0698105a8ab90ed86f9f058e9f1
+import  -/  tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy:Test.Tasty 18e86e71d97d3f7dcecdb17e308ffb9c
+import  -/  tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy:Test.Tasty.CmdLine bc32ff1552a850d23de55280ebde25fb
+import  -/  tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy:Test.Tasty.Core a9d8226f7d49897df6a0b6665085bd02
+import  -/  tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy:Test.Tasty.Ingredients.ConsoleReporter 680ac162133a5c9d362d46bc00fed87a
+import  -/  tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy:Test.Tasty.Ingredients.ListTests 2b8ae5ce130293514b7aa9c804425634
+import  -/  tasty-0.11.2.1@tasty-0.11.2.1-E6ctdoaBcRX9N5BKJOnRQy:Test.Tasty.Runners 5dd66bcf4ebb4fd433525cc55eb98150
+import  -/  tasty-hunit-0.9.2@tasty-hunit-0.9.2-3BqpyUux1Tp8QyumcWfffc:Test.Tasty.HUnit 554863f18749bb221fd5a52317275e01
+import  -/  tasty-hunit-0.9.2@tasty-hunit-0.9.2-3BqpyUux1Tp8QyumcWfffc:Test.Tasty.HUnit.Orig b497ee672a79c4d9fcd9feb5982b95aa
+import  -/  tasty-rerun-1.1.6@tasty-rerun-1.1.6-IiGAuNDG5un9PFITgpiTyi:Test.Tasty.Ingredients.Rerun 83fc33c07747c8ccfa8d176138b58c95
+import  -/  teardown-0.0.0.1@teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj:Control.Teardown 31d80730a28c91ce849bfaf9989c35c7
+import  -/  teardown-0.0.0.1@teardown-0.0.0.1-3h3lC7shHE4Glm6EQPV0Nj:Control.Teardown.Internal.Core dd10da565fb54b7758e50474b89b2a86
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+2f1b39623048de1972046e2e31edfc71
+  $wloop ::
+    GHC.Prim.Int#
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [Control.Teardown.Internal.Core.Teardown] #)
+  {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+d9327dd484c3207962845e87b1dc24e2
+  $wloop1 ::
+    GHC.Prim.Int#
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [Control.Teardown.Internal.Core.Teardown] #)
+  {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+abf0b0618ccc945348a9291545537e2a
+  $wloop2 ::
+    GHC.Prim.Int#
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [Control.Teardown.Internal.Core.Teardown] #)
+  {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+03ef265735df38ffc67ddd413b20c317
+  $wloop3 ::
+    GHC.Prim.Int#
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [GHC.IORef.IORef GHC.Types.Int] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U>, Inline: [0] -}
+e0d9b9d6b8555398ef4e2f64023e471c
+  $wxs :: GHC.Prim.Int# -> [GHC.Types.Int]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+4ee33cafc1ac1174741e94f6fd0eef5a
+  main :: GHC.Types.IO ()
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+677df6a7cce957b3dbdbf1e842ab7a90
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (Test.Tasty.CmdLine.defaultMainWithIngredients1
+                   Main.main2
+                   Main.tests) -}
+a2ab96c0070485b585244eb95ed12cc3
+  main2 :: [Test.Tasty.Ingredients.Ingredient]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Ingredients.Ingredient
+                   Main.main3
+                   (GHC.Types.[] @ Test.Tasty.Ingredients.Ingredient)) -}
+75655af5571129beb2df349b47feeb66
+  main3 :: Test.Tasty.Ingredients.Ingredient
+  {- Unfolding: (case Test.Tasty.Ingredients.Rerun.$wrerunningTests
+                        Main.main4 of ww { (#,#) ww1 ww2 ->
+                 Test.Tasty.Ingredients.TestManager ww1 ww2 }) -}
+d68f37aebb8f42b35df3ef514b7e7f3c
+  main4 :: [Test.Tasty.Ingredients.Ingredient]
+  {- Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Ingredients.Ingredient
+                   Test.Tasty.Ingredients.ListTests.listingTests
+                   Main.main5) -}
+335f4a496d0725dcbbf46a5ea28d16d4
+  main5 :: [Test.Tasty.Ingredients.Ingredient]
+  {- Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Ingredients.Ingredient
+                   Test.Tasty.Ingredients.ConsoleReporter.consoleTestReporter
+                   (GHC.Types.[] @ Test.Tasty.Ingredients.Ingredient)) -}
+39b9bd8240ff2c6b1367bedd6d295ea5
+  main6 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+c56cb5db2ffd8831ca6dfd0273cc6c3a
+  tests :: Test.Tasty.Core.TestTree
+  {- Strictness: m2,
+     Unfolding: (Test.Tasty.Core.TestGroup Main.tests44 Main.tests1) -}
+fc38323bf70a8a03de20e6a6c442af7b
+  tests1 :: [Test.Tasty.Core.TestTree]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Core.TestTree
+                   Main.tests40
+                   Main.tests2) -}
+11103c687b253e57d72eb59e50503020
+  tests10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "failed teardown action must be correct"#) -}
+0b8aa8674467f1954487a3f13570be09
+  tests11 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 10#) -}
+acb4496486cfaccc00c2fba09ce1c816
+  tests12 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "teardown action count must be correct"#) -}
+82332aa96b24e9d6d5b1bd70332ff660
+  tests13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "concatenated failed teardown actions return correct count"#) -}
+7def62338c146231d7689102c3b7fbd9
+  tests14 :: Test.Tasty.Core.TestTree
+  {- Unfolding: (Test.Tasty.Core.SingleTest
+                   @ Test.Tasty.HUnit.TestCase
+                   Test.Tasty.HUnit.$fIsTestTestCase
+                   Main.tests17
+                   Main.tests15
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R))
+                        (Sym (Test.Tasty.HUnit.N:TestCase[0])))) -}
+b7ce4798e8fc34cf134ddf3560adc10b
+  tests15 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta1 :: GHC.Prim.State#
+                              GHC.Prim.RealWorld)[OneShot] ->
+                 case Main.$wloop2 10# eta1 of ds1 { (#,#) ipv ipv1 ->
+                 let {
+                   ipv2 :: GHC.Prim.State# GHC.Prim.RealWorld
+                           -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                 Control.Teardown.Internal.Core.TeardownResult #)
+                     {- Arity: 1, Strictness: <S,U> -}
+                   = \ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case Control.Teardown.Internal.Core.concatTeardown3
+                            ipv1
+                            s1 of ds2 { (#,#) ipv3 ipv4 ->
+                     (# ipv3,
+                        case Data.Text.Show.unpackCString#
+                               "bigger system"# of dt { Data.Text.Internal.Text ipv5 ipv6 ipv7 ->
+                        case (Control.Teardown.Internal.Core.concatTeardown_go1
+                                ipv4
+                                Control.Teardown.Internal.Core.concatTeardown2
+                                  `cast`
+                                (Trans
+                                     (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                                     (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0]))))
+                               `cast`
+                             (Trans
+                                  (Data.Time.Clock.UTC.N:NominalDiffTime[0])
+                                  (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P)) of nt { DEFAULT ->
+                        case (Control.Teardown.Internal.Core.concatTeardown_go ipv4)
+                               `cast`
+                             (Data.Monoid.N:Any[0]) of dt1 { DEFAULT ->
+                        case ipv4 of dt2 { DEFAULT ->
+                        Control.Teardown.Internal.Core.BranchResult
+                          dt
+                          nt
+                            `cast`
+                          (Trans
+                               (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                               (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0])))
+                          dt1
+                          dt2 } } } } #) }
+                 } in
+                 case ipv2 ipv of ds2 { (#,#) ipv3 ipv4 ->
+                 letrec {
+                   $wloop4 :: GHC.Prim.Int#
+                              -> GHC.Prim.State# GHC.Prim.RealWorld
+                              -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                     {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+                   = \ (ww1 :: GHC.Prim.Int#)
+                       (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.<=# ww1 0#) of wild {
+                       GHC.Types.False
+                       -> case ipv2 w2 of ds3 { (#,#) ipv5 ipv6 ->
+                          $wloop4 (GHC.Prim.-# ww1 1#) ipv5 }
+                       GHC.Types.True -> (# w2, GHC.Tuple.() #) }
+                 } in
+                 case $wloop4 9# ipv3 of ds3 { (#,#) ipv5 ipv6 ->
+                 case Test.Tasty.HUnit.Orig.@=?2
+                        @ GHC.Types.Int
+                        GHC.Classes.$fEqInt
+                        GHC.Show.$fShowInt
+                        Main.tests16
+                        Main.tests11
+                        (Control.Teardown.Internal.Core.foldTeardownResult
+                           @ GHC.Types.Int
+                           Control.Teardown.Internal.Core.toredownCount2
+                           Control.Teardown.Internal.Core.toredownCount1
+                           Control.Teardown.Internal.Core.failedToredownCount1
+                           ipv4)
+                        ipv5 of ds { (#,#) ipv7 ipv8 ->
+                 (# ipv7, GHC.Types.[] @ GHC.Types.Char #) } } } }) -}
+6f0903b8068123d89d58cab144876a8d
+  tests16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "teardown action must not be called more than once"#) -}
+d33cf79a2b4318b913017a062afd509d
+  tests17 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "concatenated teardown actions return correct count"#) -}
+defa20effce430695a07a04ff18a800b
+  tests18 :: Test.Tasty.Core.TestTree
+  {- Unfolding: (Test.Tasty.Core.SingleTest
+                   @ Test.Tasty.HUnit.TestCase
+                   Test.Tasty.HUnit.$fIsTestTestCase
+                   Main.tests23
+                   Main.tests19
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R))
+                        (Sym (Test.Tasty.HUnit.N:TestCase[0])))) -}
+29769819618d0570fbc909b284a6bfe6
+  tests19 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta1 :: GHC.Prim.State#
+                              GHC.Prim.RealWorld)[OneShot] ->
+                 case Main.$wloop3 10# eta1 of ds1 { (#,#) ipv ipv1 ->
+                 case Main.tests22 ipv1 ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 letrec {
+                   $wloop4 :: GHC.Prim.Int#
+                              -> GHC.Prim.State# GHC.Prim.RealWorld
+                              -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                     {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+                   = \ (ww1 :: GHC.Prim.Int#)
+                       (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.<=# ww1 0#) of wild {
+                       GHC.Types.False
+                       -> case Control.Teardown.Internal.Core.concatTeardown3
+                                 ipv3
+                                 w2 of ds3 { (#,#) ipv4 ipv5 ->
+                          $wloop4 (GHC.Prim.-# ww1 1#) ipv4 }
+                       GHC.Types.True -> (# w2, GHC.Tuple.() #) }
+                 } in
+                 case $wloop4 10# ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case Main.tests21 ipv1 ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                 case Test.Tasty.HUnit.Orig.@=?2
+                        @ [GHC.Types.Int]
+                        GHC.Classes.$fEq[]_$s$fEq[]
+                        GHC.Show.$fShow[]_$s$fShow[]
+                        Main.tests16
+                        Main.tests20
+                        ipv7
+                        ipv6 of ds { (#,#) ipv8 ipv9 ->
+                 (# ipv8, GHC.Types.[] @ GHC.Types.Char #) } } } } }) -}
+10cbf1f5258fafd9da6116b98f5b5082
+  tests2 :: [Test.Tasty.Core.TestTree]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Core.TestTree
+                   Main.tests32
+                   Main.tests3) -}
+71b4bcffa09dbf6e7c3aaf987c6a89f2
+  tests20 :: [GHC.Types.Int]
+  {- Unfolding: (Main.$wxs 10#) -}
+062c878919d29f413eda220c125ce629
+  tests21 ::
+    [GHC.IORef.IORef GHC.Types.Int]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Int] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U> -}
+ce30076bbca807f1e1368a2f53867811
+  tests22 ::
+    [GHC.IORef.IORef GHC.Types.Int]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [Control.Teardown.Internal.Core.Teardown] #)
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+89fdd97aa637e22242ef4107ca439653
+  tests23 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "concatenated teardown actions keep idempotent guarantees"#) -}
+963b77c4fa88eda2d85af18ee5bdfa6e
+  tests24 :: Test.Tasty.Core.TestTree
+  {- Unfolding: (Test.Tasty.Core.SingleTest
+                   @ Test.Tasty.HUnit.TestCase
+                   Test.Tasty.HUnit.$fIsTestTestCase
+                   Main.tests31
+                   Main.tests25
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R))
+                        (Sym (Test.Tasty.HUnit.N:TestCase[0])))) -}
+548f756d998bbede2719bf49c2d3d937
+  tests25 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta1 :: GHC.Prim.State#
+                              GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newMutVar#
+                        @ GHC.Types.Int
+                        @ GHC.Prim.RealWorld
+                        Main.tests30
+                        eta1 of ds { (#,#) ipv ipv1 ->
+                 case Control.Teardown.Internal.Core.newTeardown1
+                        Main.tests29
+                        (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                         GHC.Prim.atomicModifyMutVar#
+                           @ GHC.Prim.RealWorld
+                           @ GHC.Types.Int
+                           @ (GHC.Types.Int, ())
+                           @ ()
+                           ipv1
+                           Main.tests28
+                           eta)
+                          `cast`
+                        (Sym (GHC.Types.N:IO[0] <()>_R))
+                        ipv of ds1 { (#,#) ipv2 ipv3 ->
+                 let {
+                   w2 :: GHC.Prim.State# GHC.Prim.RealWorld
+                         -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                     {- Arity: 1, Strictness: <S,U> -}
+                   = \ (w3 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     letrec {
+                       $wloop4 :: GHC.Prim.Int#
+                                  -> GHC.Prim.State# GHC.Prim.RealWorld
+                                  -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                         {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+                       = \ (ww1 :: GHC.Prim.Int#)
+                           (w4 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                         case GHC.Prim.tagToEnum#
+                                @ GHC.Types.Bool
+                                (GHC.Prim.<=# ww1 0#) of wild {
+                           GHC.Types.False
+                           -> case ipv3
+                                     `cast`
+                                   (Trans
+                                        (Control.Teardown.Internal.Core.N:Teardown[0])
+                                        (GHC.Types.N:IO[0]
+                                             <Control.Teardown.Internal.Core.TeardownResult>_R))
+                                     w4 of ds2 { (#,#) ipv4 ipv5 ->
+                              $wloop4 (GHC.Prim.-# ww1 1#) ipv4 }
+                           GHC.Types.True -> (# w4, GHC.Tuple.() #) }
+                     } in
+                     $wloop4 3# w3
+                 } in
+                 letrec {
+                   $wloop4 :: GHC.Prim.Int#
+                              -> GHC.Prim.State# GHC.Prim.RealWorld
+                              -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                    [Control.Concurrent.Async.Async ()] #)
+                     {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+                   = \ (ww1 :: GHC.Prim.Int#)
+                       (w3 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.<=# ww1 0#) of wild {
+                       GHC.Types.False
+                       -> case Control.Concurrent.Async.async1
+                                 @ ()
+                                 w2 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))
+                                 w3 of ds2 { (#,#) ipv4 ipv5 ->
+                          case $wloop4 (GHC.Prim.-# ww1 1#) ipv4 of ds3 { (#,#) ipv6 ipv7 ->
+                          (# ipv6,
+                             GHC.Types.: @ (Control.Concurrent.Async.Async ()) ipv5 ipv7 #) } }
+                       GHC.Types.True
+                       -> (# w3, GHC.Types.[] @ (Control.Concurrent.Async.Async ()) #) }
+                 } in
+                 case $wloop4 10# ipv2 of ds2 { (#,#) ipv4 ipv5 ->
+                 case Main.tests27 ipv5 ipv4 of ds3 { (#,#) ipv6 ipv7 ->
+                 case GHC.Prim.readMutVar#
+                        @ GHC.Prim.RealWorld
+                        @ GHC.Types.Int
+                        ipv1
+                        ipv6 of ds4 { (#,#) ipv8 ipv9 ->
+                 case Test.Tasty.HUnit.Orig.@=?2
+                        @ GHC.Types.Int
+                        GHC.Classes.$fEqInt
+                        GHC.Show.$fShowInt
+                        Main.tests16
+                        Main.tests26
+                        ipv9
+                        ipv8 of ds5 { (#,#) ipv10 ipv11 ->
+                 (# ipv10, GHC.Types.[] @ GHC.Types.Char #) } } } } } }) -}
+a8f38868d276014cf4762a18da3d2166
+  tests26 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 1#) -}
+e09e3267e8c49a8f4efcce583f4c0b0b
+  tests27 ::
+    [Control.Concurrent.Async.Async ()]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U> -}
+d1509f238050fa12a8137e75e6cd1489
+  tests28 :: GHC.Types.Int -> (GHC.Types.Int, ())
+  {- Arity: 1, Strictness: <L,1*U(1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a :: GHC.Types.Int) ->
+                 (GHC.Enum.$fEnumInt_$csucc a, GHC.Tuple.())) -}
+652296cad50d52592c08b698e977c8a0
+  tests29 :: Control.Teardown.Internal.Core.Description
+  {- Unfolding: (Data.Text.Show.unpackCString# "test cleanup"#) -}
+d2425b499e6918336194884fee0d55b6
+  tests3 :: [Test.Tasty.Core.TestTree]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Core.TestTree
+                   Main.tests24
+                   Main.tests4) -}
+8cb16c57413a37208be8c92fc1069044
+  tests30 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 0#) -}
+345001ad8b16faa8528222b223bd3d1a
+  tests31 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "thread safe idempotent execution of teardown action"#) -}
+b02a95691d741678b02391ede49fd037
+  tests32 :: Test.Tasty.Core.TestTree
+  {- Unfolding: (Test.Tasty.Core.SingleTest
+                   @ Test.Tasty.HUnit.TestCase
+                   Test.Tasty.HUnit.$fIsTestTestCase
+                   Main.tests39
+                   Main.tests33
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R))
+                        (Sym (Test.Tasty.HUnit.N:TestCase[0])))) -}
+c55fdcb030dad5c355cb815c1a5f2930
+  tests33 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta1 :: GHC.Prim.State#
+                              GHC.Prim.RealWorld)[OneShot] ->
+                 case Control.Teardown.Internal.Core.newTeardown1
+                        Main.tests38
+                        Main.tests37
+                        eta1 of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1
+                        `cast`
+                      (Trans
+                           (Control.Teardown.Internal.Core.N:Teardown[0])
+                           (GHC.Types.N:IO[0]
+                                <Control.Teardown.Internal.Core.TeardownResult>_R))
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case Control.Monad.$w$sreplicateM_1
+                        @ Control.Teardown.Internal.Core.TeardownResult
+                        9#
+                        ipv1 `cast` (Control.Teardown.Internal.Core.N:Teardown[0])
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case ipv3 of wild {
+                   Control.Teardown.Internal.Core.BranchResult ds ds4 ds5 ds6
+                   -> case ds5 of wild1 {
+                        GHC.Types.False
+                        -> case GHC.Prim.raiseIO#
+                                  @ GHC.Exception.SomeException
+                                  @ ()
+                                  Main.tests34
+                                  ipv4
+                           ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+                           of {}
+                        GHC.Types.True -> (# ipv4, GHC.Types.[] @ GHC.Types.Char #) }
+                   Control.Teardown.Internal.Core.LeafResult ds ds4 ds5
+                   -> case ds5 of wild1 {
+                        GHC.Base.Nothing
+                        -> case GHC.Prim.raiseIO#
+                                  @ GHC.Exception.SomeException
+                                  @ ()
+                                  Main.tests34
+                                  ipv4
+                           ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+                           of {}
+                        GHC.Base.Just ipv6 -> (# ipv4, GHC.Types.[] @ GHC.Types.Char #) }
+                   Control.Teardown.Internal.Core.EmptyResult ds
+                   -> case GHC.Prim.raiseIO#
+                             @ GHC.Exception.SomeException
+                             @ ()
+                             Main.tests34
+                             ipv4
+                      ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+                      of {} } } } }) -}
+1651683f02224ca2bb56f17c846d596a
+  tests34 :: GHC.Exception.SomeException
+  {- Unfolding: (Test.Tasty.HUnit.Orig.$fAssertableBool_$ctoException
+                   Main.tests35) -}
+678a601330127c3d4119230bec924b4b
+  tests35 :: Test.Tasty.HUnit.Orig.HUnitFailure
+  {- Unfolding: (Test.Tasty.HUnit.Orig.HUnitFailure Main.tests36) -}
+e8cd939bdd8206870682f69dc5827d9c
+  tests36 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "result should report an error"#) -}
+6ffabf8ec83d656995d2b9f7d662f17a
+  tests37 :: GHC.Types.IO ()
+  {- Strictness: x -}
+77bbb6cff99776359c7892248411d8f5
+  tests38 :: Data.Text.Internal.Text
+  {- Unfolding: (Data.Text.Show.unpackCString#
+                   "failing teardown"#) -}
+17e078bdae29ccce2d2a876951b52702
+  tests39 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "failing teardown action does not stop execution"#) -}
+6858bc1490bc1c2ba3317fef48561fe1
+  tests4 :: [Test.Tasty.Core.TestTree]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Core.TestTree
+                   Main.tests18
+                   Main.tests5) -}
+6be27243a897d9644608e9104a25f40b
+  tests40 :: Test.Tasty.Core.TestTree
+  {- Unfolding: (Test.Tasty.Core.SingleTest
+                   @ Test.Tasty.HUnit.TestCase
+                   Test.Tasty.HUnit.$fIsTestTestCase
+                   Main.tests43
+                   Main.tests41
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R))
+                        (Sym (Test.Tasty.HUnit.N:TestCase[0])))) -}
+037e89f59e5189c98ce53476ed7926c7
+  tests41 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta1 :: GHC.Prim.State#
+                              GHC.Prim.RealWorld)[OneShot] ->
+                 case GHC.Prim.newMutVar#
+                        @ GHC.Types.Int
+                        @ GHC.Prim.RealWorld
+                        Main.tests30
+                        eta1 of ds { (#,#) ipv ipv1 ->
+                 case Control.Teardown.Internal.Core.newTeardown1
+                        Main.tests29
+                        (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                         GHC.Prim.atomicModifyMutVar#
+                           @ GHC.Prim.RealWorld
+                           @ GHC.Types.Int
+                           @ (GHC.Types.Int, ())
+                           @ ()
+                           ipv1
+                           Main.tests28
+                           eta)
+                          `cast`
+                        (Sym (GHC.Types.N:IO[0] <()>_R))
+                        ipv of ds1 { (#,#) ipv2 ipv3 ->
+                 case Control.Monad.$w$sreplicateM_1
+                        @ Control.Teardown.Internal.Core.TeardownResult
+                        10#
+                        ipv3 `cast` (Control.Teardown.Internal.Core.N:Teardown[0])
+                        ipv2 of ds2 { (#,#) ipv4 ipv5 ->
+                 case GHC.Prim.readMutVar#
+                        @ GHC.Prim.RealWorld
+                        @ GHC.Types.Int
+                        ipv1
+                        ipv4 of ds3 { (#,#) ipv6 ipv7 ->
+                 case Test.Tasty.HUnit.Orig.@=?2
+                        @ GHC.Types.Int
+                        GHC.Classes.$fEqInt
+                        GHC.Show.$fShowInt
+                        Main.tests42
+                        Main.tests26
+                        ipv7
+                        ipv6 of ds4 { (#,#) ipv8 ipv9 ->
+                 (# ipv8, GHC.Types.[] @ GHC.Types.Char #) } } } } }) -}
+1a68ea7f419c49890b878430a57578dc
+  tests42 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "teardown action got called more than once"#) -}
+8289f9a85393fef7223d2a26d08ed78d
+  tests43 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "idempotent execution of teardown action"#) -}
+8c5d2b1f994e6d66c3bb9383a6b72fb2
+  tests44 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "teardown"#) -}
+9682426e2258f8aa6b5fd6d699db93ba
+  tests5 :: [Test.Tasty.Core.TestTree]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Core.TestTree
+                   Main.tests14
+                   Main.tests6) -}
+e580ce44205f848073300bae5cd64ed5
+  tests6 :: [Test.Tasty.Core.TestTree]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Test.Tasty.Core.TestTree
+                   Main.tests7
+                   (GHC.Types.[] @ Test.Tasty.Core.TestTree)) -}
+ce62d6c61213194211eaa7730bd70078
+  tests7 :: Test.Tasty.Core.TestTree
+  {- Unfolding: (Test.Tasty.Core.SingleTest
+                   @ Test.Tasty.HUnit.TestCase
+                   Test.Tasty.HUnit.$fIsTestTestCase
+                   Main.tests13
+                   Main.tests8
+                     `cast`
+                   (Trans
+                        (Sym (GHC.Types.N:IO[0] <[GHC.Types.Char]>_R))
+                        (Sym (Test.Tasty.HUnit.N:TestCase[0])))) -}
+483dd8982c0ac74f0bdfb190eac7abf1
+  tests8 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta1 :: GHC.Prim.State#
+                              GHC.Prim.RealWorld)[OneShot] ->
+                 case Main.$wloop1 5# eta1 of ds1 { (#,#) ipv ipv1 ->
+                 case Main.$wloop 5# ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 let {
+                   teardownAction :: GHC.Prim.State# GHC.Prim.RealWorld
+                                     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                           Control.Teardown.Internal.Core.TeardownResult #)
+                     {- Arity: 1, Strictness: <S,U> -}
+                   = \ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case Control.Teardown.Internal.Core.concatTeardown3
+                            (GHC.Base.++ @ Control.Teardown.Internal.Core.Teardown ipv1 ipv3)
+                            s1 of ds3 { (#,#) ipv4 ipv5 ->
+                     (# ipv4,
+                        case Data.Text.Show.unpackCString#
+                               "bigger system"# of dt { Data.Text.Internal.Text ipv6 ipv7 ipv8 ->
+                        case (Control.Teardown.Internal.Core.concatTeardown_go1
+                                ipv5
+                                Control.Teardown.Internal.Core.concatTeardown2
+                                  `cast`
+                                (Trans
+                                     (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                                     (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0]))))
+                               `cast`
+                             (Trans
+                                  (Data.Time.Clock.UTC.N:NominalDiffTime[0])
+                                  (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P)) of nt { DEFAULT ->
+                        case (Control.Teardown.Internal.Core.concatTeardown_go ipv5)
+                               `cast`
+                             (Data.Monoid.N:Any[0]) of dt1 { DEFAULT ->
+                        case ipv5 of dt2 { DEFAULT ->
+                        Control.Teardown.Internal.Core.BranchResult
+                          dt
+                          nt
+                            `cast`
+                          (Trans
+                               (Sym (Data.Fixed.N:Fixed[0] <Data.Fixed.E12>_P))
+                               (Sym (Data.Time.Clock.UTC.N:NominalDiffTime[0])))
+                          dt1
+                          dt2 } } } } #) }
+                 } in
+                 case teardownAction ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 letrec {
+                   $wloop4 :: GHC.Prim.Int#
+                              -> GHC.Prim.State# GHC.Prim.RealWorld
+                              -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                     {- Arity: 2, Strictness: <S,U><S,U>, Inline: [0] -}
+                   = \ (ww1 :: GHC.Prim.Int#)
+                       (w2 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.<=# ww1 0#) of wild {
+                       GHC.Types.False
+                       -> case teardownAction w2 of ds4 { (#,#) ipv6 ipv7 ->
+                          $wloop4 (GHC.Prim.-# ww1 1#) ipv6 }
+                       GHC.Types.True -> (# w2, GHC.Tuple.() #) }
+                 } in
+                 case $wloop4 9# ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                 case Test.Tasty.HUnit.Orig.@=?2
+                        @ GHC.Types.Int
+                        GHC.Classes.$fEqInt
+                        GHC.Show.$fShowInt
+                        Main.tests12
+                        Main.tests11
+                        (Control.Teardown.Internal.Core.foldTeardownResult
+                           @ GHC.Types.Int
+                           Control.Teardown.Internal.Core.toredownCount2
+                           Control.Teardown.Internal.Core.toredownCount1
+                           Control.Teardown.Internal.Core.failedToredownCount1
+                           ipv5)
+                        ipv6 of ds5 { (#,#) ipv8 ipv9 ->
+                 case Test.Tasty.HUnit.Orig.@=?2
+                        @ GHC.Types.Int
+                        GHC.Classes.$fEqInt
+                        GHC.Show.$fShowInt
+                        Main.tests10
+                        Main.tests9
+                        (Control.Teardown.Internal.Core.foldTeardownResult
+                           @ GHC.Types.Int
+                           Control.Teardown.Internal.Core.failedToredownCount3
+                           Control.Teardown.Internal.Core.failedToredownCount2
+                           Control.Teardown.Internal.Core.failedToredownCount1
+                           ipv5)
+                        ipv8 of ds { (#,#) ipv10 ipv11 ->
+                 (# ipv10, GHC.Types.[] @ GHC.Types.Char #) } } } } } }) -}
+f51944744895bc92da6a5356cea2fa50
+  tests9 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 5#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+
