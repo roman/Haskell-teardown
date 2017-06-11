@@ -18,10 +18,17 @@ ghc-options:
 dependencies:
 - base >=4.8 && <5
 - protolude
+- text
+- time
 library:
   source-dirs: src
   exposed-modules:
-  - Lib
+  - Control.Disposable
+  other-modules:
+  - Control.Disposable.Internal.Disposable
+  - Control.Disposable.Internal.Printer
+  dependencies:
+  - ansi-wl-pprint
 tests:
   disposables-test:
     main: TestSuite.hs
