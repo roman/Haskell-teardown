@@ -32,6 +32,16 @@ tests =
       assertEqual "teardown action got called more than once"
                   1 callCount
 
+  , testCase "failing teardown action does not stop execution" $ do
+      teardownAction <- newTeardown "failing teardown" $
+        panic "failing teardown"
+
+      result <- teardown teardownAction
+      replicateM_ 9 (teardown teardownAction)
+
+      assertBool "result should report an error"
+                 (didTeardownFail result)
+
   , testCase "thread safe idempotent execution of teardown action" $ do
       callCountRef <- newIORef (0 :: Int)
       teardownAction <- newTeardown "test cleanup" $
@@ -45,7 +55,7 @@ tests =
 
       mapM_ wait asyncList
       callCount <- readIORef callCountRef
-      assertEqual "teardown action got called more than once"
+      assertEqual "teardown action must not be called more than once"
                   1 callCount
 
   , testCase "concatenated teardown actions keep idempotent guarantees" $ do
@@ -58,7 +68,39 @@ tests =
       replicateM_ 10 (teardown teardownAction)
 
       countRefs <- mapM readIORef callCountRefs
-      assertEqual "One teardown action is not idempotent when it should be"
+      assertEqual "teardown action must not be called more than once"
                   (replicate 10 1)
                   countRefs
+
+  , testCase "concatenated teardown actions return correct count" $ do
+      teardownActions <-
+        replicateM 10 (newTeardown "test cleanup" (return ()))
+
+      teardownAction <- concatTeardown "bigger system" teardownActions
+      toredownResult <- teardown teardownAction
+      replicateM_ 9 (teardown teardownAction)
+
+      assertEqual "teardown action must not be called more than once"
+                  10 (toredownCount toredownResult)
+
+  , testCase "concatenated failed teardown actions return correct count" $ do
+      failedTeardownActions <-
+        replicateM 5 (newTeardown "test cleanup with failures" (panic "nope"))
+
+      teardownActions <-
+        replicateM 5 (newTeardown "test cleanup" (return ()))
+
+      teardownAction <-
+        concatTeardown "bigger system"
+                       (failedTeardownActions <> teardownActions)
+
+      toredownResult <- teardown teardownAction
+      replicateM_ 9 (teardown teardownAction)
+
+      assertEqual "teardown action count must be correct"
+                  10 (toredownCount toredownResult)
+
+      assertEqual "failed teardown action must be correct"
+                  5 (failedToredownCount toredownResult)
+
   ]

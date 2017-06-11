@@ -111,64 +111,35 @@ emptyTeardown desc =
 
 --------------------------------------------------------------------------------
 
--- foldrTeardownResult
---   :: (Description -> Maybe SomeException -> acc -> acc)
---   -> (Description -> acc -> acc)
---   -> ([acc] -> acc)
---   -> acc
---   -> TeardownResult
---   -> acc
--- foldrTeardownResult leafStep branchStep monoidStep acc disposeResult =
---   case disposeResult of
---     LeafResult desc mErr ->
---       leafStep desc mErr acc
+foldTeardownResult
+  :: (acc -> Description -> Maybe SomeException -> acc)
+  -> ([acc] -> Description -> acc)
+  -> acc
+  -> TeardownResult
+  -> acc
+foldTeardownResult leafStep branchStep acc disposeResult =
+  case disposeResult of
+    LeafResult desc _ mErr ->
+      leafStep acc desc mErr
 
---     BranchResult desc innerDisposeResult ->
---       branchStep desc
---         (foldrTeardownResult leafStep branchStep monoidStep acc innerDisposeResult)
+    BranchResult desc _ _ results ->
+      let
+        result =
+          map (foldTeardownResult leafStep branchStep acc) results
+      in
+        branchStep result desc
 
---     DisposeMonoid disposeResultList0 ->
---       let
---         disposeResultList =
---           map (foldrTeardownResult leafStep branchStep monoidStep acc) disposeResultList0
---       in
---         monoidStep disposeResultList
+toredownCount :: TeardownResult -> Int
+toredownCount =
+  foldTeardownResult (\acc _ _ -> acc + 1)
+                     (\results _ -> sum results)
+                     0
 
--- foldlTeardownResult
---   :: (acc -> Description -> Maybe SomeException -> acc)
---   -> (acc -> Description -> acc)
---   -> ([acc] -> acc)
---   -> acc
---   -> TeardownResult
---   -> acc
--- foldlTeardownResult leafStep branchStep monoidStep acc disposeResult =
---   case disposeResult of
---     LeafResult desc mErr ->
---       leafStep acc desc mErr
-
---     BranchResult desc innerDisposeResult ->
---       foldlTeardownResult leafStep branchStep monoidStep (branchStep acc desc) innerDisposeResult
-
---     DisposeMonoid disposeResultList0 ->
---       let
---         disposeResultList =
---           map (foldlTeardownResult leafStep branchStep monoidStep acc) disposeResultList0
---       in
---         monoidStep disposeResultList
-
--- resourceCount :: TeardownResult -> Int
--- disposableCount =
---   foldrTeardownResult (\_ _ acc -> acc + 1)
---                     (const identity)
---                     sum
---                     0
-
--- failedTeardownCount :: TeardownResult -> Int
--- disposableFailedCount =
---   foldrTeardownResult (\_ mErr acc -> acc + maybe 0 (const 1) mErr)
---                     (const identity)
---                     sum
---                     0
+failedToredownCount :: TeardownResult -> Int
+failedToredownCount =
+  foldTeardownResult (\acc _ mErr -> acc + maybe 0 (const 1) mErr)
+                     (\results _ -> sum results)
+                     0
 
 --------------------------------------------------------------------------------
 
