@@ -14,8 +14,6 @@ extra-source-files:
 - CHANGELOG.md
 ghc-options:
 - -Wall
-- -Werror
-- -O2
 dependencies:
 - base >=4.8 && <5
 - protolude >=0.1 && <0.2
