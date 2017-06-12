@@ -1,4 +1,6 @@
 name: teardown
+synopsis: Build composable, idempotent & transparent application cleanup sub-routines
+description: Please see README.md
 version: '0.0.0.1'
 category: System
 author: Roman Gonzalez

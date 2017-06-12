@@ -6,7 +6,7 @@
 [![Stackage Nightly](http://stackage.org/package/teardown/badge/nightly)](http://stackage.org/nightly/package/teardown)
 # 🗑️ teardown
 
-> Composable, idempotent & transparent application resource teardown sub-routines
+> Composable, idempotent & transparent application resource cleanup sub-routines
 
 ## Table Of Contents
 
