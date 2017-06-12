@@ -18,7 +18,7 @@ dependencies:
 - base >=4.8 && <5
 - protolude >=0.1 && <0.2
 - text >=1.2 && <1.3
-- time >=1.6 && <1.7
+- time >=1.5 && <1.7
 library:
   source-dirs: src
   exposed-modules:
