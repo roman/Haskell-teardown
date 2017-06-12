@@ -91,23 +91,35 @@ newTeardown desc disposingAction = do
       else
           fromMaybe (emptyTeardownResult desc) <$> readIORef teardownResultRef
 
-concatTeardown :: Description -> [Teardown] -> IO Teardown
-concatTeardown desc disposables =
-  return $ Teardown $ do
-     disposableResults <- mapM (\(Teardown action) -> action) disposables
+concatTeardown :: Description -> [Teardown] -> Teardown
+concatTeardown desc teardownChildren = Teardown $ do
+  teardownResults <- mapM (\(Teardown action) -> action) teardownChildren
 
-     let
-       elapsed =
-         sum $ map resultElapsedTime disposableResults
+  let
+    elapsed =
+      sum $ map resultElapsedTime teardownResults
 
-       disposeFailed =
-         any didTeardownFail disposableResults
+    teardownFailed =
+      any didTeardownFail teardownResults
 
-     return $ BranchResult desc elapsed disposeFailed disposableResults
+  return $ BranchResult desc elapsed teardownFailed teardownResults
 
-emptyTeardown :: Description -> IO Teardown
+newDynTeardown :: Description -> IO [TeardownResult] -> Teardown
+newDynTeardown desc action = Teardown $ do
+  teardownResults <- action
+
+  let
+    elapsed =
+      sum $ map resultElapsedTime teardownResults
+
+    teardownFailed =
+      any didTeardownFail teardownResults
+
+  return $ BranchResult desc elapsed teardownFailed teardownResults
+
+emptyTeardown :: Description -> Teardown
 emptyTeardown desc =
-  return $ Teardown (return $ emptyTeardownResult desc)
+  Teardown (return $ emptyTeardownResult desc)
 
 --------------------------------------------------------------------------------
 

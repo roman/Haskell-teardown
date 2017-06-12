@@ -16,7 +16,6 @@ treeTrunk start level =
   hcat (map (\_ -> text "    ") [1..start]) <>
   hcat (map (\_ -> text "   |") [start..pred level])
 
-
 renderTeardownReport :: TeardownResult -> Doc
 renderTeardownReport result =
     render 0 0 result <> hardline
@@ -28,10 +27,12 @@ renderTeardownReport result =
 
         errorReport =
           treeTrunk (pred start) (succ level)
+           <> ">"
            <> indent 2 (text (show (typeOf err)) <> ":")
            <+> text (Text.unpack fstErrLine)
           : map (\l ->
                     treeTrunk (pred start) (succ level)
+                    <> ">"
                     <> indent 2 (text $ Text.unpack l))
                  errLines
       in
@@ -68,26 +69,8 @@ renderTeardownReport result =
 
         BranchResult desc elapsed didFail results ->
           vcat [ "`-"
-                 <+> if didFail then "✘" else "✓"
+                 <+> (if didFail then "✘" else "✓")
                  <+> text (Text.unpack desc)
                  <+> text ("(" <> show elapsed <> ")")
                , renderTree start level results
                ]
-
-
--- foobar :: IO ()
--- foobar = do
---   baruta <- newTeardown "baruta" (return ())
---   bqto   <- newTeardown "barquisimeto" (return ())
---   csc    <- concatTeardown "caracas" [baruta]
---   venezuela <- concatTeardown "venezuela" [bqto, csc]
---   new_west <- newTeardown "new westminster" (return ())
---   vancouver  <- concatTeardown "vancouver" [new_west]
---   calgary   <- newTeardown "calgary" (error "Some Error Message" >> return ())
---   canada <- concatTeardown "canada" [ vancouver, calgary ]
---   colombia <- newTeardown "colombia" (return ())
---   mexico <- newTeardown "mexico" (return ())
---   earth <- concatTeardown "earth" [ colombia, canada, mexico, venezuela ]
-
---   result <- dispose earth
---   putDoc $ renderTeardownReport result

@@ -64,7 +64,10 @@ tests =
         newTeardown "test cleanup"
                     (atomicModifyIORef callCountRef (\a -> (succ a, ())))
 
-      teardownAction <- concatTeardown "bigger system" teardownActions
+      let
+        teardownAction =
+          concatTeardown "bigger system" teardownActions
+
       replicateM_ 10 (teardown teardownAction)
 
       countRefs <- mapM readIORef callCountRefs
@@ -76,7 +79,10 @@ tests =
       teardownActions <-
         replicateM 10 (newTeardown "test cleanup" (return ()))
 
-      teardownAction <- concatTeardown "bigger system" teardownActions
+      let
+        teardownAction =
+          concatTeardown "bigger system" teardownActions
+
       toredownResult <- teardown teardownAction
       replicateM_ 9 (teardown teardownAction)
 
@@ -90,9 +96,10 @@ tests =
       teardownActions <-
         replicateM 5 (newTeardown "test cleanup" (return ()))
 
-      teardownAction <-
-        concatTeardown "bigger system"
-                       (failedTeardownActions <> teardownActions)
+      let
+        teardownAction =
+          concatTeardown "bigger system"
+                         (failedTeardownActions <> teardownActions)
 
       toredownResult <- teardown teardownAction
       replicateM_ 9 (teardown teardownAction)
@@ -102,5 +109,30 @@ tests =
 
       assertEqual "failed teardown action must be correct"
                   5 (failedToredownCount toredownResult)
+
+  , testCase "dynamic teardown behave similar to vanilla teardown" $ do
+      callCountRef <- newIORef (0 :: Int)
+      failedTeardownActions <-
+        replicateM 5 (newTeardown "test cleanup with failures" (panic "nope"))
+
+      teardownActions <-
+        replicateM 5 (newTeardown "test cleanup"
+                      (atomicModifyIORef callCountRef (\a -> (succ a, ()))))
+
+      let
+        teardownAction =
+          newDynTeardown "bigger system" $
+            mapM teardown (failedTeardownActions <> teardownActions)
+
+      teardownResult <- teardown teardownAction
+      replicateM_ 9 (teardown teardownAction)
+
+      teardownSuccessCount <- readIORef callCountRef
+
+      assertEqual "teardown action count must be correct"
+                  10 (toredownCount teardownResult)
+
+      assertEqual "teardown action must be idempotent"
+                  5 teardownSuccessCount
 
   ]
