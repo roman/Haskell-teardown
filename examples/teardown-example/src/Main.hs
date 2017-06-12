@@ -10,7 +10,7 @@ main = do
   baruta    <- newTeardown "baruta" (return ())
   bqto      <- newTeardown "barquisimeto" (return ())
   new_west  <- newTeardown "new westminster" (return ())
-  calgary   <- newTeardown "calgary" (panic "Some Error Message" >> return ())
+  calgary   <- newTeardown "calgary" (panic "Some Error Message")
   colombia  <- newTeardown "colombia" (return ())
   mexico    <- newTeardown "mexico" (return ())
 
