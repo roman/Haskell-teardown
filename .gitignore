@@ -1,3 +1,4 @@
 /tutorial.md
-/.stack-work/
+.stack-work
+libraries/teardown/.stack-work
 *.cabal
