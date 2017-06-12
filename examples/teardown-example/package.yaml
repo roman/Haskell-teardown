@@ -1,4 +1,6 @@
 name: teardown-example
+synopsis: example for teardown library
+description: see README.md
 version: '0.0.0.1'
 category: Web
 author: Roman Gonzalez
