@@ -15,7 +15,7 @@ The _correct_ teardown of a system becomes a very important matter
 when running applications through GHCi while on development, this library
 facilitates the teardown sub-routine building of an application.
 
-One could naively implement a teardown sub-routine on a large systems by doing
+One could naively implement a teardown sub-routine of an application by doing
 something like the following:
 
 ```haskell
@@ -47,16 +47,15 @@ initApp logger connInfo serverInfo = do
 
 The previous implementation has a few concerns:
 
-* If for some reason the returned `IO ()` teardown operation is executed more
+* If for some reason the returned `IO ()` teardown sub-routine is executed more
   than once, there is likely going to be a runtime exception of the _already
-  closed resource_ nature. This library ensures that teardown sub-routines
-  are executed _only_ once, even on the scenario of the teardown procedure being
-  called multiple times
+  closed resource_ nature. This library ensures that teardown sub-routines are
+  executed _only_ once, even on the scenario of it being called multiple times.
 
 * Teardown of sub-systems are composed using the `(>>)` operator, what happens
   if the `teardownDb` sub-routine throws an exception? Likely other resource
-  teardown sub-routines are going to be affected by the error. This library
-  ensures that errors are isolated from each other resources.
+  teardown sub-routines are going to be affected. This library ensures that
+  errors are isolated from every other resource teardown sub-routines.
 
 * All teardown sub-routines are using a logger to keep track of what is being
   cleaned up, this is an optional operation that could be skipped and cause
@@ -67,12 +66,12 @@ The previous implementation has a few concerns:
 * You may notice the structure of teardown sub-routines form a Tree. This
   library provides a data structure representation of this Tree that allows the
   developer to report all teardown sub-routines in hierarchy order, with details
-  on if the sub-routines failed or not.
+  around if sub-routines failed (or not).
 
-* In addition, this library keeps a track of how much time every teardown
+* In addition, this library keeps track of how much time every teardown
   sub-routine takes, allowing the developer to learn which parts of the teardown
   operations are slow so that they can effectively address those on development
-  (e.g. Faster reload feedback loops).
+  (e.g. Faster reload => Faster feedback loops).
 
 By using this library you implement without much effort a good, reliable and
 transparent strategy for application resource teardown sub-routines.
@@ -83,8 +82,8 @@ The general use case for creating a teardown sub-routine is fulfilled by the
 `newTeardown` function:
 
 ```haskell
-initDb :: DbConnInfo -> IO (DbConn, Teardown)
-initDb connInfo = do
+initDb :: Logger -> DbConnInfo -> IO (DbConn, Teardown)
+initDb logger connInfo = do
   conn <- newConn connInfo
   cleanup <- newTeardown "database connection" (closeConn conn)
   return (conn, cleanup)
@@ -100,7 +99,7 @@ initApp logger connInfo serverInfo = do
   (connInfo, teardownDb) <- initDb logger connInfo
   (serverInfo, teardownSocket) <- initTcpServer logger serverInfo
   -- do something with connInfo and serverInfo ...
-  return (concatTardown "Application" [teardownDb, teardownSocket])
+  return (concatTeardown "Application" [teardownDb, teardownSocket])
 ```
 
 Note that `concatTeardown` will execute teardown sub-routines from left to
