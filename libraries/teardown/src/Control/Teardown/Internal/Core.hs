@@ -7,10 +7,7 @@ import Protolude hiding (first)
 
 import Data.Time.Clock (NominalDiffTime, diffUTCTime, getCurrentTime)
 
-import GHC.Generics (Generic)
-
-import Control.Exception (SomeException, try)
-import Data.IORef        (atomicModifyIORef, newIORef, readIORef, writeIORef)
+import Data.IORef (atomicModifyIORef, newIORef, readIORef, writeIORef)
 
 --------------------------------------------------------------------------------
 
