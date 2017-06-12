@@ -10,8 +10,8 @@ import Control.Teardown.Internal.Core    as X
     , didTeardownFail
     , emptyTeardown
     , failedToredownCount
-    , newTeardown
     , newDynTeardown
+    , newTeardown
     , toredownCount
     )
 import Control.Teardown.Internal.Printer as X (renderTeardownReport)
