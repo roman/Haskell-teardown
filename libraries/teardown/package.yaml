@@ -53,7 +53,7 @@ tests:
     dependencies:
     - doctest >=0.11 && <0.12
     - Glob >=0.7 && <0.8
-    - QuickCheck >=2.9 && <2.10
+    - QuickCheck >=2.8 && <2.10
     - teardown
 benchmarks:
   teardown-benchmark:
