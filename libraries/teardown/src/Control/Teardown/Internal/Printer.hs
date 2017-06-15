@@ -16,6 +16,8 @@ treeTrunk start level =
   hcat (map (\_ -> text "    ") [1..start]) <>
   hcat (map (\_ -> text "   |") [start..pred level])
 
+-- | Renders an ASCII Tree with the "TeardownResult" of a "Teardown" sub-routine
+-- execution
 renderTeardownReport :: TeardownResult -> Doc
 renderTeardownReport result =
     render 0 0 result <> hardline

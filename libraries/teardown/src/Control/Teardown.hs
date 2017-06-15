@@ -1,17 +1,50 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-module Control.Teardown ( module X ) where
+{-|
+Module      : Control.Teardown
+Description : Build composable, idempotent & transparent application cleanup sub-routines
+Copyright   : (c) Roman Gonzalez, 2017
+License     : MIT
+Maintainer  : romanandreg@gmail.com
+Stability   : experimental
 
-import Control.Teardown.Internal.Core    as X
-    ( ITeardown (..)
+Provides functions that help on the creation of Application teardown
+sub-routines
+-}
+module Control.Teardown
+  ( ITeardown
+  -- * Cleanup main type and function
+  , Teardown
+  , teardown
+
+  -- * Functions to create a 'Teardown' record
+  , emptyTeardown
+  , newTeardown
+  , newDynTeardown
+  , concatTeardown
+
+  -- * Functions to deal with results from 'teardown' call
+  , TeardownResult (..)
+  , didTeardownFail
+  , failedToredownCount
+  , toredownCount
+  , renderTeardownReport
+  ) where
+
+import Control.Teardown.Internal.Core
+    ( ITeardown
     , Teardown
-    , TeardownResult (..)
-    , concatTeardown
-    , didTeardownFail
+    , teardown
+
     , emptyTeardown
-    , failedToredownCount
-    , newDynTeardown
     , newTeardown
+    , newDynTeardown
+    , concatTeardown
+
+    , TeardownResult (..)
+    , didTeardownFail
+    , failedToredownCount
     , toredownCount
     )
-import Control.Teardown.Internal.Printer as X (renderTeardownReport)
+
+import Control.Teardown.Internal.Printer (renderTeardownReport)
