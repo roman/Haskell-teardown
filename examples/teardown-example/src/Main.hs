@@ -7,28 +7,29 @@ import Protolude
 
 main :: IO ()
 main = do
-  baruta    <- newTeardown "baruta" (return ())
-  bqto      <- newTeardown "barquisimeto" (return ())
-  new_west  <- newTeardown "new westminster" (return ())
-  calgary   <- newTeardown "calgary" (panic "Some Error Message")
-  colombia  <- newTeardown "colombia" (return ())
-  mexico    <- newTeardown "mexico" (return ())
+  baruta    <- newTeardown "baruta" (return () :: IO ())
+  bqto      <- newTeardown "barquisimeto" (return () :: IO ())
+  colombia  <- newTeardown "colombia" (return () :: IO ())
+  mexico    <- newTeardown "mexico" (return () :: IO ())
 
-  let
-    csc =
-      concatTeardown "caracas" [baruta]
+  caracas <-
+    newTeardown
+      "caracas"
+      ((return [ baruta ]) :: IO [Teardown])
 
-    venezuela =
-      concatTeardown "venezuela" [bqto, csc]
+  venezuela <-
+    newTeardown
+      "venezuelan"
+      ((return [ bqto, caracas ]) :: IO [Teardown])
 
-    vancouver =
-      concatTeardown "vancouver" [new_west]
+  canada <-
+    newTeardown "canada"
+      [ ("vancouver" :: Text, return () :: IO ())
+      , ("calgary", panic "Some Error Message") ]
 
-    canada =
-      concatTeardown "canada" [ vancouver, calgary ]
-
-    earth =
-      concatTeardown "earth" [ colombia, canada, mexico, venezuela ]
+  earth <-
+    newTeardown "earth"
+      ((return [ colombia, canada, mexico, venezuela ]) :: IO [Teardown])
 
   result <- teardown earth
   print $ renderTeardownReport result
