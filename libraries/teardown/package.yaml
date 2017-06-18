@@ -52,7 +52,7 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - doctest >=0.11 && <0.12
-    - Glob >=0.7 && <0.8
+    - Glob >=0.7 && <0.9
     - QuickCheck >=2.8 && <2.10
     - teardown
 benchmarks:
