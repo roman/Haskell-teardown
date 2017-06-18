@@ -16,6 +16,7 @@ The change log is available [on GitHub][2].
 * Remove `concatTeardown` and `newDynTeardown` functions in favor of
   overloades of `IResource`
 * Update TestSuite
+* Update Example
 
 ## v0.0.0.2
 
