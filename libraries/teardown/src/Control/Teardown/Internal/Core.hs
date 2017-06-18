@@ -6,8 +6,8 @@ module Control.Teardown.Internal.Core where
 
 import Protolude hiding (first)
 
+import Data.IORef      (atomicModifyIORef, newIORef, readIORef, writeIORef)
 import Data.Time.Clock (NominalDiffTime, diffUTCTime, getCurrentTime)
-import Data.IORef (atomicModifyIORef, newIORef, readIORef, writeIORef)
 
 import Control.Teardown.Internal.Types
 

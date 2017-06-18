@@ -34,19 +34,9 @@ module Control.Teardown
   ) where
 
 import Control.Teardown.Internal.Types
-  (
-    ITeardown (..)
-  , Teardown
-  , TeardownResult (..)
-  , IResource (..)
-  )
+    (IResource (..), ITeardown (..), Teardown, TeardownResult (..))
 
 import Control.Teardown.Internal.Core
-  (
-    emptyTeardown
-  , didTeardownFail
-  , failedToredownCount
-  , toredownCount
-  )
+    (didTeardownFail, emptyTeardown, failedToredownCount, toredownCount)
 
 import Control.Teardown.Internal.Printer (renderTeardownReport)

@@ -7,8 +7,8 @@ import Protolude hiding ((<>))
 import qualified Data.Text     as Text
 import           Data.Typeable (typeOf)
 
-import Data.Monoid                    ((<>))
-import Text.PrettyPrint.ANSI.Leijen   hiding ((<>))
+import Data.Monoid                  ((<>))
+import Text.PrettyPrint.ANSI.Leijen hiding ((<>))
 
 import Control.Teardown.Internal.Types
 

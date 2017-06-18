@@ -1,11 +1,11 @@
-{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 module Control.Teardown.Internal.Types where
 
 import Protolude
 
-import GHC.Generics (Generic)
 import Data.Time.Clock (NominalDiffTime)
+import GHC.Generics    (Generic)
 
 --------------------------------------------------------------------------------
 

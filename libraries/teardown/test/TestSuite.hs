@@ -10,7 +10,7 @@ import Test.Tasty.Ingredients.Rerun (rerunningTests)
 import Test.Tasty.Runners           (consoleTestReporter, listingTests)
 
 import Control.Teardown
-import Data.IORef       (atomicModifyIORef, newIORef, readIORef, modifyIORef)
+import Data.IORef       (atomicModifyIORef, modifyIORef, newIORef, readIORef)
 
 main :: IO ()
 main =
