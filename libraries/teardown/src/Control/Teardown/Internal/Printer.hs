@@ -7,9 +7,10 @@ import Protolude hiding ((<>))
 import qualified Data.Text     as Text
 import           Data.Typeable (typeOf)
 
-import Control.Teardown.Internal.Core
 import Data.Monoid                    ((<>))
 import Text.PrettyPrint.ANSI.Leijen   hiding ((<>))
+
+import Control.Teardown.Internal.Types
 
 treeTrunk :: Int -> Int -> Doc
 treeTrunk start level =

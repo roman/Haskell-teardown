@@ -12,39 +12,41 @@ Provides functions that help on the creation of Application teardown
 sub-routines
 -}
 module Control.Teardown
-  ( ITeardown
+  (
+  -- * Typeclasses for extending teardown functionality
+    ITeardown
+  , IResource
+
   -- * Cleanup main type and function
   , Teardown
+  , TeardownResult (..)
   , teardown
 
   -- * Functions to create a 'Teardown' record
   , emptyTeardown
   , newTeardown
-  , newDynTeardown
-  , concatTeardown
 
   -- * Functions to deal with results from 'teardown' call
-  , TeardownResult (..)
   , didTeardownFail
   , failedToredownCount
   , toredownCount
   , renderTeardownReport
   ) where
 
+import Control.Teardown.Internal.Types
+  (
+    ITeardown (..)
+  , Teardown
+  , TeardownResult (..)
+  , IResource (..)
+  )
+
 import Control.Teardown.Internal.Core
-    ( ITeardown
-    , Teardown
-    , teardown
-
-    , emptyTeardown
-    , newTeardown
-    , newDynTeardown
-    , concatTeardown
-
-    , TeardownResult (..)
-    , didTeardownFail
-    , failedToredownCount
-    , toredownCount
-    )
+  (
+    emptyTeardown
+  , didTeardownFail
+  , failedToredownCount
+  , toredownCount
+  )
 
 import Control.Teardown.Internal.Printer (renderTeardownReport)

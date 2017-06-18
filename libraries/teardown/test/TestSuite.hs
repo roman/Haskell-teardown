@@ -10,7 +10,7 @@ import Test.Tasty.Ingredients.Rerun (rerunningTests)
 import Test.Tasty.Runners           (consoleTestReporter, listingTests)
 
 import Control.Teardown
-import Data.IORef       (atomicModifyIORef, newIORef, readIORef)
+import Data.IORef       (atomicModifyIORef, newIORef, readIORef, modifyIORef)
 
 main :: IO ()
 main =
@@ -34,7 +34,7 @@ tests =
 
   , testCase "failing teardown action does not stop execution" $ do
       teardownAction <- newTeardown "failing teardown" $
-        panic "failing teardown"
+        (panic "failing teardown" :: IO ())
 
       result <- teardown teardownAction
       replicateM_ 9 (teardown teardownAction)
@@ -58,15 +58,14 @@ tests =
       assertEqual "teardown action must not be called more than once"
                   1 callCount
 
-  , testCase "concatenated teardown actions keep idempotent guarantees" $ do
+  , testCase "teardown tree keeps idempotent guarantees around execution" $ do
       callCountRefs <- replicateM 10 $ newIORef (0 :: Int)
-      teardownActions <- forM callCountRefs $ \callCountRef ->
-        newTeardown "test cleanup"
-                    (atomicModifyIORef callCountRef (\a -> (succ a, ())))
 
-      let
-        teardownAction =
-          concatTeardown "bigger system" teardownActions
+      teardownAction <-
+        newTeardown "bigger system" $ do
+          forM callCountRefs $ \callCountRef ->
+            newTeardown "test cleanup"
+                        (atomicModifyIORef callCountRef (\a -> (succ a, ())))
 
       replicateM_ 10 (teardown teardownAction)
 
@@ -75,31 +74,16 @@ tests =
                   (replicate 10 1)
                   countRefs
 
-  , testCase "concatenated teardown actions return correct count" $ do
-      teardownActions <-
-        replicateM 10 (newTeardown "test cleanup" (return ()))
-
-      let
-        teardownAction =
-          concatTeardown "bigger system" teardownActions
-
-      toredownResult <- teardown teardownAction
-      replicateM_ 9 (teardown teardownAction)
-
-      assertEqual "teardown action must not be called more than once"
-                  10 (toredownCount toredownResult)
-
-  , testCase "concatenated failed teardown actions return correct count" $ do
+  , testCase "teardown action that returns Teardown list returns correct count" $ do
       failedTeardownActions <-
-        replicateM 5 (newTeardown "test cleanup with failures" (panic "nope"))
+        replicateM 5 (newTeardown "test cleanup with failures" (panic "nope" :: IO ()))
 
       teardownActions <-
-        replicateM 5 (newTeardown "test cleanup" (return ()))
+        replicateM 5 (newTeardown "test cleanup" (return () :: IO ()))
 
-      let
-        teardownAction =
-          concatTeardown "bigger system"
-                         (failedTeardownActions <> teardownActions)
+      teardownAction <-
+        newTeardown "bigger system"
+          ((return (failedTeardownActions <> teardownActions)) :: IO [Teardown])
 
       toredownResult <- teardown teardownAction
       replicateM_ 9 (teardown teardownAction)
@@ -110,29 +94,34 @@ tests =
       assertEqual "failed teardown action must be correct"
                   5 (failedToredownCount toredownResult)
 
-  , testCase "dynamic teardown behave similar to vanilla teardown" $ do
+  , testCase "teardown with list of description and actions executes correctly" $ do
       callCountRef <- newIORef (0 :: Int)
-      failedTeardownActions <-
-        replicateM 5 (newTeardown "test cleanup with failures" (panic "nope"))
+      teardownAction <-
+          newTeardown "bigger-system"
+              [
+                ("1" :: Text, modifyIORef callCountRef (+1))
+              , ("2", modifyIORef callCountRef (+1))
+              , ("3", modifyIORef callCountRef (+1))
+              , ("4", modifyIORef callCountRef (+1))
+              , ("5", modifyIORef callCountRef (+1))
+              , ("6", panic "nope")
+              , ("7", panic "nope")
+              , ("8", panic "nope")
+              , ("9", panic "nope")
+              ]
 
-      teardownActions <-
-        replicateM 5 (newTeardown "test cleanup"
-                      (atomicModifyIORef callCountRef (\a -> (succ a, ()))))
 
-      let
-        teardownAction =
-          newDynTeardown "bigger system" $
-            mapM teardown (failedTeardownActions <> teardownActions)
-
-      teardownResult <- teardown teardownAction
+      -- Execute multiple times to assert idempotency
+      toredownResult <- teardown teardownAction
       replicateM_ 9 (teardown teardownAction)
 
-      teardownSuccessCount <- readIORef callCountRef
-
       assertEqual "teardown action count must be correct"
-                  10 (toredownCount teardownResult)
+                  9 (toredownCount toredownResult)
 
-      assertEqual "teardown action must be idempotent"
-                  5 teardownSuccessCount
+      assertEqual "failed teardown must be correct"
+                  4 (failedToredownCount toredownResult)
 
+      callCount <- readIORef callCountRef
+      assertEqual "side-effects were executed despite errors on other teardown operations"
+                  5 callCount
   ]

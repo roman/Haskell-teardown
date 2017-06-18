@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -6,55 +8,9 @@ module Control.Teardown.Internal.Core where
 import Protolude hiding (first)
 
 import Data.Time.Clock (NominalDiffTime, diffUTCTime, getCurrentTime)
-
 import Data.IORef (atomicModifyIORef, newIORef, readIORef, writeIORef)
 
---------------------------------------------------------------------------------
-
-type Description = Text
-
--- | Result from a 'Teardown' sub-routine
-data TeardownResult
-  -- | Result is composed by multiple teardown sub-routines
-  = BranchResult
-    {
-      -- | Text description of parent teardown spec
-      resultDescription :: !Description
-      -- | Sum of elapsed time on sub-routines execution
-    , resultElapsedTime :: !NominalDiffTime
-      -- | Tells if any sub-routines failed
-    , resultDidFail     :: !Bool
-      -- | Results of inner sub-routines
-    , resultListing     :: ![TeardownResult]
-    }
-  -- | Result represents a single teardown sub-routine
-  | LeafResult
-    {
-      -- | Text description of sub-routine
-      resultDescription :: !Description
-      -- | Elapsed time on sub-routine execution
-    , resultElapsedTime :: !NominalDiffTime
-      -- | Exception from sub-routine
-    , resultError       :: !(Maybe SomeException)
-    }
-  -- | Represents a stub cleanup operation (for lifting pure values)
-  | EmptyResult
-    {
-      -- | Text description of faked sub-routine
-      resultDescription :: !Description
-    }
-  deriving (Generic, Show)
-
--- | Sub-routine that performs a resource cleanup operation
-newtype Teardown
-  = Teardown (IO TeardownResult)
-  deriving (Generic)
-
--- | A record that __is__ or __contains__ a 'Teardown' sub-routine should
--- instantiate this typeclass
-class ITeardown d where
-  -- | Executes teardown sub-routine returning a "TeardownResult"
-  teardown :: d -> IO TeardownResult
+import Control.Teardown.Internal.Types
 
 --------------------------------------------------------------------------------
 
@@ -85,8 +41,8 @@ didTeardownFail result =
 -- side-effects from this action are guaranteed to be executed only once, and
 -- also it is guaranteed to be thread-safe in the scenario of multiple threads
 -- executing the same teardown procedure.
-newTeardown :: Description -> IO () -> IO Teardown
-newTeardown desc disposingAction = do
+newTeardownIO :: Description -> IO () -> IO Teardown
+newTeardownIO desc disposingAction = do
   teardownResultLock <- newIORef False
   teardownResultRef  <- newIORef Nothing
   return $ Teardown $ do
@@ -194,3 +150,17 @@ failedToredownCount =
 instance ITeardown Teardown where
   teardown (Teardown action) =
     action
+
+instance IResource (IO ()) where
+  newTeardown =
+    newTeardownIO
+
+instance IResource [(Text, IO ())] where
+  newTeardown desc actionList = do
+    teardownList <- mapM (uncurry newTeardown) actionList
+    return $ concatTeardown desc teardownList
+
+instance IResource (IO [Teardown]) where
+  newTeardown desc getTeardownList = do
+    teardownList <- getTeardownList
+    return $ concatTeardown desc teardownList
