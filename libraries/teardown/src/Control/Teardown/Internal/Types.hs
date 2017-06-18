@@ -7,7 +7,7 @@ import Protolude
 
 import Data.Time.Clock (NominalDiffTime)
 
-#if MIN_VERSION_base(4,0,0)
+#if MIN_VERSION_base(4,9,0)
 import GHC.Generics (Generic)
 #endif
 
