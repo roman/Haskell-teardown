@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP               #-}
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 module Control.Teardown.Internal.Types where
@@ -5,7 +6,10 @@ module Control.Teardown.Internal.Types where
 import Protolude
 
 import Data.Time.Clock (NominalDiffTime)
-import GHC.Generics    (Generic)
+
+#if MIN_VERSION_base(4,0,0)
+import GHC.Generics (Generic)
+#endif
 
 --------------------------------------------------------------------------------
 
