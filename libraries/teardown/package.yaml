@@ -24,6 +24,7 @@ library:
   exposed-modules:
   - Control.Teardown
   other-modules:
+  - Control.Teardown.Internal.Types
   - Control.Teardown.Internal.Core
   - Control.Teardown.Internal.Printer
   dependencies:

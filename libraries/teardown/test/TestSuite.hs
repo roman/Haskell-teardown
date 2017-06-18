@@ -33,7 +33,7 @@ tests =
                   1 callCount
 
   , testCase "failing teardown action does not stop execution" $ do
-      teardownAction <- newTeardown "failing teardown" $
+      teardownAction <- newTeardown "failing teardown"
         (panic "failing teardown" :: IO ())
 
       result <- teardown teardownAction
@@ -62,7 +62,7 @@ tests =
       callCountRefs <- replicateM 10 $ newIORef (0 :: Int)
 
       teardownAction <-
-        newTeardown "bigger system" $ do
+        newTeardown "bigger system" $
           forM callCountRefs $ \callCountRef ->
             newTeardown "test cleanup"
                         (atomicModifyIORef callCountRef (\a -> (succ a, ())))
@@ -83,7 +83,7 @@ tests =
 
       teardownAction <-
         newTeardown "bigger system"
-          ((return (failedTeardownActions <> teardownActions)) :: IO [Teardown])
+          (return (failedTeardownActions <> teardownActions) :: IO [Teardown])
 
       toredownResult <- teardown teardownAction
       replicateM_ 9 (teardown teardownAction)
