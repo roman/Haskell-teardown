@@ -6,11 +6,11 @@ module Control.Teardown.Internal.Types where
 
 import Protolude
 
-import Control.DeepSeq (NFData (..))
 import Data.Time.Clock (NominalDiffTime)
 
 #if MIN_VERSION_base(4,9,0)
-import GHC.Generics (Generic)
+import Control.DeepSeq (NFData (..))
+import GHC.Generics    (Generic)
 #endif
 
 --------------------------------------------------------------------------------
