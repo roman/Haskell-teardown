@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE CPP               #-}
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -5,6 +6,7 @@ module Control.Teardown.Internal.Types where
 
 import Protolude
 
+import Control.DeepSeq (NFData (..))
 import Data.Time.Clock (NominalDiffTime)
 
 #if MIN_VERSION_base(4,9,0)
@@ -51,6 +53,9 @@ data TeardownResult
 newtype Teardown
   = Teardown (IO TeardownResult)
   deriving (Generic)
+
+instance NFData Teardown where
+  rnf !_ = ()
 
 -- | A record that __is__ or __contains__ a 'Teardown' sub-routine should
 -- instantiate this typeclass

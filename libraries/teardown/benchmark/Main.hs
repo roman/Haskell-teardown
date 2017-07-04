@@ -1,9 +1,21 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE NoImplicitPrelude #-}
 module Main where
+
+import Protolude
 
 import Criterion
 import Criterion.Main
 
-import Lib (inc)
+import Control.Teardown (newTeardown, teardown)
 
 main :: IO ()
-main = defaultMain [bench "inc 41" (whnf inc (41 :: Int))]
+main = defaultMain [
+    bgroup "simple IO unit return"
+    [
+      bench "without teardown" (whnfIO $ return ())
+    , env
+        (newTeardown "benchmark" $ (return () :: IO ()))
+        (\unitTeardown -> bench "with teardown" (whnfIO $ void $ teardown unitTeardown))
+    ]
+  ]

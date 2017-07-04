@@ -7,6 +7,12 @@ The change log is available [on GitHub][2].
 [1]: http://semver.org/spec/v2.0.0.html
 [2]: https://github.com/roman/Haskell-teardown/libraries/teardown/CHANGELOG.md
 
+
+## Unreleased
+
+* Add benchmark to compare with vanilla IO unit
+* Bump version of `criterion` to `1.2`
+
 ## v0.1.0.0
 
 > BREAKING CHANGES
