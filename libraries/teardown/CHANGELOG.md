@@ -8,7 +8,7 @@ The change log is available [on GitHub][2].
 [2]: https://github.com/roman/Haskell-teardown/libraries/teardown/CHANGELOG.md
 
 
-## Unreleased
+## v0.1.0.1
 
 * Add benchmark to compare with vanilla IO unit
 * Bump version of `criterion` to `1.2`
