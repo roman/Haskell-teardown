@@ -49,6 +49,16 @@ data TeardownResult
     }
   deriving (Generic, Show)
 
+instance NFData TeardownResult where
+  rnf result =
+    case result of
+      EmptyResult !_desc ->
+        ()
+      LeafResult !_desc !_time !_err ->
+        ()
+      BranchResult !_desc !_time !_didFail listing ->
+        rnf listing
+
 -- | Sub-routine that performs a resource cleanup operation
 newtype Teardown
   = Teardown (IO TeardownResult)
