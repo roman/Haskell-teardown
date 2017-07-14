@@ -9,6 +9,10 @@ cache:
 
 matrix:
   include:
+  - env: BUILD=nightly
+    compiler: "GHC-8.0.2"
+    addons: {apt: {packages: [libgmp-dev]}}
+
   - env: BUILD=lts-8
     compiler: "GHC-8.0.2"
     addons: {apt: {packages: [libgmp-dev]}}
