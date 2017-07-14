@@ -9,6 +9,8 @@ The change log is available [on GitHub][2].
 
 ## Unreleased
 
+* Add travisCI builder for nightly
+* Bump dependencies for `time` and `QuickCheck`
 * Add NFData instance for `TeardownResult` record
 
 
