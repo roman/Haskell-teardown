@@ -58,6 +58,9 @@ script:
     lts-*)
       TEST_RESOLVER=$BUILD make test
       ;;
+    nightly)
+      TEST_RESOLVER=$BUILD make test
+      ;;
     hlint)
       make hlint
       ;;
