@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/roman/Haskell-teardown.svg?branch=master)](https://travis-ci.org/roman/Haskell-teardown)
 [![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.1.0.1.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.1.0.1.svg)
 [![Hackage](https://img.shields.io/hackage/v/teardown.svg)](https://img.shields.io/hackage/v/teardown.svg)
-[![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](https://img.shields.io/hackage/v/teardown.svg)
+[![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](http://packdeps.haskellers.com/feed?needle=teardown)
 [![Stackage LTS](http://stackage.org/package/teardown/badge/lts)](http://stackage.org/lts/package/teardown)
 [![Stackage Nightly](http://stackage.org/package/teardown/badge/nightly)](http://stackage.org/nightly/package/teardown)
 # 🗑️ teardown
