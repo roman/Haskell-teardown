@@ -9,9 +9,10 @@ The change log is available [on GitHub][2].
 
 ## Unreleased
 
-* Add travisCI builder for nightly
-* Bump dependencies for `time` and `QuickCheck`
+* Bump from lts-8.21 to lts-9.1
+* Bump dependencies for `time`, `QuickCheck`, `protolude` and `doctest`
 * Add NFData instance for `TeardownResult` record
+* Add travisCI builder for nightly
 
 
 ## v0.1.0.1
