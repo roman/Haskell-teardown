@@ -33,7 +33,7 @@ library:
 tests:
   teardown-test:
     main: TestSuite.hs
-    source-dirs: test
+    source-dirs: test/tasty
     ghc-options:
     - -threaded
     - -rtsopts
@@ -47,7 +47,7 @@ tests:
     - teardown
   teardown-doctest:
     main: DocTest.hs
-    source-dirs: test
+    source-dirs: test/doctest
     ghc-options:
     - -threaded
     - -rtsopts

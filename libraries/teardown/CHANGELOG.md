@@ -9,6 +9,7 @@ The change log is available [on GitHub][2].
 
 ## Unreleased
 
+* Re-organize test files to support nightly (GHC-8.2)
 * Bump from lts-8.21 to lts-9.1
 * Bump dependencies for `time`, `QuickCheck`, `protolude` and `doctest`
 * Add NFData instance for `TeardownResult` record
