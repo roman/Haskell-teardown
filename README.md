@@ -17,9 +17,9 @@
 
 ## Raison d'etre
 
-The _correct_ teardown of a system becomes a very important matter
-when running applications through GHCi while on development, this library
-facilitates the teardown sub-routine building of an application.
+The _correct_ teardown of a system becomes a very important matter when running
+applications through GHCi while on development, this library facilitates the
+teardown sub-routine building of an application.
 
 One could naively implement a teardown sub-routine of an application by doing
 something like the following:

@@ -7,14 +7,14 @@ The change log is available [on GitHub][2].
 [1]: http://semver.org/spec/v2.0.0.html
 [2]: https://github.com/roman/Haskell-teardown/libraries/teardown/CHANGELOG.md
 
-## Unreleased
+## v0.2.0.0
 
-* Re-organize test files to support nightly (GHC-8.2)
 * Bump from lts-8.21 to lts-9.1
+* Re-organize test files to support nightly (GHC-8.2)
+* Drop support for lts-6 (GHC-7.10)
 * Bump dependencies for `time`, `QuickCheck`, `protolude` and `doctest`
 * Add NFData instance for `TeardownResult` record
 * Add travisCI builder for nightly
-
 
 ## v0.1.0.1
 
