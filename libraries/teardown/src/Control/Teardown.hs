@@ -1,5 +1,4 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE OverloadedStrings #-}
 {-|
 Module      : Control.Teardown
 Description : Build composable, idempotent & transparent application cleanup sub-routines
