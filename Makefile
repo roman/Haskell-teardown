@@ -28,16 +28,16 @@ test_sdist: untar_sdist
 .PHONY: test_sdist
 
 stylish_haskell_install:
-	stack install stylish-haskell
+	stack --local-bin-path=./bin install stylish-haskell
 .PHONY: stylish_haskell_install
 
 STYLISH=stylish-haskell -i {} \;
-stylish_haskell: stylish_haskell_install ## Normalize style of source files
+pretty: stylish_haskell_install brittany_install ## Normalize style of source files
 	find $(HS_FOLDERS) -name "*.hs" -exec $(STYLISH) && git diff --exit-code
 .PHONY: stylish_haskell
 
 hlint_install:
-	stack install hlint
+	stack --local-bin-path=./bin install hlint
 .PHONY: hlint_install
 
 hlint: hlint_install ## Execute linter
