@@ -2,3 +2,5 @@
 .stack-work
 libraries/teardown/.stack-work
 *.cabal
+bin/*
+.dir-locals.el
