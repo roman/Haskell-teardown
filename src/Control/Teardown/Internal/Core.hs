@@ -158,6 +158,10 @@ instance IResource [(Text, IO ())] where
     teardownList <- mapM (uncurry newTeardown) actionList
     return $ concatTeardown desc teardownList
 
+instance IResource [Teardown] where
+  newTeardown desc =
+    return . concatTeardown desc
+
 instance IResource (IO [Teardown]) where
   newTeardown desc getTeardownList = do
     teardownList <- getTeardownList

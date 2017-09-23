@@ -1,22 +1,15 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-module Main where
+module TeardownTest where
 
 import Protolude
 
-import Test.Tasty                   (TestTree, defaultMainWithIngredients, testGroup)
+import Test.Tasty       (TestTree, testGroup)
 import Test.Tasty.HUnit
-import Test.Tasty.Ingredients.Rerun (rerunningTests)
-import Test.Tasty.Runners           (consoleTestReporter, listingTests)
 
 import Control.Teardown
 import Data.IORef       (atomicModifyIORef, modifyIORef, newIORef, readIORef)
 
-main :: IO ()
-main =
-  defaultMainWithIngredients
-    [ rerunningTests [listingTests, consoleTestReporter] ]
-    tests
 
 tests :: TestTree
 tests =

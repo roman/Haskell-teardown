@@ -1,7 +1,7 @@
 name: teardown
 synopsis: Build composable, idempotent & transparent application cleanup sub-routines
 description: Please see README.md
-version: '0.2.0.0'
+version: '0.3.0.0'
 category: System
 author: Roman Gonzalez
 maintainer: romanandreg@gmail.com
@@ -16,20 +16,25 @@ ghc-options:
 - -Wall
 dependencies:
 - base >=4.8 && <5
-- protolude >=0.1 && <0.3
-- text >=1.2 && <1.3
-- time >=1.5 && <1.9
+- protolude
+- safe-exceptions
+- text
+- time
 library:
   source-dirs: src
   exposed-modules:
   - Control.Teardown
+  - Control.Monad.Component
   other-modules:
   - Control.Teardown.Internal.Types
   - Control.Teardown.Internal.Core
   - Control.Teardown.Internal.Printer
+  - Control.Monad.Component.Internal.Types
+  - Control.Monad.Component.Internal.Core
   dependencies:
-  - ansi-wl-pprint >=0.6 && <0.7
-  - deepseq >=1.4 && <1.5
+  - ansi-wl-pprint
+  - exceptions
+  - deepseq
 tests:
   teardown-test:
     main: TestSuite.hs
@@ -39,11 +44,11 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - tasty >=0.11 && <0.12
-    - tasty-hunit >=0.9 && <0.10
-    - tasty-hspec >=1.1 && <1.2
-    - tasty-smallcheck >=0.8 && <0.9
-    - tasty-rerun >=1.1 && <1.2
+    - tasty
+    - tasty-hunit
+    - tasty-hspec
+    - tasty-smallcheck
+    - tasty-rerun
     - teardown
   teardown-doctest:
     main: DocTest.hs
@@ -53,9 +58,9 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - doctest >=0.11 && <0.14
-    - Glob >=0.7 && <0.9
-    - QuickCheck >=2.8 && <2.11
+    - doctest
+    - Glob
+    - QuickCheck
     - teardown
 benchmarks:
   teardown-benchmark:
