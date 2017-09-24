@@ -1,4 +1,6 @@
 /tutorial.md
 .stack-work
-libraries/teardown/.stack-work
+*/**/.stack-work
 *.cabal
+bin/*
+.dir-locals.el

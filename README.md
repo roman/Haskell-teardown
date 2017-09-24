@@ -4,7 +4,7 @@
 [![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](http://packdeps.haskellers.com/feed?needle=teardown)
 [![Stackage LTS](http://stackage.org/package/teardown/badge/lts)](http://stackage.org/lts/package/teardown)
 [![Stackage Nightly](http://stackage.org/package/teardown/badge/nightly)](http://stackage.org/nightly/package/teardown)
-# 🗑️ teardown
+# 🗑️  teardown
 
 > Composable, idempotent & transparent application resource cleanup sub-routines
 

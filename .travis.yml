@@ -25,11 +25,11 @@ matrix:
     compiler: "GHC-8.0.1"
     addons: {apt: {packages: [libgmp-dev]}}
 
-  - env: BUILD=hlint
+  - env: BUILD=lint
     compiler: "GHC-8.0.2"
     addons: {apt: {packages: [libgmp-dev]}}
 
-  - env: BUILD=stylish-haskell
+  - env: BUILD=pretty
     compiler: "GHC-8.0.2"
     addons: {apt: {packages: [libgmp-dev]}}
 
@@ -62,10 +62,10 @@ script:
       TEST_RESOLVER=$BUILD make test
       ;;
     hlint)
-      make hlint
+      make lint
       ;;
-    stylish-haskell)
-      make stylish_haskell
+    pretty)
+      make pretty
       ;;
     sdist)
       make test_sdist

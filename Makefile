@@ -12,11 +12,11 @@ test: ## Execute test suite
 .PHONY: test
 
 sdist: ## Build a release
-	stack sdist
+	stack sdist . --pvp-bounds both
 .PHONY: sdist
 
 DIST_DIR:=$$(stack path --dist-dir)
-SDIST_TAR:=$$(find libraries/teardown/$(DIST_DIR) -name "*.tar.gz" | tail -1)
+SDIST_TAR:=$$(find $(DIST_DIR) -name "*.tar.gz" | tail -1)
 untar_sdist: sdist
 	tar xzf $(SDIST_TAR)
 .PHONY: untar_sdist
@@ -28,30 +28,21 @@ test_sdist: untar_sdist
 .PHONY: test_sdist
 
 stylish_haskell_install:
-	stack install stylish-haskell
+	stack --local-bin-path=./bin install stylish-haskell
 .PHONY: stylish_haskell_install
 
-STYLISH=stylish-haskell -i {} \;
-stylish_haskell: stylish_haskell_install ## Normalize style of source files
+STYLISH=./bin/stylish-haskell -i {} \;
+pretty: stylish_haskell_install ## Normalize style of source files
 	find $(HS_FOLDERS) -name "*.hs" -exec $(STYLISH) && git diff --exit-code
-.PHONY: stylish_haskell
+.PHONY: pretty
 
 hlint_install:
-	stack install hlint
+	stack --local-bin-path=./bin install hlint
 .PHONY: hlint_install
 
-hlint: hlint_install ## Execute linter
+lint: hlint_install ## Execute linter
 	hlint $(HS_FOLDERS)
 .PHONY: hlint
-
-hlint_apply_refact: hlint_install ## Apply linter recomendations
-	stack install apply-refact
-.PHONY: hlint_apply_refact
-
-HLINT=hlint --refactor --refactor-options -i {} \;
-hlint_refactor: hlint_apply_refact
-	find $(HS_FOLDERS) -name "*.hs" -exec $(HLINT)
-.PHONY: hlint_refactor
 
 repl_deps_install:
 	stack install pretty-show intero
