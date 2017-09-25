@@ -11,8 +11,8 @@ The change log is available [on GitHub][2].
 
 * Bump from lts-9.1 to lts-9.5
 * Add `Control.Monad.Component` module
+* Add `Control.Teardown.Tutorial` module
 * Add `IResource` instance for `[Teardown]`
-
 
 ## v0.2.0.0
 
