@@ -7,7 +7,7 @@ The change log is available [on GitHub][2].
 [1]: http://semver.org/spec/v2.0.0.html
 [2]: https://github.com/roman/Haskell-teardown/libraries/teardown/CHANGELOG.md
 
-## v0.3.0.0 [PRE-RELEASE]
+## v0.3.0.0
 
 * Bump from lts-9.1 to lts-9.5
 * Add `Control.Monad.Component` module
