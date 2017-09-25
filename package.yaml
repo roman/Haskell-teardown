@@ -1,5 +1,5 @@
 name: teardown
-synopsis: Build composable, idempotent & transparent application cleanup sub-routines
+synopsis: Build composable components for your application with clear teardown semantics
 description: Please see README.md
 version: '0.3.0.0'
 category: System
@@ -8,12 +8,16 @@ maintainer: romanandreg@gmail.com
 copyright: © 2017 Roman Gonzalez
 license: MIT
 github: roman/Haskell-teardown
-tested-with: GHC==7.10.3 GHC==8.0.1 GHC==8.0.2
+tested-with: GHC==8.0.1 GHC==8.0.2 GHC==8.2.1
 extra-source-files:
 - README.md
 - CHANGELOG.md
 ghc-options:
 - -Wall
+# as recommended in:
+# https://functor.tokyo/blog/2017-07-28-ghc-warnings-you-should-enable
+- -Wincomplete-uni-patterns
+- -Wincomplete-record-updates
 dependencies:
 - base >=4.8 && <5
 - protolude
@@ -24,6 +28,7 @@ library:
   source-dirs: src
   exposed-modules:
   - Control.Teardown
+  - Control.Teardown.Tutorial
   - Control.Monad.Component
   other-modules:
   - Control.Teardown.Internal.Types
