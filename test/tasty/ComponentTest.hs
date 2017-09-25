@@ -171,7 +171,12 @@ tests =
           callCount <- readIORef callCountRef
           assertEqual ("expected introduced error, got different one: " <> show err)
                       "failing via fail"
-                      (maybe "" (\(ComponentFailure errMsg) -> errMsg)
+                      (maybe "" (\res ->
+                                   case res of
+                                     ComponentFailure errMsg ->
+                                       errMsg
+                                     _ ->
+                                       "FAIL - Invalid ComponentException received")
                                 (fromException err))
           assertEqual "teardown action got called more than once" 1 callCount
 

@@ -25,8 +25,13 @@ renderTeardownReport result =
   where
     renderError start level (SomeException err) =
       let
-        (fstErrLine:errLines) =
-          Text.lines (show err)
+        (fstErrLine, errLines) =
+          case Text.lines (show err) of
+            [] ->
+              panic "Expecting reported error to have a line of content, got none"
+
+            (fstErrLine' : errLines') ->
+              (fstErrLine', errLines')
 
         errorReport =
           treeTrunk (pred start) (succ level)
