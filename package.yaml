@@ -1,6 +1,16 @@
 name: teardown
 synopsis: Build composable components for your application with clear teardown semantics
-description: Please see README.md
+description: |
+  The teardown library allows you to reliably deallocate resources
+  created when initializing your application. It provides:
+
+  - A ComponentM monad that allows you to build and compose resources with
+    cleanup semantics
+
+  - An API that composes IO cleanup sub-routines safely
+
+  Check Control.Teardown.Tutorial for more information.
+
 version: '0.3.0.0'
 category: System
 author: Roman Gonzalez

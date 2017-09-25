@@ -165,7 +165,14 @@ teardown :: ITeardown teardown => teardown -> IO TeardownResult
 
     As stated on the [ITeardown typeclass](#g:4) section, the 'TeardownResult' record reports the execution of a 'teardown' call. This library provides a few functions that get interesting information out of this record:
 
-    * 'renderTeardownReport' -- returns a 'Doc' that represents the Tree of resources with their outcome and performance time, you can use 'print' to print the report on the terminal.
+    * 'renderTeardownReport' -- returns a 'Doc' that represents the Tree of resources with their outcome and performance time, you can use 'print' to print the report on the terminal. Following example output:
+
+    @
+`- ✘  Application (0.000006s)
+   |`- ✓ database connection (0.000002s)
+   |`- ✘ tcp server (0.000002s)
+         FatalError: FatalError {msg = "Some TCP Error Message"}
+   @
 
     * 'toredownCount' -- returns the number of cleanup sub-routines executed.
 
