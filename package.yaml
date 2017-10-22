@@ -11,7 +11,7 @@ description: |
 
   Check Control.Teardown.Tutorial for more information.
 
-version: '0.3.0.0'
+version: '0.4.0.0'
 category: System
 author: Roman Gonzalez
 maintainer: romanandreg@gmail.com
@@ -46,6 +46,7 @@ library:
   - Control.Teardown.Internal.Printer
   - Control.Monad.Component.Internal.Types
   - Control.Monad.Component.Internal.Core
+  - Control.Monad.Component.Internal.MainHelper
   dependencies:
   - foreign-store
   - ansi-wl-pprint

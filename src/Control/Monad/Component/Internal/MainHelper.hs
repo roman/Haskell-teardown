@@ -8,10 +8,10 @@ import qualified Foreign.Store as Store
 
 import Control.Monad.Component.Internal.Core  (runComponentM)
 import Control.Monad.Component.Internal.Types
-import Control.Teardown                       (teardown)
+import Control.Teardown                       (teardown, renderTeardownReport)
 
 appComponentStorePointer :: Word32
-appComponentStorePointer = 777
+appComponentStorePointer = 0
 
 appMain :: Text -> ComponentM a -> (a -> IO ()) -> IO ()
 appMain appName componentAction mainAction = do
@@ -33,7 +33,10 @@ replMain appName componentAction mainAction = do
     Just appComponentRefStore -> do
       appComponentRef <- Store.readStore appComponentRefStore
       (oldAppComponent, oldAppRuntime) <- IORef.readIORef appComponentRef
-      void $ teardown oldAppComponent
+
+      teardownResult <- teardown oldAppComponent
+      print $ renderTeardownReport teardownResult
+
       void $ waitCatch oldAppRuntime
 
       appComponent <- runComponentM appName componentAction
