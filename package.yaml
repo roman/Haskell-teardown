@@ -47,6 +47,7 @@ library:
   - Control.Monad.Component.Internal.Types
   - Control.Monad.Component.Internal.Core
   dependencies:
+  - foreign-store
   - ansi-wl-pprint
   - exceptions
   - deepseq

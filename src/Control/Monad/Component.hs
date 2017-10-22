@@ -20,6 +20,15 @@ module Control.Monad.Component
   , Component
   , fromComponent
 
+  -- * Functions to build 'ComponentM' sub-routines
+  , buildComponent
+  , buildComponentWithCleanup
+  , buildComponentWithTeardown
+
+  -- * Helper functions to have REPL utilities for free
+  , replMain
+  , appMain
+
   -- * 'Component' error record
   , ComponentError (..)
 
@@ -33,10 +42,6 @@ module Control.Monad.Component
   , throwM
   , fail
 
-  -- * Functions to build 'ComponentM' sub-routines
-  , buildComponent
-  , buildComponentWithCleanup
-  , buildComponentWithTeardown
   ) where
 
 import Control.Monad.Catch                    (throwM)
@@ -47,3 +52,5 @@ import Control.Monad.Component.Internal.Types
 import Control.Monad.Fail                     (fail)
 import Control.Teardown
     (Teardown, TeardownResult (..), newTeardown, teardown)
+
+import Control.Monad.Component.Internal.MainHelper (appMain, replMain)
