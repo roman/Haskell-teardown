@@ -37,10 +37,7 @@ ghc-options:
 - -Wincomplete-record-updates
 dependencies:
 - base >=4.8 && <5
-- rio
-- safe-exceptions
-- text
-- time
+- rio >= 0.0.1.0
 library:
   source-dirs: src
   exposed-modules:
@@ -55,8 +52,6 @@ library:
   - Control.Monad.Component.Internal.Core
   dependencies:
   - ansi-wl-pprint
-  - exceptions
-  - deepseq
 tests:
   teardown-test:
     main: TestSuite.hs

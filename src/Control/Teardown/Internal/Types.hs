@@ -5,11 +5,9 @@
 module Control.Teardown.Internal.Types where
 
 import RIO
-
-import Data.Time.Clock (NominalDiffTime)
+import RIO.Time (NominalDiffTime)
 
 #if MIN_VERSION_base(4,9,0)
-import Control.DeepSeq (NFData (..))
 import GHC.Generics    (Generic)
 #endif
 

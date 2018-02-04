@@ -5,8 +5,7 @@ module Control.Monad.Component.Internal.Types where
 import           RIO
 import qualified RIO.Text as Text
 
-import Control.Monad.Catch (MonadThrow (..))
-import Control.Monad.Fail  (MonadFail (..))
+import Control.Monad.Fail (MonadFail (..))
 
 import Control.Teardown (HasTeardown (..), Teardown)
 

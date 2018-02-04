@@ -15,7 +15,7 @@ where
 
 import RIO
 
-import Data.Time.Clock (NominalDiffTime, diffUTCTime, getCurrentTime)
+import RIO.Time (NominalDiffTime, diffUTCTime, getCurrentTime)
 
 import Control.Teardown.Internal.Types
 

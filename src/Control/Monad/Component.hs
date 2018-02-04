@@ -31,7 +31,6 @@ module Control.Monad.Component
   , runTeardown_
 
   -- * Re-exports
-  , throwM
   , fail
 
   -- * Functions to build 'ComponentM' sub-routines
@@ -40,7 +39,6 @@ module Control.Monad.Component
   , buildComponentWithTeardown
   ) where
 
-import Control.Monad.Catch                    (throwM)
 import Control.Monad.Component.Internal.Core
     (buildComponent, buildComponentWithCleanup, buildComponentWithTeardown, runComponentM)
 import Control.Monad.Component.Internal.Types
