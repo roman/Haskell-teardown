@@ -2,12 +2,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Protolude
+import RIO
 
 import Criterion
 import Criterion.Main
 
-import Control.Teardown (newTeardown, teardown)
+import Control.Teardown (newTeardown, runTeardown_)
 
 main :: IO ()
 main = defaultMain
@@ -17,7 +17,7 @@ main = defaultMain
       , env
         (newTeardown "benchmark" (return () :: IO ()))
         ( \unitTeardown ->
-          bench "with teardown" (whnfIO $ void $ teardown unitTeardown)
+          bench "with teardown" (whnfIO $ runTeardown_ unitTeardown)
         )
       ]
   ]

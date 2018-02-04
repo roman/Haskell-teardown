@@ -4,8 +4,8 @@ description: see README.md
 version: '0.0.0.1'
 category: Web
 author: Roman Gonzalez
-maintainer: romanandreg@gmail.com
-copyright: © 2017 Roman Gonzalez
+maintainer: open-source@roman-gonzalez.info
+copyright: © 2017, 2018 Roman Gonzalez
 license: BSD3
 github: roman/Haskell-teardown/
 extra-source-files:
@@ -20,5 +20,5 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - base >=4.8 && <5
-    - protolude >=0.1 && <0.2
+    - rio
     - teardown
