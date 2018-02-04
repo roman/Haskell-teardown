@@ -2,14 +2,13 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Control.Monad.Component.Internal.Types where
 
-import Protolude hiding (try)
+import           RIO
+import qualified RIO.Text as Text
 
-import           Control.Exception.Safe (try)
-import           Control.Monad.Catch    (MonadThrow (..))
-import           Control.Monad.Fail     (MonadFail (..))
-import qualified Data.Text              as T
+import Control.Monad.Catch (MonadThrow (..))
+import Control.Monad.Fail  (MonadFail (..))
 
-import Control.Teardown (ITeardown (..), Teardown)
+import Control.Teardown (HasTeardown (..), Teardown)
 
 --------------------------------------------------------------------------------
 
@@ -31,7 +30,7 @@ newtype ComponentM a
 
 instance Functor ComponentM where
   fmap f (ComponentM action) =
-    ComponentM $ do
+    ComponentM $  do
       result <- action
       return $! case result of
         Left err ->
@@ -118,7 +117,7 @@ instance MonadFail ComponentM where
   fail str =
     ComponentM
       $ return
-      $ Left ([toException $! ComponentFailure (T.pack str)], [])
+      $ Left ([toException $! ComponentFailure (Text.pack str)], [])
 
 instance MonadThrow ComponentM where
   throwM e =
@@ -128,8 +127,12 @@ instance MonadThrow ComponentM where
 
 instance MonadIO ComponentM where
   liftIO action = ComponentM $ do
-    result <- action
-    return $ Right (result, [])
+    eResult <- try action
+    case eResult of
+      Left err ->
+        return $ Left ([err], [])
+      Right result ->
+        return $ Right (result, [])
 
 
 -- | Represents the result of a `ComponentM` sub-routine, it contains a resource
@@ -143,12 +146,12 @@ data Component a
 -- | Fetches the resource of a `Component` returned by a `ComponentM`
 -- sub-routine.
 fromComponent :: Component a -> a
-fromComponent =
-  componentResource
+fromComponent = componentResource
 {-# INLINE fromComponent #-}
 
 instance NFData a => NFData (Component a)
 
-instance ITeardown (Component a) where
-  teardown =
-    teardown . componentTeardown
+instance HasTeardown (Component a) where
+  getTeardown =
+    componentTeardown
+  {-# INLINE getTeardown #-}

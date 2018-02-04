@@ -1,4 +1,5 @@
 name: teardown
+version: '0.3.0.0'
 synopsis: Build composable components for your application with clear teardown semantics
 description: |
   The teardown library allows you to reliably deallocate resources
@@ -11,7 +12,6 @@ description: |
 
   Check Control.Teardown.Tutorial for more information.
 
-version: '0.3.0.0'
 category: System
 author: Roman Gonzalez
 maintainer: romanandreg@gmail.com
@@ -30,7 +30,7 @@ ghc-options:
 - -Wincomplete-record-updates
 dependencies:
 - base >=4.8 && <5
-- protolude
+- rio
 - safe-exceptions
 - text
 - time

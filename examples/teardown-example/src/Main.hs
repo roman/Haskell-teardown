@@ -12,24 +12,20 @@ main = do
   colombia  <- newTeardown "colombia" (return () :: IO ())
   mexico    <- newTeardown "mexico" (return () :: IO ())
 
-  caracas <-
-    newTeardown
-      "caracas"
-      (return [ baruta ] :: IO [Teardown])
+  caracas   <- newTeardown "caracas" (return [baruta] :: IO [Teardown])
 
-  venezuela <-
-    newTeardown
-      "venezuelan"
-      (return [ bqto, caracas ] :: IO [Teardown])
+  venezuela <- newTeardown "venezuelan"
+                           (return [bqto, caracas] :: IO [Teardown])
 
-  canada <-
-    newTeardown "canada"
-      [ ("vancouver" :: Text, return () :: IO ())
-      , ("calgary", panic "Some Error Message") ]
+  canada <- newTeardown
+    "canada"
+    [ ("vancouver" :: Text, return () :: IO ())
+    , ("calgary"          , panic "Some Error Message")
+    ]
 
-  earth <-
-    newTeardown "earth"
-      (return [ colombia, canada, mexico, venezuela ] :: IO [Teardown])
+  earth <- newTeardown
+    "earth"
+    (return [colombia, canada, mexico, venezuela] :: IO [Teardown])
 
   result <- teardown earth
   print $ renderTeardownReport result

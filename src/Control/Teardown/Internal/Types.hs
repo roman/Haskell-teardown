@@ -4,7 +4,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Control.Teardown.Internal.Types where
 
-import Protolude
+import RIO
 
 import Data.Time.Clock (NominalDiffTime)
 
@@ -69,9 +69,9 @@ instance NFData Teardown where
 
 -- | A record that __is__ or __contains__ a 'Teardown' sub-routine should
 -- instantiate this typeclass
-class ITeardown teardown where
+class HasTeardown teardown where
   -- | Executes teardown sub-routine returning a "TeardownResult"
-  teardown :: teardown -> IO TeardownResult
+  getTeardown :: teardown -> Teardown
 
 -- | A resource or sub-routine that can be transformed into a 'Teardown'
 -- operation
