@@ -10,6 +10,7 @@ cache:
   - $HOME/.ghc
   - $HOME/.cabal
   - $HOME/.stack
+  - $TRAVIS_BUILD_DIR/.stack-work
 
 matrix:
   include:
@@ -88,23 +89,7 @@ matrix:
   allow_failures:
   - env: BUILD=cabal GHCVER=head  CABALVER=head HAPPYVER=1.19.5 ALEXVER=3.1.7
   - env: BUILD=stack ARGS="--resolver nightly"
-  # include:
-  # - env: BUILD=nightly
-  #   compiler: "GHC-8.2.1"
-  #   addons: {apt: {packages: [libgmp-dev]}}
-
-  # - env: BUILD=lts-10
-  #   compiler: "GHC-8.2.1"
-  #   addons: {apt: {packages: [libgmp-dev]}}
-
-  # - env: BUILD=lts-9
-  #   compiler: "GHC-8.0.2"
-  #   addons: {apt: {packages: [libgmp-dev]}}
-
-  # - env: BUILD=lts-8
-  #   compiler: "GHC-8.0.2"
-  #   addons: {apt: {packages: [libgmp-dev]}}
-
+  - env: BUILD=sdist
 
 before_install:
 # Using compiler above sets CC to an invalid value, so unset it
