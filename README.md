@@ -24,7 +24,6 @@ dependencies:
 - teardown
 ```
 
-
 ## Documentation
 
 * [Tutorial](https://romanandreg.gitbook.com/teardown/content/v0.4/tutorial.md)
