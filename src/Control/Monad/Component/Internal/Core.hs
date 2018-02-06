@@ -2,10 +2,10 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 module Control.Monad.Component.Internal.Core where
 
-import Protolude
+import RIO
 
 import Control.Monad.Component.Internal.Types
-import Control.Teardown                       (Teardown, newTeardown, teardown)
+import Control.Teardown                       (Teardown, newTeardown, runTeardown_)
 
 --------------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ runComponentM !appName (ComponentM ma) = do
       appTeardown <- newTeardown appName cleanupActions
       -- Cleanup resources allocated so far and throw error
       -- list
-      void $ teardown appTeardown
+      runTeardown_ appTeardown
       throwIO (ComponentStartupFailure errList)
 
     Right (a, cleanupActions) -> do
@@ -46,11 +46,10 @@ runComponentM !appName (ComponentM ma) = do
 --   allocated resources to create the first element of the tuple
 --
 buildComponentWithCleanup :: IO (a, (Text, IO ())) -> ComponentM a
-buildComponentWithCleanup !ma =
-  ComponentM $ do
-    (a, (desc, cleanupAction)) <- ma
-    teardownAction <- newTeardown desc cleanupAction
-    return $ Right (a, [teardownAction])
+buildComponentWithCleanup !ma = ComponentM $ mask $ \unmask -> do
+  (a, (desc, cleanupAction)) <- unmask ma
+  teardownAction             <- newTeardown desc cleanupAction
+  return $ Right (a, [teardownAction])
 
 -- | Transforms an `IO` sub-routine into a `ComponentM` sub-routine; the given
 -- `IO` sub-routine must return a tuple where:
@@ -63,13 +62,11 @@ buildComponentWithCleanup !ma =
 --
 buildComponentWithTeardown :: IO (a, Teardown) -> ComponentM a
 buildComponentWithTeardown !ma =
-  ComponentM $ (\(a, resourceTeardown) ->
-                  Right (a, [resourceTeardown])) <$> ma
+  ComponentM $ (\(a, resourceTeardown) -> Right (a, [resourceTeardown])) <$> ma
 
 -- | Transforms an `IO` sub-routine into a `ComponentM` sub-routine; the given
 -- `IO` sub-routine returns a resource that does not allocate any other
 -- resources that would need to be cleaned up on a system shutdown.
 --
 buildComponent :: IO a -> ComponentM a
-buildComponent !ma =
-  ComponentM $ (\a -> Right (a, [])) <$> ma
+buildComponent !ma = ComponentM $ (\a -> Right (a, [])) <$> ma

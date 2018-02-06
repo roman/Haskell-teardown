@@ -13,13 +13,14 @@ sub-routines
 module Control.Teardown
   (
   -- * Typeclasses for extending teardown functionality
-    ITeardown
+    HasTeardown(..)
   , IResource
 
   -- * Cleanup main type and function
   , Teardown
   , TeardownResult (..)
-  , teardown
+  , runTeardown
+  , runTeardown_
 
   -- * Functions to create a 'Teardown' record
   , emptyTeardown
@@ -33,9 +34,15 @@ module Control.Teardown
   ) where
 
 import Control.Teardown.Internal.Types
-    (IResource (..), ITeardown (..), Teardown, TeardownResult (..))
+    (HasTeardown (..), IResource (..), Teardown, TeardownResult (..))
 
 import Control.Teardown.Internal.Core
-    (didTeardownFail, emptyTeardown, failedToredownCount, toredownCount)
+    ( didTeardownFail
+    , emptyTeardown
+    , failedToredownCount
+    , runTeardown
+    , runTeardown_
+    , toredownCount
+    )
 
 import Control.Teardown.Internal.Printer (renderTeardownReport)

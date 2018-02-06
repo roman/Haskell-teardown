@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import Protolude
+import RIO
 
 import Test.Tasty                   (defaultMainWithIngredients, testGroup)
 import Test.Tasty.Ingredients.Rerun (rerunningTests)
@@ -12,11 +12,6 @@ import qualified ComponentTest as Component
 import qualified TeardownTest  as Teardown
 
 main :: IO ()
-main =
-  defaultMainWithIngredients
-    [ rerunningTests [listingTests, consoleTestReporter] ]
-    (testGroup "teardown library"
-      [ Teardown.tests
-      , Component.tests
-      ]
-    )
+main = defaultMainWithIngredients
+  [rerunningTests [listingTests, consoleTestReporter]]
+  (testGroup "teardown library" [Teardown.tests, Component.tests])

@@ -2,8 +2,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
+import qualified Prelude
+import           RIO
+
 import Control.Teardown
-import Protolude
 
 main :: IO ()
 main = do
@@ -12,24 +14,19 @@ main = do
   colombia  <- newTeardown "colombia" (return () :: IO ())
   mexico    <- newTeardown "mexico" (return () :: IO ())
 
-  caracas <-
-    newTeardown
-      "caracas"
-      (return [ baruta ] :: IO [Teardown])
+  caracas   <- newTeardown "caracas" (return [baruta] :: IO [Teardown])
 
-  venezuela <-
-    newTeardown
-      "venezuelan"
-      (return [ bqto, caracas ] :: IO [Teardown])
+  venezuela <- newTeardown "venezuela" (return [bqto, caracas] :: IO [Teardown])
 
-  canada <-
-    newTeardown "canada"
-      [ ("vancouver" :: Text, return () :: IO ())
-      , ("calgary", panic "Some Error Message") ]
+  canada    <- newTeardown
+    "canada"
+    [ ("vancouver" :: Text, return () :: IO ())
+    , ("calgary"          , error "Some Error Message")
+    ]
 
-  earth <-
-    newTeardown "earth"
-      (return [ colombia, canada, mexico, venezuela ] :: IO [Teardown])
+  earth <- newTeardown
+    "earth"
+    (return [colombia, canada, mexico, venezuela] :: IO [Teardown])
 
-  result <- teardown earth
-  print $ renderTeardownReport result
+  result <- runTeardown earth
+  Prelude.print $ renderTeardownReport result

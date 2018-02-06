@@ -1,21 +1,28 @@
 name: teardown
+version: '0.3.0.0'
 synopsis: Build composable components for your application with clear teardown semantics
 description: |
-  The teardown library allows you to reliably deallocate resources
-  created when initializing your application. It provides:
+  The teardown library allows you to reliably execute cleanup sub-routines for
+  allocated resources when a program is initialized; it:
 
-  - A ComponentM monad that allows you to build and compose resources with
-    cleanup semantics
+  * Ensures that teardown sub-routines are executed /exactly/ once, even on the
+    scenario where cleanup is invoked multiple times
 
-  - An API that composes IO cleanup sub-routines safely
+  * Ensures that if errors occur on the execution of one teardown, the error
+    doesn not propagate to other sub-routines; effectively keeping them
+    isolated.
 
-  Check Control.Teardown.Tutorial for more information.
+  * Requires every teardown sub-routine to be documented at creation time; thus
+    helping tracing your application structure.
 
-version: '0.3.0.0'
+  * Allows tracing the teardown of your application, how is structured, how much
+    time it takes to execute, what component failed to finalize, and if the
+    whole teardown was successful.
+
 category: System
 author: Roman Gonzalez
-maintainer: romanandreg@gmail.com
-copyright: © 2017 Roman Gonzalez
+maintainer: open-source@roman-gonzalez.info
+copyright: © 2017, 2018 Roman Gonzalez
 license: MIT
 github: roman/Haskell-teardown
 tested-with: GHC==8.0.1 GHC==8.0.2 GHC==8.2.1
@@ -30,10 +37,7 @@ ghc-options:
 - -Wincomplete-record-updates
 dependencies:
 - base >=4.8 && <5
-- protolude
-- safe-exceptions
-- text
-- time
+- rio >= 0.0.1.0
 library:
   source-dirs: src
   exposed-modules:
@@ -48,8 +52,6 @@ library:
   - Control.Monad.Component.Internal.Core
   dependencies:
   - ansi-wl-pprint
-  - exceptions
-  - deepseq
 tests:
   teardown-test:
     main: TestSuite.hs
