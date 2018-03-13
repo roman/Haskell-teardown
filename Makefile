@@ -70,7 +70,15 @@ build: $(EXAMPLE_BIN)  ## Build library and example binaries
 test: $(EXAMPLE_BIN) ## Execute test suites
 	$(STACK) test --dump-logs
 
+bench: $(EXAMPLE_BIN)
+	$(STACK) bench --dump-logs
+
 sdist: $(PROJECT_SDIST_TAR) ## Build a release
+
+fix-stack-resolver: ## Modifies stack.yaml to support dependency bounds
+	$(STACK) --no-terminal test --bench --dry-run || ( \
+		stack --no-merminal build cabal-install && \
+		stack --no-terminal solver --update-config)
 
 untar-sdist: $(INTERNAL_SDIST_TAR)
 	@mkdir -p tmp
@@ -89,6 +97,8 @@ lint: $(PROJECT_SETUP_FILE) ## Execute linter
 
 repl: $(PROJECT_SETUP_FILE) ## Start project's repl
 	stack ghci
+
+bench:
 
 clean: ## Clean built artifacts
 	rm -f $(PROJECT_BIN_DIR)/*
