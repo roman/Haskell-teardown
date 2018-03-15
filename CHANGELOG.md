@@ -10,9 +10,10 @@ The change log is available [on GitHub][2].
 ## v0.4.0.0
 
 * Bump from lts-9.5 to lts-10.4
-* Remove `Control.Monad.Component in favor of having it on its own package
+* Remove `Control.Monad.Component` in favor of having it on its own package `componentm`
 * Replace `ITeardown` typeclass in favor of `HasTeardown`
 * Replace `teardown` function in favor of `runTeardown` and `runTeardown_`
+* Replace `protolude` in favor of `rio`
 
 ## v0.3.0.0
 
