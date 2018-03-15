@@ -1,7 +1,7 @@
 ################################################################################
 ## SETUP
 
-.PHONY: help build test format help dev-setup lint build repl test sdist untar-sdist test-sdist clean run-example1 run-example2
+.PHONY: help build test format help dev-setup lint build repl test fix-solver sdist untar-sdist test-sdist clean run-example1 run-example2
 .DEFAULT_GOAL := help
 
 
@@ -75,10 +75,10 @@ bench: $(EXAMPLE_BIN)
 
 sdist: $(PROJECT_SDIST_TAR) ## Build a release
 
-fix-stack-resolver: ## Modifies stack.yaml to support dependency bounds
+fix-solver: ## Modifies stack.yaml to support dependency bounds
 	$(STACK) --no-terminal test --bench --dry-run || ( \
-		stack --no-merminal build cabal-install && \
-		stack --no-terminal solver --update-config)
+		$(STACK) --no-terminal build cabal-install && \
+		$(STACK) --no-terminal solver --update-config )
 
 untar-sdist: $(INTERNAL_SDIST_TAR)
 	@mkdir -p tmp

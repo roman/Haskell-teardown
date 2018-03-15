@@ -9,15 +9,13 @@ description: |
     scenario where cleanup is invoked multiple times
 
   * Ensures that if errors occur on the execution of one teardown, the error
-    doesn not propagate to other sub-routines; effectively keeping them
-    isolated.
+    does not propagate to other sub-routines; effectively keeping them isolated.
 
-  * Requires every teardown sub-routine to be documented at creation time; thus
-    helping tracing your application structure.
+  * Requires every sub-routine to be documented at creation time; thus helping
+    tracing your application structure.
 
   * Allows tracing the teardown of your application, how is structured, how much
-    time it takes to execute, what component failed to finalize, and if the
-    whole teardown was successful.
+    time it takes to execute, and what component (if any) failed to finalize.
 
 category: System
 author: Roman Gonzalez
@@ -29,15 +27,19 @@ tested-with: GHC==8.0.1 GHC==8.0.2 GHC==8.2.1
 extra-source-files:
 - README.md
 - CHANGELOG.md
+
 ghc-options:
 - -Wall
 # as recommended in:
 # https://functor.tokyo/blog/2017-07-28-ghc-warnings-you-should-enable
 - -Wincomplete-uni-patterns
 - -Wincomplete-record-updates
+
 dependencies:
 - base >=4.8 && <5
 - rio >= 0.0.3.0
+- unliftio >= 0.2.4.0
+
 library:
   source-dirs: src
   exposed-modules:
@@ -49,6 +51,7 @@ library:
   - Control.Teardown.Internal.Printer
   dependencies:
   - ansi-wl-pprint
+
 tests:
   teardown-test:
     main: TestSuite.hs
@@ -62,6 +65,7 @@ tests:
     - tasty-hunit
     - tasty-rerun
     - teardown
+
 benchmarks:
   teardown-benchmark:
     main: Main.hs
