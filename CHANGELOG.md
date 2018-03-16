@@ -14,6 +14,7 @@ The change log is available [on GitHub][2].
 * Replace `ITeardown` typeclass in favor of `HasTeardown`
 * Replace `teardown` function in favor of `runTeardown` and `runTeardown_`
 * Replace `protolude` in favor of `rio`
+* Rename `renderTeardownReport` to `prettyTeardownResult`
 
 ## v0.3.0.0
 

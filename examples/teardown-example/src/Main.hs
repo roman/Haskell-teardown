@@ -29,4 +29,4 @@ main = do
     (return [colombia, canada, mexico, venezuela] :: IO [Teardown])
 
   result <- runTeardown earth
-  Prelude.print $ renderTeardownReport result
+  Prelude.print $ prettyTeardownResult result
