@@ -36,10 +36,6 @@ matrix:
     compiler: ": #stack default"
     addons: {apt: {packages: [libgmp-dev]}}
 
-  - env: BUILD=stack STACK_ARGS="--resolver lts-6"
-    compiler: ": #stack 7.10.3"
-    addons: {apt: {packages: [libgmp-dev]}}
-
   - env: BUILD=stack STACK_ARGS="--resolver lts-7"
     compiler: ": #stack 8.0.1"
     addons: {apt: {packages: [libgmp-dev]}}
