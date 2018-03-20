@@ -45,7 +45,6 @@ library:
   source-dirs: src
   exposed-modules:
   - Control.Teardown
-  - Control.Teardown.Tutorial
   other-modules:
   - Control.Teardown.Internal.Types
   - Control.Teardown.Internal.Core
