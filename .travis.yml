@@ -7,10 +7,12 @@ language: generic
 # Caching so the next build will be fast too.
 cache:
   directories:
+  - $HOME/.local/bin
   - $HOME/.ghc
   - $HOME/.cabal
   - $HOME/.stack
   - $TRAVIS_BUILD_DIR/.stack-work
+  - $TRAVIS_BUILD_DIR/tools/bin
 
 matrix:
   include:
@@ -68,7 +70,6 @@ matrix:
   allow_failures:
   - env: BUILD=cabal GHCVER=head  CABALVER=head HAPPYVER=1.19.5 ALEXVER=3.1.7
   - env: BUILD=stack STACK_ARGS="--resolver nightly"
-  - env: BUILD=sdist
 
 before_install:
 # Using compiler above sets CC to an invalid value, so unset it
@@ -107,7 +108,7 @@ install:
   case "$BUILD" in
     stack)
       # Add in extra-deps for older snapshots, as necessary
-      make fix-solver
+      make -f make/solver.make fix-solver
 
       # Build the dependencies
       stack --no-terminal $STACK_ARGS test --bench --only-dependencies
@@ -154,13 +155,14 @@ script:
       done
       ;;
     lint)
-      make lint
+      make -f make/tools.make lint
       ;;
     format)
-      make format
+      make -f make/tools.make format
       ;;
     sdist)
-      make test-sdist
+      make -f make/solver.make cabal
+      make -f make/sdist.make test-sdist
       ;;
   esac
   set +ex

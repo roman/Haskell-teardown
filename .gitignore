@@ -1,9 +1,7 @@
 out/bin/*
-out/profiled/*
 tools/bin/*
 tmp/*
-target/*
-.make/*
+out/*
 .tasty-rerun-log
 **/.stack-work/*
 **/.stack-work_*
