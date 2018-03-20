@@ -5,12 +5,11 @@ module Main where
 import RIO
 
 import Test.Tasty                   (defaultMainWithIngredients, testGroup)
-import Test.Tasty.Ingredients.Rerun (rerunningTests)
 import Test.Tasty.Runners           (consoleTestReporter, listingTests)
 
 import qualified TeardownTest as Teardown
 
 main :: IO ()
 main = defaultMainWithIngredients
-  [rerunningTests [listingTests, consoleTestReporter]]
+  [listingTests, consoleTestReporter]
   (testGroup "teardown library" [Teardown.tests])
