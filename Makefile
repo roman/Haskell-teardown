@@ -1,7 +1,7 @@
 ################################################################################
 ## SETUP
 
-.PHONY: help build test format help dev-setup lint build repl test sdist untar-sdist test-sdist clean run-example1 run-example2
+.PHONY: help build test format help dev-setup lint build repl test fix-solver sdist untar-sdist test-sdist clean run-example1 run-example2
 .DEFAULT_GOAL := help
 
 
@@ -70,7 +70,15 @@ build: $(EXAMPLE_BIN)  ## Build library and example binaries
 test: $(EXAMPLE_BIN) ## Execute test suites
 	$(STACK) test --dump-logs
 
+bench: $(EXAMPLE_BIN)
+	$(STACK) bench --dump-logs
+
 sdist: $(PROJECT_SDIST_TAR) ## Build a release
+
+fix-solver: ## Modifies stack.yaml to support dependency bounds
+	$(STACK) --no-terminal test --bench --dry-run || ( \
+		$(STACK) --no-terminal build cabal-install && \
+		$(STACK) --no-terminal solver --update-config )
 
 untar-sdist: $(INTERNAL_SDIST_TAR)
 	@mkdir -p tmp
@@ -89,6 +97,8 @@ lint: $(PROJECT_SETUP_FILE) ## Execute linter
 
 repl: $(PROJECT_SETUP_FILE) ## Start project's repl
 	stack ghci
+
+bench:
 
 clean: ## Clean built artifacts
 	rm -f $(PROJECT_BIN_DIR)/*

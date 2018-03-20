@@ -74,7 +74,7 @@ concatTeardown :: Description -> [Teardown] -> Teardown
 concatTeardown desc teardownChildren = Teardown $ do
   teardownResults <- mapM (\(Teardown action) -> action) teardownChildren
 
-  let elapsed        = sum $ map resultElapsedTime teardownResults
+  let elapsed        = sum $ map getElapsedTime teardownResults
 
       teardownFailed = any didTeardownFail teardownResults
 
@@ -89,7 +89,7 @@ newDynTeardown :: Description -> IO [TeardownResult] -> Teardown
 newDynTeardown desc action = Teardown $ do
   teardownResults <- action
 
-  let elapsed        = sum $ map resultElapsedTime teardownResults
+  let elapsed        = sum $ map getElapsedTime teardownResults
 
       teardownFailed = any didTeardownFail teardownResults
 

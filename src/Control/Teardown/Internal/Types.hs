@@ -1,3 +1,4 @@
+{-# LANGUAGE NamedFieldPuns    #-}
 {-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE CPP               #-}
 {-# LANGUAGE DeriveGeneric     #-}
@@ -46,6 +47,13 @@ data TeardownResult
       resultDescription :: !Description
     }
   deriving (Generic, Show)
+
+getElapsedTime :: TeardownResult -> NominalDiffTime
+getElapsedTime result =
+  case result of
+    BranchResult {resultElapsedTime} -> resultElapsedTime
+    LeafResult {resultElapsedTime} -> resultElapsedTime
+    EmptyResult {} -> 0
 
 instance NFData TeardownResult where
   rnf result =

@@ -30,7 +30,7 @@ module Control.Teardown
   , didTeardownFail
   , failedToredownCount
   , toredownCount
-  , renderTeardownReport
+  , prettyTeardownResult
   ) where
 
 import Control.Teardown.Internal.Types
@@ -45,4 +45,4 @@ import Control.Teardown.Internal.Core
     , toredownCount
     )
 
-import Control.Teardown.Internal.Printer (renderTeardownReport)
+import Control.Teardown.Internal.Printer (prettyTeardownResult)
