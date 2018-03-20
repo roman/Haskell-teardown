@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/roman/Haskell-teardown.svg?branch=master)](https://travis-ci.org/roman/Haskell-teardown)
 [![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](http://packdeps.haskellers.com/feed?needle=teardown)
-[![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.3.0.0.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.3.0.0.svg)
+[![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.4.0.0.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.4.0.0.svg)
 
 This library is intended to be minimal, providing a few functions that work
 reliably among many different kind of projects. If you want to contribute, Pull

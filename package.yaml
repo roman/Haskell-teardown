@@ -1,5 +1,5 @@
 name: teardown
-version: '0.3.0.0'
+version: '0.4.0.0'
 synopsis: Build composable components for your application with clear teardown semantics
 description: |
   The teardown library allows you to reliably execute cleanup sub-routines for

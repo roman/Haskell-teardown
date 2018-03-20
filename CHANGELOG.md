@@ -9,14 +9,18 @@ The change log is available [on GitHub][2].
 
 ## v0.4.0.0
 
-* Bump from lts-9.5 to lts-10.4
-* Remove `Control.Monad.Component` in favor of having it on its own package `componentm`
+**BREAKING CHANGES**
+
+* Bump from lts-9.5 to lts-11
 * Replace `ITeardown` typeclass in favor of `HasTeardown`
 * Replace `teardown` function in favor of `runTeardown` and `runTeardown_`
 * Replace `protolude` in favor of `rio`
 * Rename `renderTeardownReport` to `prettyTeardownResult`
+* Remove `Control.Monad.Component` in favor of having it on its own package `componentm`
 
 ## v0.3.0.0
+
+**BREAKING CHANGES**
 
 * Bump from lts-9.1 to lts-9.5
 * Add `Control.Monad.Component` module
@@ -24,6 +28,8 @@ The change log is available [on GitHub][2].
 * Add `IResource` instance for `[Teardown]`
 
 ## v0.2.0.0
+
+**BREAKING CHANGES**
 
 * Bump from lts-8.21 to lts-9.1
 * Re-organize test files to support nightly (GHC-8.2)
@@ -39,7 +45,7 @@ The change log is available [on GitHub][2].
 
 ## v0.1.0.0
 
-> BREAKING CHANGES
+**BREAKING CHANGES**
 
 * Relax Glob dependency bounds
 * Add `IResource` typeclass and make `newTeardown` part of it
