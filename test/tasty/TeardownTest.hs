@@ -27,7 +27,7 @@ tests = testGroup
                                       (error "failing teardown" :: IO ())
 
     result <- SUT.runTeardown teardownAction
-    replicateM_ 9 (SUT.runTeardown teardownAction)
+    replicateM_ 9                               (SUT.runTeardown teardownAction)
 
     assertBool  "result should report an error" (SUT.didTeardownFail result)
   , testCase "thread safe idempotent execution of teardown action" $ do
@@ -49,8 +49,9 @@ tests = testGroup
     callCountRefs  <- replicateM 10 $ newIORef (0 :: Int)
 
     teardownAction <-
-      SUT.newTeardown "bigger system" $ forM callCountRefs $ \callCountRef ->
-        SUT.newTeardown
+      SUT.newTeardown "bigger system"
+      $ forM callCountRefs
+      $ \callCountRef -> SUT.newTeardown
           "test cleanup"
           (atomicModifyIORef callCountRef (\a -> (a + 1, ())) :: IO ())
 
@@ -72,7 +73,7 @@ tests = testGroup
 
         teardownAction <- SUT.newTeardown
           "bigger system"
-          ( return (failedTeardownActions <> teardownActions) :: IO
+          (return (failedTeardownActions <> teardownActions) :: IO
               [SUT.Teardown]
           )
 

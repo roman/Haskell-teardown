@@ -151,9 +151,8 @@ instance IResource (IO ()) where
 -- order at teardown time.
 --
 instance IResource [(Text, IO ())] where
-  newTeardown desc actionList = do
-    teardownList <- mapM (uncurry newTeardown) actionList
-    return $ concatTeardown desc teardownList
+  newTeardown desc actionList =
+    concatTeardown desc <$> mapM (uncurry newTeardown) actionList
 
 -- | Wraps a "Teardown" record; the new record will have one extra level of
 -- description.
@@ -176,9 +175,8 @@ instance IResource [Teardown] where
 -- cleanup.
 --
 instance IResource (IO [Teardown]) where
-  newTeardown desc getTeardownList = do
-    teardownList <- getTeardownList
-    return $ concatTeardown desc teardownList
+  newTeardown desc getTeardownList =
+    concatTeardown desc <$> getTeardownList
 
 -- | Creates a "Teardown" sub-routine that is composed of inner sub-routines
 --  that are allocated at runtime. This is useful if allocations are being

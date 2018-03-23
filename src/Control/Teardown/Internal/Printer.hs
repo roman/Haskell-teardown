@@ -26,7 +26,7 @@ prettyTeardownResult result = render 0 0 result <> hardline
         [] ->
           error "Expecting reported error to have a line of content, got none"
 
-        (fstErrLine':errLines') -> (fstErrLine', errLines')
+        (fstErrLine' : errLines') -> (fstErrLine', errLines')
 
       errorReport =
         treeTrunk (start - 1) (level + 1)
@@ -34,7 +34,7 @@ prettyTeardownResult result = render 0 0 result <> hardline
           <>  indent 2 (text (show (typeOf err)) <> ":")
           <+> text (Text.unpack fstErrLine)
           :   map
-                ( \l -> treeTrunk (start - 1) (level + 1) <> ">" <> indent
+                (\l -> treeTrunk (start - 1) (level + 1) <> ">" <> indent
                   2
                   (text $ Text.unpack l)
                 )
@@ -46,7 +46,7 @@ prettyTeardownResult result = render 0 0 result <> hardline
     [] -> mempty
     [lastResult] ->
       treeTrunk start (level + 1) <> render (start + 1) (level + 1) lastResult
-    (r:results) ->
+    (r : results) ->
       treeTrunk start (level + 1)
         <>   render     start (level + 1) r
         <$$> renderTree start level       results

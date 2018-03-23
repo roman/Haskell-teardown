@@ -1,7 +1,7 @@
-{-# LANGUAGE NamedFieldPuns    #-}
 {-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE CPP               #-}
 {-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE NamedFieldPuns    #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 module Control.Teardown.Internal.Types where
 
@@ -9,7 +9,7 @@ import RIO
 import RIO.Time (NominalDiffTime)
 
 #if MIN_VERSION_base(4,9,0)
-import GHC.Generics    (Generic)
+import GHC.Generics (Generic)
 #endif
 
 --------------------------------------------------------------------------------
@@ -52,8 +52,8 @@ getElapsedTime :: TeardownResult -> NominalDiffTime
 getElapsedTime result =
   case result of
     BranchResult {resultElapsedTime} -> resultElapsedTime
-    LeafResult {resultElapsedTime} -> resultElapsedTime
-    EmptyResult {} -> 0
+    LeafResult {resultElapsedTime}   -> resultElapsedTime
+    EmptyResult {}                   -> 0
 
 instance NFData TeardownResult where
   rnf result =
