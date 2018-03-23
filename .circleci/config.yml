@@ -1,0 +1,67 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: fpco/stack-build:lts-11
+    environment:
+      - STACK_ARGS: "--resolver lts-11"
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - lts-11-{{ .Branch }}-{{ checksum "package.yaml" }}
+      - run:
+          name: Build & Test
+          command: make test
+      - save_cache:
+          key: lts-11-{{ .Branch }}-{{ checksum "package.yaml" }}
+          paths:
+            - {{ .Environment.HOME }}/.stack
+            - {{ .Environment.CIRCLE_WORKING_DIRECTORY }}/tools/bin
+            - {{ .Environment.CIRCLE_WORKING_DIRECTORY }}/.stack-work
+
+#   lint:
+#     docker:
+#       - image: fpco/stack-build:lts-11
+#     steps:
+#       - restore_cache:
+#           key: lts-11-{{ .Branch }}-{{ checksum "package.yaml" }}
+#       - checkout
+#       - run:
+#           name: Lint
+#           command: make test
+
+#   format:
+#     docker:
+#       - image: fpco/stack-build:lts-11
+#     steps:
+#       - restore_cache:
+#           key: lts-11-{{ .Branch }}-{{ checksum "package.yaml" }}
+#       - checkout
+#       - run:
+#           name: Format
+#           command: make format
+
+  sdist:
+    docker:
+      - image: fpco/stack-build:latest
+    environment:
+      - STACK_ARGS: "--resolver nightly"
+    steps:
+      - checkout
+      - run:
+          name: Test sdist release
+          command: make -f make/sdist.make test-sdist
+
+workflows:
+  version: 2
+  matrix:
+    jobs:
+      - build
+      # - format:
+      #     requires:
+      #       - lts-11
+      # - lint:
+      #     requires:
+      #       - lts-11
+      # - sdist
