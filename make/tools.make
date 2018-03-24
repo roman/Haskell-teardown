@@ -1,7 +1,7 @@
 # -*- mode: Makefile; -*-
 ################################################################################
 
-TOOLS_DIR := ./tools/bin
+TOOLS_DIR ?= $(shell pwd)/tools/bin
 
 BRITTANY_BIN := $(TOOLS_DIR)/brittany
 STYLISH_BIN := $(TOOLS_DIR)/stylish-haskell
@@ -34,8 +34,8 @@ format: $(STYLISH_BIN) $(BRITTANY_BIN) ## Normalize style on source files
 	git diff --exit-code
 .PHONY: format
 
-lint: $(HLINT_BIN) ## Execute linter on source files
-	for f in $$($(FIND_HASKELL_FILES)); do echo $$f; $(HLINT_BIN) --with-refactor=$$(pwd)/$(REFACTOR_BIN) --refactor --refactor-options -i $$f; done
+lint: $(HLINT_BIN) $(REFACTOR_BIN) ## Execute linter on source files
+	for f in $$($(FIND_HASKELL_FILES)); do echo $$f; $(HLINT_BIN) --hint=./.hlint.yml --with= --with-refactor=$(REFACTOR_BIN) --refactor --refactor-options -i $$f; done
 	git diff --exit-code
 .PHONY: lint
 

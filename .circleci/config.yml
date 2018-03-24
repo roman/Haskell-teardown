@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  lint:
+    docker:
+      - image: romanandreg/haskell-tools:lts-11
+    environment:
+      - TOOLS_DIR: /root/.local/bin
+    steps:
+      - checkout
+      - run: "make -f make/tools.make lint"
+
+  format:
+    docker:
+      - image: romanandreg/haskell-tools:lts-11
+    environment:
+      - TOOLS_DIR: /root/.local/bin
+    steps:
+      - checkout
+      - run: "make -f make/tools.make format"
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - lint
+      - format
