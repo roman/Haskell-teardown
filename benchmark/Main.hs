@@ -16,7 +16,7 @@ main = defaultMain
       [ bench "without teardown" (whnfIO $ return ())
       , env
         (newTeardown "benchmark" (return () :: IO ()))
-        ( \unitTeardown ->
+        (\unitTeardown ->
           bench "with teardown" (whnfIO $ runTeardown_ unitTeardown)
         )
       ]
