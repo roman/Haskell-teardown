@@ -2,7 +2,7 @@ version: 2
 jobs:
   lint:
     docker:
-      - image: romanandreg/haskell-tools:lts-11
+      - image: romanandreg/haskell-tools:latest
     environment:
       - TOOLS_DIR: /root/.local/bin
     steps:
@@ -11,7 +11,7 @@ jobs:
 
   format:
     docker:
-      - image: romanandreg/haskell-tools:lts-11
+      - image: romanandreg/haskell-tools:latest
     environment:
       - TOOLS_DIR: /root/.local/bin
     steps:
