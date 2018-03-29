@@ -26,10 +26,58 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts11
       - run: "make test"
       - save_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts11
+          paths:
+            - /root/.stack
+            - .stack-work
+
+  lts-9:
+    docker:
+      - image: romanandreg/lts-11:latest
+    environment:
+      - STACK_ARGS: '--resolver lts-7'
+    steps:
+      - checkout
+      - restore_cache:
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts9
+      - run: "make test"
+      - save_cache:
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts9
+          paths:
+            - /root/.stack
+            - .stack-work
+
+  lts-7:
+    docker:
+      - image: romanandreg/lts-11:latest
+    environment:
+      - STACK_ARGS: '--resolver lts-7'
+    steps:
+      - checkout
+      - restore_cache:
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts7
+      - run: "make test"
+      - save_cache:
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts7
+          paths:
+            - /root/.stack
+            - .stack-work
+
+  nightly:
+    docker:
+      - image: romanandreg/lts-11:latest
+    environment:
+      - STACK_ARGS: '--resolver nightly'
+    steps:
+      - checkout
+      - restore_cache:
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-nightly
+      - run: "make test"
+      - save_cache:
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-nightly
           paths:
             - /root/.stack
             - .stack-work
@@ -40,4 +88,7 @@ workflows:
     jobs:
       - lint
       - format
+      - nightly
       - lts-11
+      - lts-9
+      - lts-7
