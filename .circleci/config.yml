@@ -26,10 +26,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "package.yaml" }}
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}
       - run: "make test"
       - save_cache:
-          key: dependency-cache-{{ .Branch }}-{{ checksum "package.yaml" }}
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}
           paths:
             - /root/.stack
             - .stack-work
