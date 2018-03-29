@@ -18,9 +18,19 @@ jobs:
       - checkout
       - run: "make -f make/tools.make format"
 
+  lts-11:
+    docker:
+      - image: romanandreg/lts-11:latest
+    environment:
+      - STACK_ARGS: '--resolver lts-11'
+    steps:
+      - checkout
+      - run: "make test"
+
 workflows:
   version: 2
   main:
     jobs:
       - lint
       - format
+      - lts-11
