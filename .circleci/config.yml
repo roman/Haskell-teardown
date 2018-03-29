@@ -25,7 +25,13 @@ jobs:
       - STACK_ARGS: '--resolver lts-11'
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ .Branch }}-{{ checksum "package.yaml" }}
       - run: "make test"
+      - save_cache:
+          key: dependency-cache-{{ .Branch }}-{{ checksum "package.yaml" }}
+          paths:
+            - .stack-work
 
 workflows:
   version: 2
