@@ -27,10 +27,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts11
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-lts11
       - run: "make -f make/solver.make fix-solver && make test"
       - save_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts11
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-lts11
           paths:
             - /root/.stack
             - .stack-work
@@ -39,15 +39,15 @@ jobs:
     docker:
       - image: romanandreg/stack:latest
     environment:
-      - STACK_ARGS: '--resolver lts-7'
+      - STACK_ARGS: '--resolver lts-9'
       - CABAL_DIR: '/root/.local/bin'
     steps:
       - checkout
       - restore_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts9
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-lts9
       - run: "make -f make/solver.make fix-solver && make test"
       - save_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts9
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-lts9
           paths:
             - /root/.stack
             - .stack-work
@@ -61,10 +61,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts7
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-lts7
       - run: "make -f make/solver.make fix-solver && make test"
       - save_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-lts7
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-lts7
           paths:
             - /root/.stack
             - .stack-work
@@ -78,10 +78,10 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-nightly
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-nightly
       - run: "make -f make/solver.make fix-solver && make test"
       - save_cache:
-          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-{{ checksum "stack.yaml" }}-nightly
+          key: build-cache-{{ .Branch }}-{{ checksum "package.yaml" }}-nightly
           paths:
             - /root/.stack
             - .stack-work
@@ -90,9 +90,9 @@ workflows:
   version: 2
   main:
     jobs:
-      - lint
-      - format
-      - nightly
       - lts-11
       - lts-9
       - lts-7
+      - nightly
+      - lint
+      - format
