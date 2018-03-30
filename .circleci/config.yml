@@ -49,6 +49,7 @@ jobs:
           key: build-cache-{{ checksum "package.yaml" }}-lts11
           paths:
             - /root/.stack
+            - /root/.ghc
             - .stack-work
 
   lts-9:
@@ -66,6 +67,7 @@ jobs:
           key: build-cache-{{ checksum "package.yaml" }}-lts9
           paths:
             - /root/.stack
+            - /root/.ghc
             - .stack-work
 
   lts-7:
@@ -83,6 +85,7 @@ jobs:
           key: build-cache-{{ checksum "package.yaml" }}-lts7
           paths:
             - /root/.stack
+            - /root/.ghc
             - .stack-work
 
   nightly:
@@ -100,6 +103,7 @@ jobs:
           key: build-cache-{{ checksum "package.yaml" }}-nightly
           paths:
             - /root/.stack
+            - /root/.ghc
             - .stack-work
 
 workflows:
