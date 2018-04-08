@@ -2,9 +2,9 @@
 {-|
 Module      : Control.Teardown
 Description : Build composable, idempotent & transparent application cleanup sub-routines
-Copyright   : (c) Roman Gonzalez, 2017
+Copyright   : (c) Roman Gonzalez, 2017,2018
 License     : MIT
-Maintainer  : romanandreg@gmail.com
+Maintainer  : open-source@roman-gonzalez.info
 Stability   : experimental
 
 Provides functions that help on the creation of Application teardown
