@@ -4,9 +4,10 @@ module TeardownTest where
 
 import RIO
 
-import           Control.Monad    (replicateM)
-import qualified Control.Teardown as SUT
-import           Test.Tasty       (TestTree, testGroup)
+import           Control.Exception (MaskingState (..), getMaskingState)
+import           Control.Monad     (replicateM)
+import qualified Control.Teardown  as SUT
+import           Test.Tasty        (TestTree, testGroup)
 import           Test.Tasty.HUnit
 
 
@@ -87,38 +88,12 @@ tests = testGroup
         assertEqual "failed teardown action must be correct"
                     5
                     (SUT.failedToredownCount toredownResult)
-  , testCase "teardown with list of description and actions executes correctly"
-    $ do
-        callCountRef   <- newIORef (0 :: Int)
-        teardownAction <- SUT.newTeardown
-          "bigger-system"
-          [ ("1" :: Text, modifyIORef callCountRef (+ 1) :: IO ())
-          , ("2"        , modifyIORef callCountRef (+ 1))
-          , ("3"        , modifyIORef callCountRef (+ 1))
-          , ("4"        , modifyIORef callCountRef (+ 1))
-          , ("5"        , modifyIORef callCountRef (+ 1))
-          , ("6"        , error "nope")
-          , ("7"        , error "nope")
-          , ("8"        , error "nope")
-          , ("9"        , error "nope")
-          ]
-
-
-        -- Execute multiple times to assert idempotency
-        toredownResult <- SUT.runTeardown teardownAction
-        replicateM_ 9 (SUT.runTeardown teardownAction)
-
-        assertEqual "teardown action count must be correct"
-                    9
-                    (SUT.toredownCount toredownResult)
-
-        assertEqual "failed teardown must be correct"
-                    4
-                    (SUT.failedToredownCount toredownResult)
-
-        callCount <- readIORef callCountRef
-        assertEqual
-          "side-effects were executed despite errors on other teardown operations"
-          5
-          callCount
+  , testCase "Teardown sub-routine executes on an uninterruptedMask" $ do
+    resultVar <- newEmptyMVar
+    teardown  <- SUT.newTeardown "test" (getMaskingState >>= putMVar resultVar)
+    SUT.runTeardown_ teardown
+    masking <- takeMVar resultVar
+    assertEqual "Expecting Teardown masked state is Uninterruptible"
+                MaskedUninterruptible
+                masking
   ]

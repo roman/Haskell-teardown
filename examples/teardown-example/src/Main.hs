@@ -18,15 +18,8 @@ main = do
 
   venezuela <- newTeardown "venezuela" (return [bqto, caracas] :: IO [Teardown])
 
-  canada    <- newTeardown
-    "canada"
-    [ ("vancouver" :: Text, return () :: IO ())
-    , ("calgary"          , error "Some Error Message")
-    ]
-
-  earth <- newTeardown
-    "earth"
-    (return [colombia, canada, mexico, venezuela] :: IO [Teardown])
+  earth <- newTeardown "earth"
+                       (return [colombia, mexico, venezuela] :: IO [Teardown])
 
   result <- runTeardown earth
   Prelude.print $ prettyTeardownResult result
