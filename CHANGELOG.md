@@ -7,6 +7,14 @@ The change log is available [on GitHub][2].
 [1]: http://semver.org/spec/v2.0.0.html
 [2]: https://github.com/roman/Haskell-teardown/libraries/teardown/CHANGELOG.md
 
+## v0.4.1.0
+
+* Ensure the `IO ()` sub-routine of a `Teardown` record gets executed on a
+  `MaskedUninterruptible` masking state
+* Deprecate the `[(Text, IO ())]` instance of `IResource` in favor of creating a
+  teardown record per de-allocated resource.
+* Improve upon documentation
+
 ## v0.4.0.0
 
 **BREAKING CHANGES**

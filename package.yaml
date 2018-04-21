@@ -1,15 +1,14 @@
 name: teardown
-version: '0.4.0.0'
-synopsis: Build composable components for your application with clear teardown semantics
+version: '0.4.1.0'
+synopsis: Build safe and composable teardown sub-routines for resources
 description: |
   The teardown library allows you to reliably execute cleanup sub-routines for
-  allocated resources when a program is initialized; it:
+  allocated resources. When a program is initialized, it:
 
-  * Ensures that teardown sub-routines are executed /exactly/ once, even on the
-    scenario where cleanup is invoked multiple times
+  * Ensures that teardown sub-routines are executed /exactly/ once
 
-  * Ensures that if errors occur on the execution of one teardown, the error
-    does not propagate to other sub-routines; effectively keeping them isolated.
+  * Ensures that if errors occur on the execution of a Teardown sub-routine, the
+    error does not propagate to others; bulkheading failure on cleanup.
 
   * Requires every sub-routine to be documented at creation time; thus helping
     tracing your application structure.

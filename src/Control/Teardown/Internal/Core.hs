@@ -1,4 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE DataKinds #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 module Control.Teardown.Internal.Core
@@ -10,12 +12,17 @@ module Control.Teardown.Internal.Core
 
   , runTeardown
   , runTeardown_
+  , newTeardown
   )
 where
 
 import RIO
 
 import RIO.Time (NominalDiffTime, diffUTCTime, getCurrentTime)
+
+#if MIN_VERSION_base(4,11,0)
+import qualified GHC.TypeLits as Ty
+#endif
 
 import Control.Teardown.Internal.Types
 
@@ -42,7 +49,7 @@ didTeardownFail result = case result of
 
   EmptyResult{}  -> False
 
--- | Creates a new "Teardown" sub-routine from a cleanup "IO" action, the
+-- | Creates a new "Teardown" record from a cleanup "IO" action, the
 -- side-effects from this action are guaranteed to be executed only once, and
 -- also it is guaranteed to be thread-safe in the scenario of multiple threads
 -- executing the same teardown procedure.
@@ -50,7 +57,7 @@ newTeardownIO :: Description -> IO () -> IO Teardown
 newTeardownIO desc disposingAction = do
   teardownResultLock <- newIORef False
   teardownResultRef  <- newIORef Nothing
-  return $ Teardown $ do
+  return $ Teardown $ uninterruptibleMask_ $ do
     shouldExecute <- atomicModifyIORef
       teardownResultLock
       (\toredown -> if toredown then (True, False) else (True, True))
@@ -80,11 +87,6 @@ concatTeardown desc teardownChildren = Teardown $ do
 
   return $ BranchResult desc elapsed teardownFailed teardownResults
 
--- | Creates a "Teardown" sub-routine that is composed of inner sub-routines
---  that are allocated at runtime. This is useful if allocations are being
---  created and being hold on a Mutable variable of some sort (e.g. "IORef",
---  "TVar", etc) so that on cleanup this Mutable variable is read and the
---  results of the teardown operation are returned.
 newDynTeardown :: Description -> IO [TeardownResult] -> Teardown
 newDynTeardown desc action = Teardown $ do
   teardownResults <- action
@@ -99,6 +101,7 @@ newDynTeardown desc action = Teardown $ do
 --  expects a teardown return but there is no allocation being made
 emptyTeardown :: Description -> Teardown
 emptyTeardown desc = Teardown (return $ emptyTeardownResult desc)
+{-# INLINE emptyTeardown #-}
 
 --------------------------------------------------------------------------------
 
@@ -120,13 +123,14 @@ foldTeardownResult leafStep branchStep acc disposeResult =
       let result = map (foldTeardownResult leafStep branchStep acc) results
       in  branchStep result desc
 
--- | Returns number of sub-routines executed at teardown
+-- | Returns number of released resources from a "runTeardown" execution
 toredownCount :: TeardownResult -> Int
 toredownCount =
   foldTeardownResult (\acc _ _ -> acc + 1) (\results _ -> sum results) 0
+{-# INLINE toredownCount #-}
 
 -- | Returns number of sub-routines that threw an exception on execution of
--- teardown
+-- "runTeardown"
 failedToredownCount :: TeardownResult -> Int
 failedToredownCount = foldTeardownResult
   (\acc _ mErr -> acc + maybe 0 (const 1) mErr)
@@ -137,26 +141,45 @@ failedToredownCount = foldTeardownResult
 
 instance HasTeardown Teardown where
   getTeardown = id
+  {-# INLINE getTeardown #-}
 
--- | Creates a Teardown record from a simple `IO ()` sub-routine
+-- | Creates a new "Teardown" record from a cleanup "IO ()" sub-routine; the
+-- Teardown API guarantees:
+--
+-- * The execution of given "IO ()" sub-routine happens exactly once
+-- * The execution is thread-safe when multiple threads try to call "runTeardown"
+--
+-- IMPORTANT: The @IO ()@ sub-routine _must not_ block or take a long time; this
+-- sub-routine cannot be stopped by an async exception
 instance IResource (IO ()) where
   newTeardown =
     newTeardownIO
+  {-# INLINE newTeardown #-}
 
--- | Creates a Teardown record from a simple list of cleanup sub-routines
--- (creating a Teardown record for each), ideal when one single component has
--- many resources allocated and need to be cleaned out all at once.
+-- | Deprecated instance that creates a Teardown record from a list of cleanup
+-- sub-routines (creating a Teardown record for each).
+--
+-- WARNING: This function assumes you are creating many sub-resources at once;
+-- this approach has a major risk of leaking resources, and that is why is
+-- deprecated; execute newTeardown for every resource you allocate.
 --
 -- NOTE: The @IO ()@ sub-routines given are going to be executed in reverse
 -- order at teardown time.
 --
+-- Since 0.4.1.0
+#if MIN_VERSION_base(4,11,0)
+instance Ty.TypeError ('Ty.Text "DEPRECATED: Execute a 'newTeardown' call per allocated resource")
+  => IResource [(Text, IO ())] where
+  newTeardown desc actionList =
+    concatTeardown desc <$> mapM (uncurry newTeardown) actionList
+#else
 instance IResource [(Text, IO ())] where
   newTeardown desc actionList =
     concatTeardown desc <$> mapM (uncurry newTeardown) actionList
+#endif
 
--- | Wraps a "Teardown" record; the new record will have one extra level of
--- description.
---
+-- | Wraps an existing "Teardown" record; the wrapper "Teardown" record represents
+-- a "parent resource" on the "TeardownResult"
 instance IResource Teardown where
   newTeardown desc =
     return . concatTeardown desc . return
@@ -168,6 +191,7 @@ instance IResource Teardown where
 instance IResource [Teardown] where
   newTeardown desc =
     return . concatTeardown desc
+  {-# INLINE newTeardown #-}
 
 -- | Wraps an IO action that returns a list of "Teardown" record; the new record
 -- will have one extra level of description. Same behaviour as the @[(Text, IO
@@ -177,24 +201,28 @@ instance IResource [Teardown] where
 instance IResource (IO [Teardown]) where
   newTeardown desc getTeardownList =
     concatTeardown desc <$> getTeardownList
+  {-# INLINE newTeardown #-}
 
--- | Creates a "Teardown" sub-routine that is composed of inner sub-routines
---  that are allocated at runtime. This is useful if allocations are being
---  created and being hold on a Mutable variable of some sort (e.g. "IORef",
---  "TVar", etc) so that on teardown time this Mutable variable is read and
---  executed and the results are returned.
+-- | Creates a "Teardown" record from executing a sub-routine that releases
+--  short-lived "Teardown" records. This is useful when short-lived "Teardown"
+--  are accumulated on a collection inside a mutable variable (e.g. @IORef@,
+--  @TVar@, etc) and we want to release them
 instance IResource (IO [TeardownResult]) where
   newTeardown desc =
     return . newDynTeardown desc
+  {-# INLINE newTeardown #-}
 
 --------------------------------------------------------------------------------
 
--- | Executes all composed "Teardown" sub-routines safely, and returns a Tree
--- data structure wich can be used to gather facts from the cleanup process.
+-- | Executes all composed "Teardown" sub-routines safely. This version returns
+-- a Tree data structure wich can be used to gather facts from the resource
+-- cleanup
 runTeardown :: HasTeardown t => t -> IO TeardownResult
 runTeardown t0 =
   let (Teardown teardownAction) = getTeardown t0 in teardownAction
+{-# INLINE runTeardown #-}
 
--- | Executes all composed "Teardown" sub-routines safely.
+-- | Executes all composed "Teardown" sub-routines safely
 runTeardown_ :: HasTeardown t => t -> IO ()
 runTeardown_ = void . runTeardown
+{-# INLINE runTeardown_ #-}
