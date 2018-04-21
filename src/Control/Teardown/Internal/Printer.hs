@@ -2,12 +2,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Control.Teardown.Internal.Printer where
 
-import RIO
+import Data.Monoid ((<>))
+import RIO         hiding ((<>))
 
 import           Data.Typeable (typeOf)
 import qualified RIO.Text      as Text
 
 import Text.PrettyPrint.ANSI.Leijen hiding ((<>))
+
 
 import Control.Teardown.Internal.Types
 

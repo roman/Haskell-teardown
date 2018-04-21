@@ -1,4 +1,5 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE NoImplicitPrelude #-}
@@ -18,7 +19,10 @@ where
 import RIO
 
 import RIO.Time (NominalDiffTime, diffUTCTime, getCurrentTime)
+
+#if MIN_VERSION_base(4,11,0)
 import qualified GHC.TypeLits as Ty
+#endif
 
 import Control.Teardown.Internal.Types
 
@@ -163,10 +167,16 @@ instance IResource (IO ()) where
 -- order at teardown time.
 --
 -- Since 0.4.1.0
+#if MIN_VERSION_base(4,11,0)
 instance Ty.TypeError ('Ty.Text "DEPRECATED: Execute a 'newTeardown' call per allocated resource")
   => IResource [(Text, IO ())] where
   newTeardown desc actionList =
     concatTeardown desc <$> mapM (uncurry newTeardown) actionList
+#else
+instance IResource [(Text, IO ())] where
+  newTeardown desc actionList =
+    concatTeardown desc <$> mapM (uncurry newTeardown) actionList
+#endif
 
 -- | Wraps an existing "Teardown" record; the wrapper "Teardown" record represents
 -- a "parent resource" on the "TeardownResult"
