@@ -57,7 +57,7 @@ newTeardownIO :: Description -> IO () -> IO Teardown
 newTeardownIO desc disposingAction = do
   teardownResultLock <- newIORef False
   teardownResultRef  <- newIORef Nothing
-  return $ Teardown $ uninterruptibleMask_ $ do
+  return $ Teardown $ do
     shouldExecute <- atomicModifyIORef
       teardownResultLock
       (\toredown -> if toredown then (True, False) else (True, True))
@@ -219,7 +219,7 @@ instance IResource (IO [TeardownResult]) where
 -- cleanup
 runTeardown :: HasTeardown t => t -> IO TeardownResult
 runTeardown t0 =
-  let (Teardown teardownAction) = getTeardown t0 in teardownAction
+  let (Teardown teardownAction) = getTeardown t0 in uninterruptibleMask_ teardownAction
 {-# INLINE runTeardown #-}
 
 -- | Executes all composed "Teardown" sub-routines safely
