@@ -4,8 +4,7 @@ module Main where
 
 import RIO
 
-import Criterion
-import Criterion.Main
+import Gauge
 
 import Control.Teardown (newTeardown, runTeardown_)
 
@@ -20,4 +19,9 @@ main = defaultMain
           bench "with teardown" (whnfIO $ runTeardown_ unitTeardown)
         )
       ]
+  , env
+      (sequence (replicate 1000 (newTeardown "benchmark" (return () :: IO ())))
+       >>= newTeardown "parent")
+      (\composedTeardown ->
+          bench "teardown list" (whnfIO $ runTeardown_ composedTeardown))
   ]
