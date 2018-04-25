@@ -1,9 +1,13 @@
+{-# LANGUAGE CPP               #-}
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
 import RIO
 
+#if MIN_VERSION_gauge(1,3,0)
+import Gauge.Main (defaultMain)
+#endif
 import Gauge
 
 import Control.Teardown (newTeardown, runTeardown_)
