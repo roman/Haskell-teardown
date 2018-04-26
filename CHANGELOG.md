@@ -9,10 +9,12 @@ The change log is available [on GitHub][2].
 
 ## v0.4.1.0
 
-* Ensure the `IO ()` sub-routine of a `Teardown` record gets executed on a
+* Ensure that all `IO ()` sub-routines on `runTeardown` get executed inside a
   `MaskedUninterruptible` masking state
 * Deprecate the `[(Text, IO ())]` instance of `IResource` in favor of creating a
   teardown record per de-allocated resource.
+* Replace `criterion` in favor of `gauge`
+* Bump `rio` to v0.1.1.0
 * Improve upon documentation
 
 ## v0.4.0.0

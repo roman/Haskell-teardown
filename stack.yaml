@@ -4,7 +4,7 @@ packages:
 - .
 - examples/teardown-example
 extra-deps:
-- rio-0.1.0.0
+- rio-0.1.1.0
 - typed-process-0.2.2.0
 - unliftio-0.2.6.0
 - unliftio-core-0.1.1.0
