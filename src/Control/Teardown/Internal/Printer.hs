@@ -2,7 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Control.Teardown.Internal.Printer where
 
-import RIO         hiding ((<>))
+import RIO hiding ((<>))
 
 import           Data.Typeable (typeOf)
 import qualified RIO.Text      as Text
@@ -48,23 +48,25 @@ prettyTeardownResult result = render 0 0 result <> hardline
       treeTrunk start (level + 1) <> render (start + 1) (level + 1) lastResult
     (r : results) ->
       treeTrunk start (level + 1)
-        <>   render     start (level + 1) r
+        <> render start (level + 1) r
         <> hardline
-        <> renderTree start level       results
+        <> renderTree start level results
 
   render start level disposeResult = case disposeResult of
-    EmptyResult desc -> "`-" <+> "✓" <+> pretty (Text.unpack desc) <+> "(empty)"
+    EmptyResult desc ->
+      "`-" <+> "✓" <+> pretty (Text.unpack desc) <+> "(empty)"
 
     LeafResult desc elapsed Nothing ->
-      "`-" <+> "✓" <+> pretty (Text.unpack desc) <+> pretty ("(" <> show elapsed <> ")")
+      "`-" <+> "✓" <+> pretty (Text.unpack desc) <+> pretty
+        ("(" <> show elapsed <> ")")
 
     LeafResult desc elapsed (Just err) ->
       "`-"
-        <+>  "✘"
-        <+>  pretty (Text.unpack desc)
-        <+>  pretty ("(" <> show elapsed <> ")")
-        <> hardline
-        <> renderError start level err
+        <+> "✘"
+        <+> pretty (Text.unpack desc)
+        <+> pretty ("(" <> show elapsed <> ")")
+        <>  hardline
+        <>  renderError start level err
 
     BranchResult desc elapsed didFail results -> vcat
       [ "`-"

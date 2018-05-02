@@ -3,6 +3,7 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE NamedFieldPuns    #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE OverloadedStrings #-}
 module Control.Teardown.Internal.Types where
 
 import RIO
@@ -11,6 +12,10 @@ import RIO.Time (NominalDiffTime)
 #if MIN_VERSION_base(4,9,0)
 import GHC.Generics (Generic)
 #endif
+
+import           Data.Text.Prettyprint.Doc (Pretty, pretty, (<+>))
+import qualified Data.Text.Prettyprint.Doc as Pretty
+
 
 --------------------------------------------------------------------------------
 
@@ -47,6 +52,34 @@ data TeardownResult
       resultDescription :: !Description
     }
   deriving (Generic, Show)
+
+instance Pretty TeardownResult where
+  pretty result =
+    case result of
+      EmptyResult {resultDescription} ->
+        "✓" <+> pretty resultDescription <+> Pretty.parens "empty"
+      LeafResult {resultDescription, resultElapsedTime, resultError} ->
+        case resultError of
+          Nothing ->
+            "✓" <+> pretty resultDescription <+> Pretty.parens (pretty $ show resultElapsedTime)
+          Just err ->
+            Pretty.hang 2
+              (Pretty.vsep ["✘"
+                            <+> pretty resultDescription
+                            <+> Pretty.parens (pretty $ show resultElapsedTime)
+                           , "|" <+> pretty (show err) ])
+      BranchResult {resultDidFail, resultDescription, resultElapsedTime, resultListing} ->
+        let
+          symbolDoc = if resultDidFail then "✘" else "✓"
+        in
+          symbolDoc
+          <+> pretty resultDescription
+          <+> Pretty.parens (pretty $ show resultElapsedTime)
+          <> Pretty.hardline
+          <> Pretty.indent 2 (Pretty.align (Pretty.vsep (map pretty resultListing)))
+
+instance Display TeardownResult where
+  display = displayShow . pretty
 
 getElapsedTime :: TeardownResult -> NominalDiffTime
 getElapsedTime result =
