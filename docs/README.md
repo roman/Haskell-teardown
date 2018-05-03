@@ -32,8 +32,8 @@ dependencies:
 
 ## Documentation
 
-* [Tutorial](https://romanandreg.gitbooks.io/teardown/v0.5/tutorial.html)
-* [How-To Guides](https://romanandreg.gitbooks.io/teardown/v0.5/how-to/create-teardown.html)
+* [Tutorial](https://romanandreg.gitbook.io/teardown/v0.5/tutorial.html)
+* [How-To Guides](https://romanandreg.gitbook.io/teardown/v0.5/how-to/create-teardown.html)
 * [API Reference](https://hackage.haskell.org/package/teardown)
 
 ## Development
@@ -42,7 +42,7 @@ dependencies:
 [![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)
 [![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](http://packdeps.haskellers.com/feed?needle=teardown)
 
-Follow the [developer guidelines](https://romanandreg.gitbooks.io/teardown/content/CONTRIBUTING.html)
+Follow the [developer guidelines](https://romanandreg.gitbook.io/teardown/content/CONTRIBUTING.html)
 
 ## License
 
