@@ -32,14 +32,14 @@ dependencies:
 
 ## Documentation
 
-* [Tutorial](https://romanandreg.gitbooks.io/teardown/v0.4/tutorial.html)
-* [How-To Guides](https://romanandreg.gitbooks.io/teardown/v0.4/how-to/create-teardown.html)
+* [Tutorial](https://romanandreg.gitbooks.io/teardown/v0.5/tutorial.html)
+* [How-To Guides](https://romanandreg.gitbooks.io/teardown/v0.5/how-to/create-teardown.html)
 * [API Reference](https://hackage.haskell.org/package/teardown)
 
 ## Development
 
-[![Build Status](https://travis-ci.org/roman/Haskell-teardown.svg?branch=master)](https://travis-ci.org/roman/Haskell-teardown)
-[![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.4.1.0.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.4.1.0.svg)
+![Build Status](https://circleci.com/gh/roman/Haskell-teardown.svg?style=svg!:https://circleci.com/gh/roman/Haskell-teardown)
+[![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)
 [![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](http://packdeps.haskellers.com/feed?needle=teardown)
 
 Follow the [developer guidelines](https://romanandreg.gitbooks.io/teardown/content/CONTRIBUTING.html)
