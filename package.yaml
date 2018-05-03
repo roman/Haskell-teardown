@@ -1,5 +1,5 @@
 name: teardown
-version: '0.4.1.0'
+version: '0.5.0.0'
 synopsis: Build safe and composable teardown sub-routines for resources
 description: |
   The teardown library allows you to reliably execute cleanup sub-routines for
