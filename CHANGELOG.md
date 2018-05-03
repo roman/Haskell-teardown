@@ -7,6 +7,16 @@ The change log is available [on GitHub][2].
 [1]: http://semver.org/spec/v2.0.0.html
 [2]: https://github.com/roman/Haskell-teardown/libraries/teardown/CHANGELOG.md
 
+## V0.5.0.0
+
+**BREAKING CHANGES**
+
+* Move from `ansi-wl-pprint` to `prettyprinter`
+* Re-implement `Printer` using `prettyprinter` API, now `prettyTeardownResult`
+  returns a `Doc` type from the `prettyprinter` library
+* Add a `Pretty` instance for the `DisposeResult` type
+* Add a `Display` instance for the `DisposeResult` type
+
 ## v0.4.1.0
 
 * Ensure that all `IO ()` sub-routines on `runTeardown` get executed inside a
