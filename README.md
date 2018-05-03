@@ -41,7 +41,7 @@ dependencies:
 [![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)
 [![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](http://packdeps.haskellers.com/feed?needle=teardown)
 
-Follow the [developer guidelines](https://romanandreg.gitbook.io/teardown/content/CONTRIBUTING.html)
+Follow the [developer guidelines](https://romanandreg.gitbook.io/teardown/development-notes)
 
 ## License
 
