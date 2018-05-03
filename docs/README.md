@@ -32,9 +32,8 @@ dependencies:
 
 ## Documentation
 
-* [Tutorial](https://romanandreg.gitbook.io/teardown/v0.5/tutorial.html)
-* [How-To Guides](https://romanandreg.gitbook.io/teardown/v0.5/how-to/create-teardown.html)
 * [API Reference](https://hackage.haskell.org/package/teardown)
+* [How-To Guides](https://romanandreg.gitbook.io/teardown/how-to/v0.5)
 
 ## Development
 

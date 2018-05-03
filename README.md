@@ -33,7 +33,7 @@ dependencies:
 ## Documentation
 
 * [API Reference](https://hackage.haskell.org/package/teardown)
-* [How-To Guides](https://romanandreg.gitbook.io/teardown/v0.5/how-to/)
+* [How-To Guides](https://romanandreg.gitbook.io/teardown/how-to/v0.5)
 
 ## Development
 
