@@ -12,6 +12,10 @@ Request are very welcome! Please try to follow these simple rules:
   if you create an issue with an acceptance criteria.
 * Update the README.md file if necessary.
 * Please _do not_ change the version number on your Pull Request.
+* Have at least another reviewer give the thumbs up to your pull request before
+  merging
+* Please make sure new changes make sense and also how they would affect future
+  development before merging
 
 ## Dependencies
 

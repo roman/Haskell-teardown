@@ -38,14 +38,14 @@ dependencies:
 ## Development
 
 ![Build Status](https://circleci.com/gh/roman/Haskell-teardown.svg?style=svg)
-[![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)
+[![Github](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.1.svg)](https://img.shields.io/github/commits-since/roman/haskell-teardown/v0.5.0.0.svg)
 [![Hackage Dependencies](https://img.shields.io/hackage-deps/v/teardown.svg)](http://packdeps.haskellers.com/feed?needle=teardown)
 
 Follow the [developer guidelines](https://romanandreg.gitbook.io/teardown/development-notes)
 
 ## License
 
-Copyright (c) 2017, 2018 Roman Gonzalez
+Copyright (c) 2017, 2018, 2019 Roman Gonzalez and collaborators.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
