@@ -7,6 +7,10 @@ The change log is available [on GitHub][2].
 [1]: http://semver.org/spec/v2.0.0.html
 [2]: https://github.com/roman/Haskell-teardown/libraries/teardown/CHANGELOG.md
 
+## V0.5.0.1
+
+* Add language pragma to support ghc-8.6.3 and stackage nightly
+
 ## V0.5.0.0
 
 **BREAKING CHANGES**
